@@ -5,13 +5,13 @@ Projeto para a disciplina de Introdução a Programação 2 da UFRPE.
 Jogo de plataforma 2D.
 
 ## Integrantes do grupo
-Guilherme Oliveira - guilherme.oaroucha@ufrpe.br
+* Guilherme Oliveira - guilherme.oaroucha@ufrpe.br
 
-Jair Barbosa Santana - 
+* Jair Barbosa Santana - 
 
-Kleber Barbosa de Fraga - 
+* Kleber Barbosa de Fraga - 
 
-Pedro Henrique Apolinario da Silva - pedro.apolinario@ufrpe.br
+* Pedro Henrique Apolinario da Silva - pedro.apolinario@ufrpe.br
 
 ## Descrição  geral do projeto
   Um jogo 2D interativo ao estilo Terraria e Starbound, onde pode-se correr pelo mapa e derrotar monstros para evoluir de nível.
