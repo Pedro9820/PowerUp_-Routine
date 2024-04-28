@@ -5,7 +5,7 @@ Projeto para a disciplina de Introdução a Programação 2 da UFRPE.
 Jogo de plataforma 2D.
 
 ## Integrantes do grupo
-Guilherme Oliveira
+Guilherme Oliveira - Dongui04@hotmail.com
 
 Jair Barbosa
 
