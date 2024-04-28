@@ -9,12 +9,12 @@ Jogo de plataforma 2D.
 
 * Jair Barbosa Santana - 
 
-* Kleber Barbosa de Fraga - 
+* Kleber Barbosa de Fraga - kleber.fraga@ufrpe.br
 
 * Pedro Henrique Apolinario da Silva - pedro.apolinario@ufrpe.br
 
 ## Descrição  geral do projeto
-  Um jogo 2D interativo ao estilo Terraria e Starbound, onde pode-se correr pelo mapa e derrotar monstros para evoluir de nível.
+  Um jogo 2D interativo, utilizando a biblioteca libGDX, ao estilo Terraria e Starbound, onde pode-se correr pelo mapa e derrotar monstros para evoluir de nível.
 
 
 
