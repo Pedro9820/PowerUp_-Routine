@@ -1,4 +1,4 @@
-# Plataform_Game
+# 2D_Game
 Projeto para a disciplina de Introdução a Programação 2 da UFRPE.
 
 # Projeto Nosferatus Supervivente
