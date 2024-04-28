@@ -8,6 +8,7 @@ Jogo de plataforma 2D.
 * Guilherme Oliveira - guilherme.oaroucha@ufrpe.br
 
 * Jair Barbosa Santana - 
+jair.barbosa@ufrpe.br
 
 * Kleber Barbosa de Fraga - kleber.fraga@ufrpe.br
 
