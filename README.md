@@ -1,8 +1,8 @@
 # Plataform_Game
 Projeto para a disciplina de Introdução a Programação 2 da UFRPE.
 
-# Projeto Jogo_de_Plataforma
-Jogo de plataforma 2D.
+# Projeto Nosferatus Supervivente
+Jogo 2D de ação e aventura contra vampiros.
 
 ## Integrantes do grupo
 * Guilherme Oliveira - guilherme.oaroucha@ufrpe.br
@@ -15,7 +15,7 @@ jair.barbosa@ufrpe.br
 * Pedro Henrique Apolinario da Silva - pedro.apolinario@ufrpe.br
 
 ## Descrição  geral do projeto
-  Um jogo 2D interativo, utilizando a biblioteca libGDX, ao estilo Terraria e Starbound, onde pode-se correr pelo mapa e derrotar monstros para evoluir de nível.
+  Um jogo 2D interativo, utilizando a biblioteca libGDX, ao estilo vampire survivors, onde pode-se correr pelo mapa e derrotar monstros para evoluir de nível.
 
 
 
