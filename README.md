@@ -7,9 +7,9 @@ Jogo de plataforma 2D.
 ## Integrantes do grupo
 Guilherme Oliveira - guilherme.oaroucha@ufrpe.br
 
-Jair Barbosa
+Jair Barbosa Santana - 
 
-Kleber Barbosa
+Kleber Barbosa de Fraga - 
 
 Pedro Henrique Apolinario da Silva - pedro.apolinario@ufrpe.br
 
