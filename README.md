@@ -15,7 +15,7 @@ jair.barbosa@ufrpe.br
 * Pedro Henrique Apolinario da Silva - pedro.apolinario@ufrpe.br
 
 ## Descrição  geral do projeto
-  Um jogo 2D interativo, utilizando a biblioteca libGDX, ao estilo vampire survivors, onde pode-se correr pelo mapa e derrotar monstros para evoluir de nível.
+  Um jogo 2D interativo, utilizando a biblioteca libGDX, ao estilo vampire survivors, onde pode-se andar pelo mapa e derrotar monstros para evoluir de nível, obtendo novas armas e melhorando as já adquiridas. Os monstros ficam cada vez mais fortes e numerosos de acordo com o tempo.
 
 
 
@@ -30,7 +30,7 @@ jair.barbosa@ufrpe.br
 
 **REQ4** - Sistema de vida e força.
 
-**REQ5** - Mapa que acompanha o jogador.
+**REQ5** - Sistema de conquista que é salvo depois de uma sessão.
 
 **REQ6** - Sons ambientes e trilha sonora.
 
