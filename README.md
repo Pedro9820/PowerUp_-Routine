@@ -2,7 +2,7 @@
 Projeto para a disciplina de Introdução a Programação 2 da UFRPE.
 
 # Projeto Nosferatus Supervivente
-Jogo 2D de ação e aventura contra vampiros.
+Jogo 2D de ação e aventura onde você é o último vampiro vivo, tendo que lutar contra o mundo para sobreviver mais uma noite.
 
 ## Integrantes do grupo
 * Guilherme Oliveira - guilherme.oaroucha@ufrpe.br
