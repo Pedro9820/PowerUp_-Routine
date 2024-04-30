@@ -20,18 +20,16 @@ jair.barbosa@ufrpe.br
 
 
 ## Requisitos do projeto
-**REQ1** - O personagem deve ser controlado utilizando as teclas direcionais W(cima), S(baixo), A(esquerda) e D(direita). 
+**REQ1** - O personagem deve ser controlado utilizando as teclas direcionais W(cima), S(baixo), A(esquerda), D(direita) e atacar(botão esquerdo do mouse). 
 
-**REQ2** - Deve possuir um menu interativo que possui o botão de configurações (som e tela) e botão iniciar/continuar. 
+**REQ2** - Sistema de vida, força e resistência.
 
-**REQ3** - Deve ser possível atacar utilizando o botão esquerdo do mouse.
+**REQ3** - Sistema de evolução por nível, onde aumentará a vida, força e resistência.
 
-**REQ3** - Sistema de evolução por nível.
+**REQ4** - Sistema de conquista que é salvo depois de uma sessão.
 
-**REQ4** - Sistema de vida e força.
+**REQ5** - Sons ambientes e trilha sonora.
 
-**REQ5** - Sistema de conquista que é salvo depois de uma sessão.
+**REQ6** - Inimigos interativos, sendo eles caçadores de vampiros, vampiros em frenesi e animais zumbificados pelo vírus.
 
-**REQ6** - Sons ambientes e trilha sonora.
-
-**REQ6** - Inimigos interativos.
+**REQ7** - Deve possuir um menu interativo que possui o botão de configurações (som e tela) e botão iniciar/continuar. 
