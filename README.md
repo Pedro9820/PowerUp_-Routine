@@ -1,8 +1,6 @@
-# 2D_Game
+# PowerUp_Routine
 Projeto para a disciplina de Introdução a Programação 2 da UFRPE.
 
-# Projeto Nosferatus Supervivente
-Jogo 2D de ação e aventura onde você é o último vampiro vivo, tendo que lutar contra o mundo para sobreviver mais uma noite.
 
 ## Integrantes do grupo
 * Guilherme Oliveira - guilherme.oaroucha@ufrpe.br
@@ -15,21 +13,17 @@ jair.barbosa@ufrpe.br
 * Pedro Henrique Apolinario da Silva - pedro.apolinario@ufrpe.br
 
 ## Descrição  geral do projeto
-  Um jogo 2D interativo, utilizando a biblioteca libGDX, ao estilo vampire survivors, onde pode-se andar pelo mapa e derrotar monstros para evoluir de nível, obtendo novas armas e melhorando as já adquiridas. Os monstros ficam cada vez mais fortes e numerosos de acordo com o tempo.
-
+  Um aplicativo de rotina voltado para todas as idades, onde é possível ter um perfil com status referentes ao usuário e que aumentam a medida que exercícios na sua rotina são cumpridos, ao estilo do duolingo.
 
 
 ## Requisitos do projeto
-**REQ1** - O personagem deve ser controlado utilizando as teclas direcionais W(cima), S(baixo), A(esquerda), D(direita) e atacar(botão esquerdo do mouse). 
+**REQ1** - Interface que apresenta : perfil do usuário com os atributos/status (força, stamina, peso, altura, velocidade) e um menu para iniciar treino/rotina (cardio, musculação). 
 
-**REQ2** - Sistema de vida, força e resistência.
+**REQ2** - Desenvolvimento dos atributos/status, onde a partir de um dado treino, um atributo referente será aumentado ao ver intensidade e tempo decorrido do exercício/rotina.
 
-**REQ3** - Sistema de evolução por nível, onde aumentará a vida, força e resistência.
+**REQ3** - Sistema de login(Salvará dados de atributos na nuvem), com senha e e-mail/nome, com cadastro ao iniciar o aplicativo pela primeira vez ou ao sair da conta.
 
-**REQ4** - Sistema de conquista que é salvo depois de uma sessão.
+**REQ4** - Sons de toque e animações na interface ao mudar de aba ou apertar botões.
 
-**REQ5** - Sons ambientes e trilha sonora.
-
-**REQ6** - Inimigos interativos, sendo eles caçadores de vampiros, vampiros em frenesi e animais zumbificados pelo vírus.
-
-**REQ7** - Deve possuir um menu interativo que possui o botão de configurações (som e tela) e botão iniciar/continuar. 
+**REQ5** - Sistema de lembrete, onde ao ficar muito tempo sem exercícios algum dos atributos, será enviado uma notificação para lembrar daquele atributo .
+ 
