@@ -21,9 +21,11 @@ jair.barbosa@ufrpe.br
 
 **REQ2** - Desenvolvimento dos atributos/status, onde a partir de um dado treino, um atributo referente será aumentado ao ver intensidade e tempo decorrido do exercício/rotina.
 
-**REQ3** - Sistema de login(Salvará dados de atributos na nuvem), com senha e e-mail/nome, com cadastro ao iniciar o aplicativo pela primeira vez ou ao sair da conta.
+**REQ3** - Visualização do progresso em gráficos ou barras de progresso.
 
-**REQ4** - Sons de toque e animações na interface ao mudar de aba ou apertar botões.
+**REQ4** - Histórico das atividades concluídas.
 
-**REQ5** - Sistema de lembrete, onde ao ficar muito tempo sem exercícios algum dos atributos, será enviado uma notificação para lembrar daquele atributo .
+**REQ5** - Sons de toque e animações na interface ao mudar de aba ou apertar botões.
+
+**REQ6** - Sistema de lembrete, onde ao ficar muito tempo sem exercícios algum dos atributos, será enviado uma notificação para lembrar daquele atributo .
  
