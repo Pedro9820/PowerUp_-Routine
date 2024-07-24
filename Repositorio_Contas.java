@@ -3,18 +3,15 @@ import java.util.Objects;
 
 public class Repositorio_Contas {
 
-    private ArrayList<Conta> contas = contas = new ArrayList<>();
+    private static ArrayList<Conta> contas = contas = new ArrayList<>();
 
     public void adicionar_conta(Conta conta) {
         contas.add(conta);
-
     }
-
     public void remover_conta(String id) {
         int indice = procurarID(id);
         contas.remove(indice);
     }
-
     public void editar_user(String id, Atividade atividade) {
 
 
