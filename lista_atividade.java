@@ -5,6 +5,6 @@ Private Arraylist<atividade> lista;
 
 Public void adicionaratvd(){}
 Public void excluirAtvd(int){}
-Public void editarAtvd(int, atividade){}
+Public void editarAtvd(int num, atividade atv){}
 
 }
