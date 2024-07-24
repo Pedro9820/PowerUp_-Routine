@@ -4,8 +4,15 @@ public class Conta {
     private float peso, altura;
 
 
-    public void atualizar_atributo(){
-
+    public void atualizar_atributo(byte num, byte qtd){
+        switch(num){
+            case 1:força+=qtd;break;
+            case 2:stamina+=qtd;break;
+            case 3:intelecto+=qtd;break;
+            case 4:criatividade+=qtd;break;
+            case 5:peso+=qtd;break;
+            case 6:altura+=qtd;break;
+        }
     }
 
     public void setID(String ID) {

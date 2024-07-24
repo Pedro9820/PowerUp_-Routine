@@ -12,10 +12,6 @@ public class Repositorio_Contas {
         int indice = procurarID(id);
         contas.remove(indice);
     }
-    public void editar_user(String id, Atividade atividade) {
-
-
-    }
 
     private int procurarID(String id) {
         int indice = 0;

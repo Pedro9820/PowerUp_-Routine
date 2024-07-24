@@ -7,7 +7,9 @@ private String id, nome, tipo;
 private int intensidade;
 private LocalDateTime horarioInicio, horarioTermino;
 
-public void calcularAumentoAtributo(){}
+public void calcularAumentoAtributo(){
+
+}
 
     public String getId() {
         return id;
