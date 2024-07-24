@@ -3,7 +3,11 @@ import java.util.Objects;
 
 public class Repositorio_Contas {
 
-    private static ArrayList<Conta> contas = contas = new ArrayList<>();
+    private ArrayList<Conta> contas;
+
+    public Repositorio_Contas() {
+        contas= new ArrayList<>();
+    }
 
     public void adicionar_conta(Conta conta) {
         contas.add(conta);

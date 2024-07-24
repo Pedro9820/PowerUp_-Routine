@@ -3,6 +3,17 @@ public class Conta {
     private byte força, stamina, intelecto, criatividade;
     private float peso, altura;
 
+    public Conta(String ID, String nome) {
+        this.ID = ID;
+        Nome = nome;
+        this.força = 0;
+        this.stamina = 0;
+        this.intelecto = 0;
+        this.criatividade = 0;
+        this.peso = 0;
+        this.altura = 0;
+
+    }
 
     public void atualizar_atributo(byte num, byte qtd){
         switch(num){

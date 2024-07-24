@@ -11,9 +11,7 @@ public void adicionaratvd(Atividade atividade){
 public void excluirAtvd(String idatividade){
     lista.remove(procurarID(idatividade));
 }
-public void editarAtvd(String idatividade, Atividade atv){
 
-}
 private int procurarID(String id) {
     int indice = 0;
         for (int i = 0; i < lista.size(); i++) {

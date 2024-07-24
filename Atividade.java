@@ -10,6 +10,9 @@ private LocalDateTime horarioInicio, horarioTermino;
 public void calcularAumentoAtributo(){
 
 }
+public void editarAtvd(String idatividade, Atividade atv){
+
+}
 
     public String getId() {
         return id;
