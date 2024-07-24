@@ -1,16 +1,32 @@
 import java.util.ArrayList;
+import java.util.Objects;
+
 public class Repositorio_Contas {
 
-    private ArrayList<Conta> contas=contas= new ArrayList<>();
+    private ArrayList<Conta> contas = contas = new ArrayList<>();
 
-    public void adicionar_conta(Conta conta){
+    public void adicionar_conta(Conta conta) {
         contas.add(conta);
-    }
-    public void remover_conta(String id){
-        contas.remove(id);
-}
-    public void editar_user( String id, Atividade atividade){
-        
 
-}
+    }
+
+    public void remover_conta(String id) {
+        int indice = procurarID(id);
+        contas.remove(indice);
+    }
+
+    public void editar_user(String id, Atividade atividade) {
+
+
+    }
+
+    private int procurarID(String id) {
+        int indice = 0;
+        for (int i = 0; i < contas.size(); i++) {
+            if (Objects.equals(contas.get(i).getID(), id)) {
+                indice = i;
+            }
+        }
+        return indice;
+    }
 }
