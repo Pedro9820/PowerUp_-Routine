@@ -1,10 +1,10 @@
 import java.time.LocalDate;    
 public class historico {
 
-Private LocalDate data;
-Private boolean foiConcluida;
+private LocalDate data;
+private boolean foiConcluida;
 
-Public void adicionarAtividade(Atividade){}
-Public void removerAtividade(Atividade){}
+public void adicionarAtividade(Atividade Atv){}
+public void removerAtividade(Atividade Atv){}
 
 }
