@@ -1,3 +1,5 @@
+package src.br.ufrpe.powerUp;
+
 import java.util.ArrayList;
 import java.util.Objects;
 

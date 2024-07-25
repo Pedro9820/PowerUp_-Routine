@@ -1,18 +1,25 @@
+package src.br.ufrpe.powerUp;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 public class Conta {
     private String ID, Nome;
-    private int forca, stamina, intelecto, criatividade;
+    private int forca, stamina, intelecto, criatividade, moedas;
     private float peso, altura;
     private Lista_atividade listAtividades;
+    private ArrayList<Objetivo> objetivos;
 
     public Conta(String ID, String nome) {
         this.ID = ID;
-        Nome = nome;
+        this.Nome = nome;
         this.forca = 0;
         this.stamina = 0;
         this.intelecto = 0;
         this.criatividade = 0;
         this.peso = 0;
         this.altura = 0;
+        this.moedas = 0;
         this.listAtividades = new Lista_atividade();
 
     }
@@ -28,7 +35,7 @@ public class Conta {
 
     public void concluirAtividade(String idAtividade) {
         Atividade atividade = listAtividades.getAtividadePorId(idAtividade);
-        if (atividade != null) { //caso a atividade exista em Lista_atividade
+        if (atividade != null) { //caso a atividade exista em src.br.ufrpe.powerUp.Lista_atividade
             atividade.setConcluida(true);
             atualizar_atributo(atividade.getTipo(), atividade.getIntensidade());
         }
@@ -42,7 +49,14 @@ public class Conta {
         listAtividades.excluirAtvd(idAtividade);
     }
 
+    public void criarObjetivo(LocalDate dataMaxima, String nome, String descricao, TipoAtributo tipo, int quota) {
+        if (objetivos.isEmpty()) {
+            objetivos = new ArrayList<>();
+        }
 
+        objetivos.add(new Objetivo(dataMaxima, nome, descricao, tipo, quota));
+
+    }
 
     public void setID(String ID) {
         this.ID = ID;
