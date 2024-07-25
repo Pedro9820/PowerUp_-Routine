@@ -28,7 +28,7 @@ public class Conta {
 
     public void concluirAtividade(String idAtividade) {
         Atividade atividade = listAtividades.getAtividadePorId(idAtividade);
-        if (atividade != null) {
+        if (atividade != null) { //caso a atividade exista em Lista_atividade
             atividade.setConcluida(true);
             atualizar_atributo(atividade.getTipo(), atividade.getIntensidade());
         }

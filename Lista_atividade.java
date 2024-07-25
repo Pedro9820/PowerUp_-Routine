@@ -27,6 +27,7 @@ private int procurarID(String id) {
 
 }
 
+    // encontra atividade pelo ID
     public Atividade getAtividadePorId(String id) {
         int index = procurarID(id);
         if (index != -1) {
