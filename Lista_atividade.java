@@ -1,11 +1,15 @@
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class lista_atividade {
+public class Lista_atividade {
 
-private ArrayList<Atividade> lista = new ArrayList<Atividade>();
+private ArrayList<Atividade> lista;
 
-public void adicionaratvd(Atividade atividade){
+public Lista_atividade() {
+    this.lista = new ArrayList<>();
+}
+
+    public void adicionarAtvd(Atividade atividade){
     lista.add(atividade);
 }
 public void excluirAtvd(String idatividade){
@@ -13,7 +17,7 @@ public void excluirAtvd(String idatividade){
 }
 
 private int procurarID(String id) {
-    int indice = 0;
+    int indice = -1;
         for (int i = 0; i < lista.size(); i++) {
             if (Objects.equals(lista.get(i).getId(), id)) {
                 indice = i;
@@ -22,6 +26,14 @@ private int procurarID(String id) {
         return indice;
 
 }
+
+    public Atividade getAtividadePorId(String id) {
+        int index = procurarID(id);
+        if (index != -1) {
+            return lista.get(index);
+        }
+        return null;
+    }
     public ArrayList<Atividade> getLista() {
         return lista;
     }

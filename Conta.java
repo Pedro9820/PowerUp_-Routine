@@ -1,30 +1,48 @@
 public class Conta {
     private String ID, Nome;
-    private byte força, stamina, intelecto, criatividade;
+    private int forca, stamina, intelecto, criatividade;
     private float peso, altura;
+    private Lista_atividade listAtividades;
 
     public Conta(String ID, String nome) {
         this.ID = ID;
         Nome = nome;
-        this.força = 0;
+        this.forca = 0;
         this.stamina = 0;
         this.intelecto = 0;
         this.criatividade = 0;
         this.peso = 0;
         this.altura = 0;
+        this.listAtividades = new Lista_atividade();
 
     }
 
-    public void atualizar_atributo(byte num, byte qtd){
-        switch(num){
-            case 1:força+=qtd;break;
-            case 2:stamina+=qtd;break;
-            case 3:intelecto+=qtd;break;
-            case 4:criatividade+=qtd;break;
-            case 5:peso+=qtd;break;
-            case 6:altura+=qtd;break;
+    public void atualizar_atributo(TipoAtributo tipo, int qtd) {
+        switch(tipo) {
+            case FORCA: forca += qtd; break;
+            case STAMINA: stamina += qtd; break;
+            case INTELECTO: intelecto += qtd; break;
+            case CRIATIVIDADE: criatividade += qtd; break;
         }
     }
+
+    public void concluirAtividade(String idAtividade) {
+        Atividade atividade = listAtividades.getAtividadePorId(idAtividade);
+        if (atividade != null) {
+            atividade.setConcluida(true);
+            atualizar_atributo(atividade.getTipo(), atividade.getIntensidade());
+        }
+    }
+
+    public void adicionarAtividade(Atividade atividade) {
+        listAtividades.adicionarAtvd(atividade);
+    }
+
+    public void removerAtividade(String idAtividade) {
+        listAtividades.excluirAtvd(idAtividade);
+    }
+
+
 
     public void setID(String ID) {
         this.ID = ID;
@@ -34,19 +52,19 @@ public class Conta {
         Nome = nome;
     }
 
-    public void setForça(byte força) {
-        this.força = força;
+    public void setForca(int forca) {
+        this.forca = forca;
     }
 
-    public void setStamina(byte stamina) {
+    public void setStamina(int stamina) {
         this.stamina = stamina;
     }
 
-    public void setIntelecto(byte intelecto) {
+    public void setIntelecto(int intelecto) {
         this.intelecto = intelecto;
     }
 
-    public void setCriatividade(byte criatividade) {
+    public void setCriatividade(int criatividade) {
         this.criatividade = criatividade;
     }
 
@@ -66,15 +84,15 @@ public class Conta {
         return Nome;
     }
 
-    public byte getForça() {
-        return força;
+    public int getForca() {
+        return forca;
     }
 
-    public byte getStamina() {
+    public int getStamina() {
         return stamina;
     }
 
-    public byte getCriatividade() {
+    public int getCriatividade() {
         return criatividade;
     }
 
@@ -86,7 +104,7 @@ public class Conta {
         return altura;
     }
 
-    public byte getIntelecto() {
+    public int getIntelecto() {
         return intelecto;
     }
 }

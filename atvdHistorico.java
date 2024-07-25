@@ -1,15 +1,14 @@
-import java.time.LocalDate;    
-public class historico {
+import java.time.LocalDate;
 
-private LocalDate data;
-private boolean foiConcluida;
+public class atvdHistorico {
 
-public void adicionarAtividade(Atividade Atv){
+    private LocalDate data;
+    private boolean foiConcluida;
 
-}
-public void removerAtividade(Atividade Atv){
-
-}
+    public atvdHistorico(LocalDate data, boolean foiConcluida) {
+        this.data = data;
+        this.foiConcluida = foiConcluida;
+    }
 
     public LocalDate getData() {
         return data;

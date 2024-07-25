@@ -1,4 +1,7 @@
+import java.time.LocalDate;
+
 public class Objetivo {
+    private LocalDate dataMaxima;
     private  String id, nome, descricao;
     private int quota;
 
