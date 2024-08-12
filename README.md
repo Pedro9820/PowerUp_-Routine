@@ -5,27 +5,28 @@ Projeto para a disciplina de Introdução a Programação 2 da UFRPE.
 ## Integrantes do grupo
 * Guilherme Oliveira - guilherme.oaroucha@ufrpe.br
 
-* Jair Barbosa Santana - 
-jair.barbosa@ufrpe.br
+* Jair Barbosa Santana - jair.barbosa@ufrpe.br
 
 * Kleber Barbosa de Fraga - kleber.fraga@ufrpe.br
 
 * Pedro Henrique Apolinario da Silva - pedro.apolinario@ufrpe.br
 
 ## Descrição  geral do projeto
-  Um aplicativo de rotina voltado para todas as idades, onde é possível ter um perfil com status referentes ao usuário e que aumentam a medida que exercícios na sua rotina são cumpridos, ao estilo do duolingo.
+  Um aplicativo de rotina gameficado voltado para todas as idades, onde é possível ter um perfil com status referentes ao usuário e que aumentam a medida que exercícios na sua rotina são cumpridos, incentivando o usuário a querer progredir mais.
 
 
 ## Requisitos do projeto
-**REQ1** - Interface que apresenta : perfil do usuário com os atributos/status (força, stamina, peso, altura, velocidade) e um menu para iniciar treino/rotina (cardio, musculação). 
+**REQ1** - Manter perfil do usuario com os seguintes atributos : força, stamina, peso, altura e velocidade.
 
-**REQ2** - Desenvolvimento dos atributos/status, onde a partir de um dado treino, um atributo referente será aumentado ao ver intensidade e tempo decorrido do exercício/rotina.
+**REQ2** - Permitir execução de atividades pré-definidas a qualquer momento.
 
-**REQ3** - Visualização do progresso em gráficos ou barras de progresso.
+**REQ3** - Desenvolvimento dos atributos/status, onde a partir de um dado treino, um atributo referente será aumentado ao ver intensidade e tempo decorrido do exercício/rotina.
 
-**REQ4** - Histórico das atividades concluídas.
+**REQ4** - Visualizar o progresso dos atributos e treinos em forma de barra de progresso.
 
-**REQ5** - Sons de toque e animações na interface ao mudar de aba ou apertar botões.
+**REQ5** - Visualizar histórico das atividades concluídas.
 
-**REQ6** - Sistema de lembrete, onde ao ficar muito tempo sem exercícios algum dos atributos, será enviado uma notificação para lembrar daquele atributo .
+**REQ6** - Tocar sons de interface e animações em resposta ao toque na tela.
+
+**REQ7** - Lembrar o usuario de se exercitar ao ficar muitos dias parados, através de uma notificação de lembrete.
  
