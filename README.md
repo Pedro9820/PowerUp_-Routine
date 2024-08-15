@@ -22,7 +22,7 @@ Projeto para a disciplina de Introdução a Programação 2 da UFRPE.
 
 **REQ3** - Evoluir os atributos/status, onde a partir de um dado treino, um atributo referente será aumentado ao ver intensidade e tempo decorrido do exercício/rotina.
 
-**REQ4**Permitir criação de metas de exercícios.
+**REQ4**   Permitir criação de metas de exercícios.
 
 **REQ5** - Visualizar o progresso dos atributos e treinos em forma de barra de progresso.
 
