@@ -5,9 +5,11 @@ import java.time.LocalDate;
 public class Objetivo {
     private int id;
     private LocalDate dataMaxima;
-    private  String nome, descricao;
+    private  String nome;
+    private  String descricao;
     private TipoAtributo tipo;
     private int quota;
+
 
     public Objetivo(LocalDate dataMaxima, String nome, String descricao, TipoAtributo tipo, int quota) {
         this.dataMaxima = dataMaxima;
@@ -17,7 +19,7 @@ public class Objetivo {
         this.tipo = tipo;
     }
 
-    public boolean verificarVitoria(int atributo){
+    public boolean verificarConclusaoObjetivo(int atributo){
         boolean verificacao = false;
 
         if (dataMaxima.isBefore(LocalDate.now()) && quota <= atributo) {

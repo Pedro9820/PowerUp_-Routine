@@ -3,31 +3,31 @@ package src.br.ufrpe.powerUp;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Repositorio_Contas {
+public class Repositorio_Usuarios {
 
-    private ArrayList<Conta> contas;
+    private ArrayList<Usuario> usuarios;
 
-    public Repositorio_Contas() {
-        contas= new ArrayList<>();
+    public Repositorio_Usuarios() {
+        usuarios = new ArrayList<>();
     }
 
-    public void adicionar_conta(Conta conta) throws CNException, CJEException {
-        if (conta == null) {
+    public void adicionar_conta(Usuario usuario) throws CNException, CJEException {
+        if (usuario == null) {
             CNException cne = new CNException();
             throw cne;
         }
-        else if (contas.contains(conta)) {// conta ja existe
+        else if (usuarios.contains(usuario)) {// conta ja existe
        CJEException cje = new CJEException();
        throw cje;
-       }else if(!contas.contains(conta)){
-            contas.add(conta);
+       }else if(!usuarios.contains(usuario)){
+            usuarios.add(usuario);
         }
 
     }
     public void remover_conta(String id) throws CIException {
         int indice = procurarID(id);
         if (indice != -1) {
-            contas.remove(indice);
+            usuarios.remove(indice);
         }
         else {//Conta nao está no array
             CIException cie = new CIException(id);
@@ -37,8 +37,8 @@ public class Repositorio_Contas {
 
     private int procurarID(String id) {
         int indice = -1;
-        for (int i = 0; i < contas.size(); i++) {
-            if (Objects.equals(contas.get(i).getID(), id)) {
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (Objects.equals(usuarios.get(i).getID(), id)) {
                 indice = i;
             }
         }

@@ -3,23 +3,23 @@ package src.br.ufrpe.powerUp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Conta {
+public class Usuario {
     private String ID, Nome;
     private int forca
             , stamina
-            , intelecto
-            , criatividade;
+            , velocidade
+            , resistencia;
     private float peso
             ,altura;
     private ArrayList<Objetivo> objetivos;
 
-    public Conta(String ID, String nome) {
+    public Usuario(String ID, String nome) {
         this.ID = ID;
         this.Nome = nome;
         this.forca = 0;
         this.stamina = 0;
-        this.intelecto = 0;
-        this.criatividade = 0;
+        this.velocidade = 0;
+        this.resistencia = 0;
         this.peso = 0;
         this.altura = 0;
 
@@ -29,19 +29,14 @@ public class Conta {
         switch(tipo) {
             case FORCA: forca += qtd; break;
             case STAMINA: stamina += qtd; break;
-            case INTELECTO: intelecto += qtd; break;
-            case CRIATIVIDADE: criatividade += qtd; break;
+            case VELOCIDADE: velocidade += qtd; break;
+            case RESISTENCIA: resistencia += qtd; break;
         }
     }
 
-    public void criarObjetivo(LocalDate dataMaxima, String nome, String descricao, TipoAtributo tipo, int quota) {
-        if (objetivos.isEmpty()) {
-            objetivos = new ArrayList<>();
-        }
-
-        objetivos.add(new Objetivo(dataMaxima, nome, descricao, tipo, quota));
-
-    }
+   public void adicionar_objetivo(Objetivo objetivo) {
+        objetivos.add(objetivo);
+   }
 
     public void setID(String ID) {
         this.ID = ID;
@@ -59,12 +54,12 @@ public class Conta {
         this.stamina = stamina;
     }
 
-    public void setIntelecto(int intelecto) {
-        this.intelecto = intelecto;
+    public void setVelocidade(int velocidade) {
+        this.velocidade = velocidade;
     }
 
-    public void setCriatividade(int criatividade) {
-        this.criatividade = criatividade;
+    public void setResistencia(int resistencia) {
+        this.resistencia = resistencia;
     }
 
     public void setPeso(float peso) {
@@ -91,8 +86,8 @@ public class Conta {
         return stamina;
     }
 
-    public int getCriatividade() {
-        return criatividade;
+    public int getResistencia() {
+        return resistencia;
     }
 
     public float getPeso() {
@@ -103,7 +98,7 @@ public class Conta {
         return altura;
     }
 
-    public int getIntelecto() {
-        return intelecto;
+    public int getVelocidade() {
+        return velocidade;
     }
 }
