@@ -5,9 +5,12 @@ import java.util.ArrayList;
 
 public class Conta {
     private String ID, Nome;
-    private int forca, stamina, intelecto, criatividade, moedas;
-    private float peso, altura;
-    private Lista_atividade listAtividades;
+    private int forca
+            , stamina
+            , intelecto
+            , criatividade;
+    private float peso
+            ,altura;
     private ArrayList<Objetivo> objetivos;
 
     public Conta(String ID, String nome) {
@@ -19,8 +22,6 @@ public class Conta {
         this.criatividade = 0;
         this.peso = 0;
         this.altura = 0;
-        this.moedas = 0;
-        this.listAtividades = new Lista_atividade();
 
     }
 
@@ -31,22 +32,6 @@ public class Conta {
             case INTELECTO: intelecto += qtd; break;
             case CRIATIVIDADE: criatividade += qtd; break;
         }
-    }
-
-    public void concluirAtividade(String idAtividade) {
-        Atividade atividade = listAtividades.getAtividadePorId(idAtividade);
-        if (atividade != null) { //caso a atividade exista em src.br.ufrpe.powerUp.Lista_atividade
-            atividade.setConcluida(true);
-            atualizar_atributo(atividade.getTipo(), atividade.getIntensidade());
-        }
-    }
-
-    public void adicionarAtividade(Atividade atividade) {
-        listAtividades.adicionarAtvd(atividade);
-    }
-
-    public void removerAtividade(String idAtividade) {
-        listAtividades.excluirAtvd(idAtividade);
     }
 
     public void criarObjetivo(LocalDate dataMaxima, String nome, String descricao, TipoAtributo tipo, int quota) {

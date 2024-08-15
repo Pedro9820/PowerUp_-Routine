@@ -11,7 +11,7 @@ public Lista_atividade() {
     this.lista = new ArrayList<>();
 }
 
-    public void adicionarAtvd(Atividade atividade){
+public void adicionarAtvd(Atividade atividade){
     lista.add(atividade);
 }
 public void excluirAtvd(String idatividade){
