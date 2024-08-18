@@ -1,6 +1,5 @@
-package src.br.ufrpe.powerUp;
+package src.br.ufrpe.powerUp.beans;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Atividade {

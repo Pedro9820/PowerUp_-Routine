@@ -1,8 +1,8 @@
-package src.br.ufrpe.powerUp;
+package src.br.ufrpe.powerUp.beans;
 
 public enum TipoAtributo {
     FORCA,
     STAMINA,
     VELOCIDADE,
-    RESISTENCIA;
+    RESISTENCIA
 }

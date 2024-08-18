@@ -1,4 +1,4 @@
-package src.br.ufrpe.powerUp;
+package src.br.ufrpe.powerUp.repositorys;
 //Conta Ja existe
 public class CJEException extends Exception {
 }

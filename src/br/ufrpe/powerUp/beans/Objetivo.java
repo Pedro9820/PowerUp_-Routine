@@ -1,4 +1,4 @@
-package src.br.ufrpe.powerUp;
+package src.br.ufrpe.powerUp.beans;
 
 import java.time.LocalDate;
 
@@ -7,26 +7,20 @@ public class Objetivo {
     private LocalDate dataMaxima;
     private  String nome;
     private  String descricao;
-    private TipoAtributo tipo;
     private int quota;
 
 
-    public Objetivo(LocalDate dataMaxima, String nome, String descricao, TipoAtributo tipo, int quota) {
+    public Objetivo(LocalDate dataMaxima, String nome, String descricao, int quota) {
         this.dataMaxima = dataMaxima;
         this.nome = nome;
         this.descricao = descricao;
         this.quota = quota;
-        this.tipo = tipo;
+
     }
 
     public boolean verificarConclusaoObjetivo(int atributo){
-        boolean verificacao = false;
+       return dataMaxima.isBefore(LocalDate.now()) && quota <= atributo;
 
-        if (dataMaxima.isBefore(LocalDate.now()) && quota <= atributo) {
-            verificacao = true;
-        }
-
-        return verificacao;
     }
 
     public int getId() {

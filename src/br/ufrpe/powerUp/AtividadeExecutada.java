@@ -1,7 +1,7 @@
 package src.br.ufrpe.powerUp;
 
-import java.util.ArrayList;
-import java.util.Objects;
+import src.br.ufrpe.powerUp.beans.Atividade;
+import src.br.ufrpe.powerUp.beans.Usuario;
 
 public class AtividadeExecutada {
 

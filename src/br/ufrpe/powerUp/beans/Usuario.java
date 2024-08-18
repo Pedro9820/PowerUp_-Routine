@@ -1,16 +1,16 @@
-package src.br.ufrpe.powerUp;
+package src.br.ufrpe.powerUp.beans;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Usuario {
-    private String ID, Nome;
-    private int forca
-            , stamina
-            , velocidade
-            , resistencia;
-    private float peso
-            ,altura;
+    private String ID;
+    private String Nome;
+    private int forca;
+    private int stamina;
+    private int velocidade;
+    private int resistencia;
+    private float peso;
+    private float altura;
     private ArrayList<Objetivo> objetivos;
 
     public Usuario(String ID, String nome) {

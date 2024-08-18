@@ -1,13 +1,15 @@
-package src.br.ufrpe.powerUp;
+package src.br.ufrpe.powerUp.repositorys;
+
+import src.br.ufrpe.powerUp.beans.Usuario;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Repositorio_Usuarios {
+public class RepositorioUsuarios {
 
     private ArrayList<Usuario> usuarios;
 
-    public Repositorio_Usuarios() {
+    public RepositorioUsuarios() {
         usuarios = new ArrayList<>();
     }
 

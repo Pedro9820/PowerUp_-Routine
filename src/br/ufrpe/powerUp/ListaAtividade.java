@@ -1,13 +1,15 @@
 package src.br.ufrpe.powerUp;
 
+import src.br.ufrpe.powerUp.beans.Atividade;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Lista_atividade {
+public class ListaAtividade {
 
 private ArrayList<Atividade> lista;
 
-public Lista_atividade() {
+public ListaAtividade() {
     this.lista = new ArrayList<>();
 }
 
@@ -26,7 +28,6 @@ private int procurarID(String id) {
             }
         }
         return indice;
-
 }
 
     // encontra atividade pelo ID
