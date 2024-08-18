@@ -16,7 +16,7 @@ public class RepositorioUsuarios {
         usuarios = new ArrayList<>();
     }
 
-    public void adicionar_conta(Usuario usuario) throws CNException, CJEException {
+    public void adicionarConta(Usuario usuario) throws CNException, CJEException {
         if (usuario == null) {
             CNException cne = new CNException();
             throw cne;
@@ -24,12 +24,12 @@ public class RepositorioUsuarios {
         else if (usuarios.contains(usuario)) {// conta ja existe
        CJEException cje = new CJEException();
        throw cje;
-       }else if(!usuarios.contains(usuario)){
+       }else {
             usuarios.add(usuario);
         }
 
     }
-    public void remover_conta(String id) throws CIException {
+    public void removerConta(String id) throws CIException {
         int indice = procurarID(id);
         if (indice != -1) {
             usuarios.remove(indice);
