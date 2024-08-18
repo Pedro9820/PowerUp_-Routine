@@ -3,7 +3,7 @@ Projeto para a disciplina de Introdução a Programação 2 da UFRPE.
 
 
 ## Integrantes do grupo
-* Guilherme Oliveira - guilherme.oaroucha@ufrpe.br
+* Guilherme Oliveira Aroucha- guilherme.oaroucha@ufrpe.br
 
 * Jair Barbosa Santana - jair.barbosa@ufrpe.br
 
