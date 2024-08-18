@@ -1,7 +1,7 @@
-package src.br.ufrpe.powerUp;
+package src.br.ufrpe.powerUp.negocio;
 
-import src.br.ufrpe.powerUp.beans.Atividade;
-import src.br.ufrpe.powerUp.beans.Usuario;
+import src.br.ufrpe.powerUp.negocio.beans.Atividade;
+import src.br.ufrpe.powerUp.negocio.beans.Usuario;
 
 public class AtividadeExecutada {
 

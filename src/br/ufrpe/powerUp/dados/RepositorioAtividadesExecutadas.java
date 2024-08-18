@@ -1,6 +1,6 @@
-package src.br.ufrpe.powerUp.repositorys;
+package src.br.ufrpe.powerUp.dados;
 
-import src.br.ufrpe.powerUp.AtividadeExecutada;
+import src.br.ufrpe.powerUp.negocio.AtividadeExecutada;
 
 import java.util.ArrayList;
 

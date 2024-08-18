@@ -1,6 +1,9 @@
-package src.br.ufrpe.powerUp.repositorys;
+package src.br.ufrpe.powerUp.dados;
 
-import src.br.ufrpe.powerUp.beans.Usuario;
+import src.br.ufrpe.powerUp.dados.exceptions.CIException;
+import src.br.ufrpe.powerUp.dados.exceptions.CJEException;
+import src.br.ufrpe.powerUp.dados.exceptions.CNException;
+import src.br.ufrpe.powerUp.negocio.beans.Usuario;
 
 import java.util.ArrayList;
 import java.util.Objects;

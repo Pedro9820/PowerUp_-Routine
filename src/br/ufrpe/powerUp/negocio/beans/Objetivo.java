@@ -1,4 +1,4 @@
-package src.br.ufrpe.powerUp.beans;
+package src.br.ufrpe.powerUp.negocio.beans;
 
 import java.time.LocalDate;
 

@@ -1,8 +1,8 @@
-package src.br.ufrpe.powerUp.controllers;
+package src.br.ufrpe.powerUp.negocio.controllers;
 
-import src.br.ufrpe.powerUp.beans.Objetivo;
-import src.br.ufrpe.powerUp.beans.TipoAtributo;
-import src.br.ufrpe.powerUp.beans.Usuario;
+import src.br.ufrpe.powerUp.negocio.beans.Objetivo;
+import src.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
+import src.br.ufrpe.powerUp.negocio.beans.Usuario;
 
 public class controladorUsuario {
     private Usuario usuario;
