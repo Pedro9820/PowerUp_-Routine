@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.guiController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.GuiController">
    <children>
-      <TextField layoutX="226.0" layoutY="119.0" />
-      <Label layoutX="166.0" layoutY="123.0" text="Nome:" />
-      <Label layoutX="170.0" layoutY="192.0" text="Senha:" />
-      <PasswordField layoutX="226.0" layoutY="188.0" />
-      <Button layoutX="276.0" layoutY="252.0" mnemonicParsing="false" text="Entrar" />
-      <Button layoutX="267.0" layoutY="296.0" mnemonicParsing="false" text="Cadastrar" />
+      <TextField fx:id="txtFieldNome" layoutX="225.0" layoutY="98.0" />
+      <Label layoutX="169.0" layoutY="102.0" text="Nome:" />
+      <Label layoutX="169.0" layoutY="154.0" text="Senha:" />
+      <PasswordField fx:id="txtFieldSenha" layoutX="226.0" layoutY="150.0" />
+      <Button fx:id="buttonEntrar" layoutX="233.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnEntrarActionPerformed" style="-fx-padding: 5 50; -fx-background-color: #003cff;" text="Entrar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="buttonCadastrar" layoutX="259.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnCadastrarActionPerformed" style="-fx-border-color: transparent; -fx-border-width: 0; -fx-background-radius: 0; -fx-background-color: transparent;" text="Criar Conta" textFill="#003cff">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         mnemonicParsing="false"</Button>
+      <Label fx:id="labelStatus" layoutX="253.0" layoutY="200.0" text="    " textFill="RED" />
+      <Label layoutX="237.0" layoutY="41.0" text="Power" textFill="#003cff">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="299.0" layoutY="14.0" text="UP" textFill="#003cff">
+         <font>
+            <Font name="System Bold Italic" size="50.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

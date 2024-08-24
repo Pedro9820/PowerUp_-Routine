@@ -10,25 +10,53 @@ import java.util.Objects;
 
 public class RepositorioUsuarios {
 
+    private static RepositorioUsuarios instancia;
     private ArrayList<Usuario> usuarios;
 
-    public RepositorioUsuarios() {
+    private RepositorioUsuarios()  {
         usuarios = new ArrayList<>();
+    }
+
+    //garantindo que só exista um repositório de usuarios
+    public static RepositorioUsuarios getInstance() {
+        if (instancia == null) {
+            instancia = new RepositorioUsuarios();
+        }
+        return instancia;
     }
 
     public void adicionarConta(Usuario usuario) throws CNException, CJEException {
         if (usuario == null) {
             CNException cne = new CNException();
             throw cne;
-        }
-        else if (usuarios.contains(usuario)) {// conta ja existe
-       CJEException cje = new CJEException();
-       throw cje;
+
+        } else if (usuarios.contains(usuario)) {// conta ja existe
+            CJEException cje = new CJEException();
+            throw cje;
+
        }else {
             usuarios.add(usuario);
         }
 
     }
+
+    public Usuario procurarConta(Usuario usuarioAlvo) throws CNException {
+        Usuario usuarioRetorno = null;
+
+        for (Usuario usuario : usuarios) {
+            if (usuarioAlvo.equals(usuario)) {
+                usuarioRetorno = usuario;
+            }
+        }
+
+        if (usuarioRetorno == null) {
+            CNException cne = new CNException();
+            throw cne;
+        }
+
+        return usuarioRetorno;
+    }
+
     public void removerConta(String id) throws CIException {
         int indice = procurarID(id);
         if (indice != -1) {

@@ -1,5 +1,8 @@
 package com.br.ufrpe.powerUp.negocio.controllers;
 
+import com.br.ufrpe.powerUp.dados.RepositorioUsuarios;
+import com.br.ufrpe.powerUp.dados.exceptions.CJEException;
+import com.br.ufrpe.powerUp.dados.exceptions.CNException;
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.beans.Usuario;
@@ -8,12 +11,35 @@ public class controladorUsuario {
     private Usuario usuario;
 
 
-    public controladorUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public controladorUsuario(String nome, String senha, boolean login) throws CJEException, CNException {
+        if (login){
+            logarConta(nome, senha);
+        } else {
+            cadastrarConta(nome, senha);
+        }
+
+    }
+
+    private void logarConta(String nome, String senha) throws CNException {
+        Usuario usuarioLogin = new Usuario("0", nome, senha);
+
+        RepositorioUsuarios repositorio = RepositorioUsuarios.getInstance();
+        usuario = repositorio.procurarConta(usuarioLogin);
+    }
+
+    private void cadastrarConta(String nome, String senha) throws CJEException, CNException {
+        Usuario usuarioCadastro = new Usuario("0", nome, senha);
+
+        RepositorioUsuarios repositorio = RepositorioUsuarios.getInstance();
+        repositorio.adicionarConta(usuarioCadastro);
     }
 
     public String getUsuarioName(){
         return usuario.getNome();
+    }
+
+    public String getUsuarioSenha() {
+        return usuario.getSenha();
     }
 
     public int getUsuarioForca(){
