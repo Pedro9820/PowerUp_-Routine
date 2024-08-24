@@ -25,6 +25,7 @@ public class Usuario {
         this.resistencia = 0;
         this.peso = 0;
         this.altura = 0;
+        this.objetivos = new ArrayList<>();
 
     }
 
@@ -122,5 +123,9 @@ public class Usuario {
 
     public int getVelocidade() {
         return velocidade;
+    }
+
+    public ArrayList<Objetivo> getObjetivos() {
+        return objetivos;
     }
 }

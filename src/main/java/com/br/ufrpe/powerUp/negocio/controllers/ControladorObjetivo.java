@@ -2,10 +2,10 @@ package com.br.ufrpe.powerUp.negocio.controllers;
 
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 
-public class controladorObjetivo {
+public class ControladorObjetivo {
     private Objetivo objetivo;
 
-    public controladorObjetivo(Objetivo objetivo) {
+    public ControladorObjetivo(Objetivo objetivo) {
         this.objetivo = objetivo;
     }
     public int getObjetivoId() {

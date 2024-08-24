@@ -5,8 +5,9 @@ import java.time.LocalDate;
 public class Objetivo {
     private int id;
     private LocalDate dataMaxima;
-    private  String nome;
-    private  String descricao;
+    private String nome;
+    private String atividade;
+    private String descricao;
     private int quota;
 
 
@@ -15,12 +16,28 @@ public class Objetivo {
         this.nome = nome;
         this.descricao = descricao;
         this.quota = quota;
-
+        this.atividade = "test";
     }
 
     public boolean verificarConclusaoObjetivo(int atributo){
        return dataMaxima.isBefore(LocalDate.now()) && quota <= atributo;
 
+    }
+
+    public LocalDate getDataMaxima() {
+        return dataMaxima;
+    }
+
+    public void setDataMaxima(LocalDate dataMaxima) {
+        this.dataMaxima = dataMaxima;
+    }
+
+    public String getAtividade() {
+        return atividade;
+    }
+
+    public void setAtividade(String atividade) {
+        this.atividade = atividade;
     }
 
     public int getId() {
@@ -54,4 +71,5 @@ public class Objetivo {
     public void setQuota(int quota) {
         this.quota = quota;
     }
+
 }

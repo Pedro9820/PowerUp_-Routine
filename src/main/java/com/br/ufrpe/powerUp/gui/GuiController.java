@@ -1,9 +1,8 @@
 package com.br.ufrpe.powerUp.gui;
 
-import com.br.ufrpe.powerUp.dados.RepositorioUsuarios;
 import com.br.ufrpe.powerUp.dados.exceptions.CJEException;
 import com.br.ufrpe.powerUp.dados.exceptions.CNException;
-import com.br.ufrpe.powerUp.negocio.controllers.controladorUsuario;
+import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -31,7 +30,7 @@ public class GuiController {
     @FXML
     public Label labelStatus;
 
-    private controladorUsuario userController;
+    private ControladorUsuario userController;
 
     @FXML
     protected void btnEntrarActionPerformed() throws CJEException, CNException {
@@ -39,14 +38,30 @@ public class GuiController {
         String senha = txtFieldSenha.getText();
 
         try {
-            userController = new controladorUsuario(nome, senha, true);
-            labelStatus.setText("existe!");
+            userController = new ControladorUsuario(nome, senha, true);
+
+            // Carregar a nova tela (tela principal)
+            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/principal.fxml"));
+            Scene principalScene = new Scene(fxmlLoader.load(), 600, 738);
+
+            // Passar o controlador de usuário para a nova tela
+            PrincipalController principalController = fxmlLoader.getController();
+            principalController.setUserController(userController);
+
+            Stage principalStage = new Stage();
+            principalStage.setTitle("PowerUP Routine");
+            principalStage.setScene(principalScene);
+            principalStage.show();
+
+            // Fechar a tela de login
+            Stage stage = (Stage) buttonEntrar.getScene().getWindow();
+            stage.close();
 
         } catch (CNException e) {
             labelStatus.setText("Conta não existe!");
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
     }
 
     @FXML

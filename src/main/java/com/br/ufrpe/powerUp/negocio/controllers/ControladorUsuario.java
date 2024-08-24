@@ -7,11 +7,13 @@ import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.beans.Usuario;
 
-public class controladorUsuario {
+import java.util.ArrayList;
+
+public class ControladorUsuario {
     private Usuario usuario;
 
 
-    public controladorUsuario(String nome, String senha, boolean login) throws CJEException, CNException {
+    public ControladorUsuario(String nome, String senha, boolean login) throws CJEException, CNException {
         if (login){
             logarConta(nome, senha);
         } else {
@@ -64,6 +66,10 @@ public class controladorUsuario {
 
     public float getUsuarioAltura(){
         return usuario.getAltura();
+    }
+
+    public ArrayList<Objetivo> getObjetivos() {
+        return usuario.getObjetivos();
     }
 
     public void atualizarAtributoUsuario(TipoAtributo tipo, int qtd){
