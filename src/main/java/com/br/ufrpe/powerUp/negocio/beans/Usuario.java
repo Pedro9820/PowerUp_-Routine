@@ -1,4 +1,4 @@
-package src.br.ufrpe.powerUp.negocio.beans;
+package com.br.ufrpe.powerUp.negocio.beans;
 
 import java.util.ArrayList;
 

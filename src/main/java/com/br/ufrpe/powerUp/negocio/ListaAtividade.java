@@ -1,6 +1,6 @@
-package src.br.ufrpe.powerUp.negocio;
+package com.br.ufrpe.powerUp.negocio;
 
-import src.br.ufrpe.powerUp.negocio.beans.Atividade;
+import com.br.ufrpe.powerUp.negocio.beans.Atividade;
 
 import java.util.ArrayList;
 import java.util.Objects;

@@ -1,7 +1,7 @@
-package src.br.ufrpe.powerUp.dados;
-import src.br.ufrpe.powerUp.dados.exceptions.AJRException;
-import src.br.ufrpe.powerUp.dados.exceptions.ANexception;
-import src.br.ufrpe.powerUp.negocio.AtividadeExecutada;
+package com.br.ufrpe.powerUp.dados;
+import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
+import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
+import com.br.ufrpe.powerUp.negocio.AtividadeExecutada;
 import java.util.ArrayList;
 
 
