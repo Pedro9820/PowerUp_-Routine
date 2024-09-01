@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" layoutY="343.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Text layoutX="14.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Objetivos">
+         <font>
+            <Font name="Arial" size="42.0" />
+         </font>
+      </Text>
+      <TableView layoutX="30.0" layoutY="100.0" prefHeight="200.0" prefWidth="282.0">
+        <columns>
+          <TableColumn prefWidth="59.0" text="Nome" />
+          <TableColumn prefWidth="74.0" text="Atividade" />
+            <TableColumn prefWidth="83.0" text="Data Máxima" />
+            <TableColumn prefWidth="65.0" text="Quota" />
+        </columns>
+      </TableView>
+      <Text layoutX="336.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição do Objetivo">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Label layoutX="335.0" layoutY="137.0" prefHeight="57.0" prefWidth="234.0" text="Label" />
+      <Button layoutX="335.0" layoutY="200.0" mnemonicParsing="false" text="Criar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="402.0" layoutY="200.0" mnemonicParsing="false" text="Remover">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="497.0" layoutY="200.0" mnemonicParsing="false" text="Editar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="504.0" layoutY="300.0" mnemonicParsing="false" text="Voltar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
