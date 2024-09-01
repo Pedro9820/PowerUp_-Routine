@@ -1,7 +1,5 @@
 package com.br.ufrpe.powerUp.negocio.beans;
 
-import com.br.ufrpe.powerUp.negocio.AtividadeExecutada;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -16,7 +14,6 @@ public class Usuario {
     private float peso;
     private float altura;
     private ArrayList<Objetivo> objetivos;
-    private ArrayList<AtividadeExecutada> atividadesConcluidas = new ArrayList<AtividadeExecutada>();
 
     public Usuario(String ID, String nome, String senha) {
         this.ID = ID;
@@ -32,7 +29,7 @@ public class Usuario {
 
     }
 
-    public void atualizarAtributo(TipoAtributo tipo, int qtd) {
+    public void atualizar_atributo(TipoAtributo tipo, int qtd) {
         switch(tipo) {
             case FORCA: forca += qtd; break;
             case STAMINA: stamina += qtd; break;
@@ -41,11 +38,8 @@ public class Usuario {
         }
     }
 
-   public void adicionarObjetivo(Objetivo objetivo) {
+   public void adicionar_objetivo(Objetivo objetivo) {
         objetivos.add(objetivo);
-   }
-   public void adicionarAtividadeConcluida(AtividadeExecutada atv){
-        this.atividadesConcluidas.add(atv);
    }
 
     @Override

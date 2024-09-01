@@ -3,7 +3,6 @@ package com.br.ufrpe.powerUp.negocio.controllers;
 import com.br.ufrpe.powerUp.dados.RepositorioUsuarios;
 import com.br.ufrpe.powerUp.dados.exceptions.CJEException;
 import com.br.ufrpe.powerUp.dados.exceptions.CNException;
-import com.br.ufrpe.powerUp.negocio.AtividadeExecutada;
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.beans.Usuario;
@@ -74,14 +73,11 @@ public class ControladorUsuario {
     }
 
     public void atualizarAtributoUsuario(TipoAtributo tipo, int qtd){
-        this.usuario.atualizarAtributo(tipo, qtd);
+        this.usuario.atualizar_atributo(tipo, qtd);
     }
 
     public void adicionarObjetivoUsuario(Objetivo objetivo){
-        this.usuario.adicionarObjetivo(objetivo);
-    }
-    public void adicionarAtividadeConcluida(AtividadeExecutada atv){
-        this.usuario.adicionarAtividadeConcluida(atv);
+        this.usuario.adicionar_objetivo(objetivo);
     }
 
     public void setForcaUsuario(int valor){

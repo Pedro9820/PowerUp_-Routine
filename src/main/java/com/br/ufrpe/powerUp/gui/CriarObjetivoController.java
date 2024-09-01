@@ -1,7 +1,6 @@
 package com.br.ufrpe.powerUp.gui;
 
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
-import com.br.ufrpe.powerUp.negocio.controllers.ControladorObjetivo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,7 +30,6 @@ public class CriarObjetivoController {
         LocalDate data = LocalDate.now();
         Objetivo objetivo = new Objetivo(data, txtFieldNome.getText(), txtAreaDescricao.getText(), 10);
         userController.adicionarObjetivoUsuario(objetivo);
-
 
         Stage stage = (Stage) buttonCriar.getScene().getWindow();
         stage.close();
