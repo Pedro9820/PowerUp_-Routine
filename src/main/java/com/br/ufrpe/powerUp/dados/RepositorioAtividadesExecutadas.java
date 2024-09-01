@@ -7,9 +7,18 @@ import java.util.ArrayList;
 
 public class RepositorioAtividadesExecutadas {
     private ArrayList<AtividadeExecutada> atividadesRealizadas;
+    private static RepositorioAtividadesExecutadas instancia;
+
 
     public RepositorioAtividadesExecutadas() {
+        atividadesRealizadas = new ArrayList<AtividadeExecutada>();
+    }
 
+    public static RepositorioAtividadesExecutadas getInstance() {
+        if (instancia == null) {
+            instancia = new RepositorioAtividadesExecutadas();
+        }
+        return instancia;
     }
 
     public void adicionarAtividade(AtividadeExecutada atividade) throws ANexception, AJRException {

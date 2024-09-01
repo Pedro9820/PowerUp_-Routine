@@ -2,11 +2,16 @@ package com.br.ufrpe.powerUp.negocio.controllers;
 
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 
+import java.time.LocalDate;
+
 public class ControladorObjetivo {
     private Objetivo objetivo;
 
     public ControladorObjetivo(Objetivo objetivo) {
         this.objetivo = objetivo;
+    }
+    public void criarObjetivo(LocalDate dataMaxima, String nome, String descricao, int quota){
+        objetivo = new Objetivo(dataMaxima, nome, descricao, quota );
     }
     public int getObjetivoId() {
         return objetivo.getId();
@@ -40,5 +45,7 @@ public class ControladorObjetivo {
         this.objetivo.setQuota(quota);
     }
 
-
+    public Objetivo getObjetivo(){
+        return objetivo;
+    }
 }
