@@ -8,7 +8,7 @@ public class Atividade {
     private TipoAtributo tipo;
     private int intensidade;
 
-    public Atividade(String id, String nome, TipoAtributo tipo, int intensidade, LocalTime horarioTermino, LocalTime horarioInicio) {
+    public Atividade(String id, String nome, TipoAtributo tipo, int intensidade) {
         this.id = id;
         this.tipo = tipo;
         this.intensidade = intensidade;
