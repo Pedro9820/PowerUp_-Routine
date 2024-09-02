@@ -21,10 +21,10 @@
       <DatePicker fx:id="dateLimite" layoutX="75.0" layoutY="113.0" prefWidth="161.0" />
        <MenuButton fx:id="menuButtonAtributo" layoutX="97.0" layoutY="164.0" mnemonicParsing="false" text="atributo">
            <items>
-               <MenuItem fx:id="itemForca" mnemonicParsing="false" text="Força" onAction="#handleAtributoSelection" />
-               <MenuItem fx:id="itemStamina" mnemonicParsing="false" text="Estamina" onAction="#handleAtributoSelection" />
-               <MenuItem fx:id="itemIntelecto" mnemonicParsing="false" text="Intelecto" onAction="#handleAtributoSelection" />
-               <MenuItem fx:id="itemCriatividade" mnemonicParsing="false" text="Criatividade" onAction="#handleAtributoSelection" />
+               <MenuItem fx:id="itemForca" mnemonicParsing="false" onAction="#handleAtributoSelection" text="Força" />
+               <MenuItem fx:id="itemStamina" mnemonicParsing="false" onAction="#handleAtributoSelection" text="Estamina" />
+               <MenuItem fx:id="itemIntelecto" mnemonicParsing="false" onAction="#handleAtributoSelection" text="Intelecto" />
+               <MenuItem fx:id="itemCriatividade" mnemonicParsing="false" onAction="#handleAtributoSelection" text="Criatividade" />
            </items>
        </MenuButton>
 
