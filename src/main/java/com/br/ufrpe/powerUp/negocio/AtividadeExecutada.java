@@ -10,17 +10,14 @@ public class AtividadeExecutada {
 private Usuario usuario;
 private Atividade atividadeExec;
 private String id;
-private LocalDate atinicio;
-private LocalDate atfim;
+private LocalDate atividadeInicio;
+private LocalDate atividadeFim;
 private boolean foiExecutada;
 
-public AtividadeExecutada(Usuario user, Atividade at) {
-    this.usuario=user;
-    this.atividadeExec=at;
-}
-public void terminarAtividade() {
-    this.foiExecutada=true;
-
+public AtividadeExecutada(Usuario user, Atividade atividadeEscolhida) {
+    this.usuario = user;
+    this.atividadeInicio = LocalDate.now();
+    this.atividadeExec = atividadeEscolhida;
 }
 
     public Usuario getUsuario() {
@@ -48,19 +45,19 @@ public void terminarAtividade() {
     }
 
     public LocalDate getAtinicio() {
-        return atinicio;
+        return atividadeInicio;
     }
 
     public void setAtinicio(LocalDate atinicio) {
-        this.atinicio = atinicio;
+        this.atividadeInicio = atinicio;
     }
 
-    public LocalDate getAtfim() {
-        return atfim;
+    public LocalDate getAtividadeFim() {
+        return atividadeFim;
     }
 
-    public void setAtfim(LocalDate atfim) {
-        this.atfim = atfim;
+    public void setAtividadeFim(LocalDate atividadeFim) {
+        this.atividadeFim = atividadeFim;
     }
 
     public boolean isFoiExecutada() {

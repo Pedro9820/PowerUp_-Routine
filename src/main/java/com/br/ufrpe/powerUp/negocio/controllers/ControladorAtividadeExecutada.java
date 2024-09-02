@@ -9,16 +9,16 @@ import com.br.ufrpe.powerUp.negocio.beans.Usuario;
 
 import java.time.LocalDate;
 
-public class ControladorAtExecutada {
+public class ControladorAtividadeExecutada {
     private AtividadeExecutada atividade;
 
     public void iniciarAtividade(Usuario user, Atividade at){
         atividade = new AtividadeExecutada(user, at);
     }
-    public void terminarAtividade(AtividadeExecutada at) throws ANexception, AJRException {
-        atividade.terminarAtividade();
+    public void terminarAtividade(AtividadeExecutada atividade, boolean foiExecutada) throws ANexception, AJRException {
         RepositorioAtividadesExecutadas repositorio = RepositorioAtividadesExecutadas.getInstance();
-        repositorio.adicionarAtividade(at);
+        repositorio.terminarAtividade(atividade,foiExecutada);
+        repositorio.adicionarAtividade(atividade);
     }
 
     public void setUsuario(Usuario usuario){
@@ -36,7 +36,7 @@ public class ControladorAtExecutada {
 
     }
     public void setAtFim(LocalDate fim){
-        atividade.setAtfim(fim);
+        atividade.setAtividadeFim(fim);
 
     }
     public Usuario getUsuario(){
@@ -52,6 +52,6 @@ public class ControladorAtExecutada {
         return atividade.getAtinicio();
     }
     public LocalDate getFim(){
-        return atividade.getAtfim();
+        return atividade.getAtividadeFim();
     }
 }
