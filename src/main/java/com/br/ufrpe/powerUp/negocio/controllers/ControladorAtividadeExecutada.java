@@ -10,7 +10,7 @@ import com.br.ufrpe.powerUp.negocio.beans.Usuario;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class ControladorAtExecutada {
+public class ControladorAtividadeExecutada {
     private AtividadeExecutada atividade;
 
     public void iniciarAtividade(Usuario user, Atividade at){

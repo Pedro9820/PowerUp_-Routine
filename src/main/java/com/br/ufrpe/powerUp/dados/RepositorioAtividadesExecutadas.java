@@ -47,16 +47,16 @@ public class RepositorioAtividadesExecutadas {
         }
     }
 
-    public void terminarAtividade(AtividadeExecutada atividade,boolean FoiExecutada) throws ANexception {
-        if (atividade == null || !atividadesRealizadas.contains(atividade)) {
-            ANexception ane = new ANexception();
-            throw ane;
-        }
-        else {
-            atividade.setAtividadeFim(LocalDate.now());
-            atividade.setFoiExecutada(FoiExecutada);
-        }
-    }
+//    public void terminarAtividade(AtividadeExecutada atividade,boolean FoiExecutada) throws ANexception {
+//        if (atividade == null || !atividadesRealizadas.contains(atividade)) {
+//            ANexception ane = new ANexception();
+//            throw ane;
+//        }
+//        else {
+//            atividade.setAtividadeFim(LocalDate.now());
+//            atividade.setFoiExecutada(FoiExecutada);
+//        }
+//    }
 
     public ArrayList<AtividadeExecutada> getAtividadesRealizadas() {
         return atividadesRealizadas;
