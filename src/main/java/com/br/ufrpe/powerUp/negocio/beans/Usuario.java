@@ -1,5 +1,10 @@
 package com.br.ufrpe.powerUp.negocio.beans;
 
+import com.br.ufrpe.powerUp.dados.RepositorioAtividadesExecutadas;
+import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
+import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
+import com.br.ufrpe.powerUp.negocio.AtividadeExecutada;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -9,11 +14,14 @@ public class Usuario {
     private String senha;
     private int forca;
     private int stamina;
+    private int intelecto;
+    private int criatividade;
     private int velocidade;
     private int resistencia;
     private float peso;
     private float altura;
     private ArrayList<Objetivo> objetivos;
+    private RepositorioAtividadesExecutadas repoAtividadesExecutadas;
 
     public Usuario(String ID, String nome, String senha) {
         this.ID = ID;
@@ -21,11 +29,14 @@ public class Usuario {
         this.senha = senha;
         this.forca = 0;
         this.stamina = 0;
+        this.intelecto = 0;
+        this.criatividade = 0;
         this.velocidade = 0;
         this.resistencia = 0;
         this.peso = 0;
         this.altura = 0;
         this.objetivos = new ArrayList<>();
+        this.repoAtividadesExecutadas = new RepositorioAtividadesExecutadas();
 
     }
 
@@ -33,6 +44,8 @@ public class Usuario {
         switch(tipo) {
             case FORCA: forca += qtd; break;
             case STAMINA: stamina += qtd; break;
+            case INTELECTO: intelecto += qtd; break;
+            case CRIATIVIDADE: criatividade += qtd; break;
             case VELOCIDADE: velocidade += qtd; break;
             case RESISTENCIA: resistencia += qtd; break;
         }
@@ -40,6 +53,10 @@ public class Usuario {
 
    public void adicionar_objetivo(Objetivo objetivo) {
         objetivos.add(objetivo);
+   }
+
+   public void adicionarAtividadeExecutada(AtividadeExecutada atividadeExecutada) throws ANexception, AJRException {
+        this.repoAtividadesExecutadas.adicionarAtividade(atividadeExecutada);
    }
 
     @Override
@@ -109,6 +126,14 @@ public class Usuario {
         return stamina;
     }
 
+    public int getIntelecto() {
+        return intelecto;
+    }
+
+    public int getCriatividade() {
+        return criatividade;
+    }
+
     public int getResistencia() {
         return resistencia;
     }
@@ -127,5 +152,9 @@ public class Usuario {
 
     public ArrayList<Objetivo> getObjetivos() {
         return objetivos;
+    }
+
+    public ArrayList<AtividadeExecutada> getAtividadesExecutadas() {
+        return repoAtividadesExecutadas.getAtividadesRealizadas();
     }
 }

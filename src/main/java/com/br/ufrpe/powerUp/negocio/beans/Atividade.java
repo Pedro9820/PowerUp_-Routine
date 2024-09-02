@@ -5,11 +5,13 @@ import java.time.LocalTime;
 public class Atividade {
 
     private String id;
+    private String nome;
     private TipoAtributo tipo;
     private int intensidade;
 
     public Atividade(String id, String nome, TipoAtributo tipo, int intensidade) {
         this.id = id;
+        this.nome = nome;
         this.tipo = tipo;
         this.intensidade = intensidade;
     }
@@ -23,6 +25,9 @@ public class Atividade {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
 
     public int getIntensidade() {
         return intensidade;

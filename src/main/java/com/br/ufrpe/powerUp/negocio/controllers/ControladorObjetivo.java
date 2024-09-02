@@ -1,6 +1,7 @@
 package com.br.ufrpe.powerUp.negocio.controllers;
 
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
+import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 
 import java.time.LocalDate;
 
@@ -10,8 +11,8 @@ public class ControladorObjetivo {
     public ControladorObjetivo(Objetivo objetivo) {
         this.objetivo = objetivo;
     }
-    public void criarObjetivo(LocalDate dataMaxima, String nome, String descricao, int quota){
-        objetivo = new Objetivo(dataMaxima, nome, descricao, quota );
+    public void criarObjetivo(LocalDate dataMaxima, String nome, String descricao, int quota, TipoAtributo atributo){
+        objetivo = new Objetivo(dataMaxima, nome, descricao, quota, atributo );
     }
     public int getObjetivoId() {
         return objetivo.getId();

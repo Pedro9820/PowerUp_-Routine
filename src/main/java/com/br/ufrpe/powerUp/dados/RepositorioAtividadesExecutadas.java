@@ -39,5 +39,8 @@ public class RepositorioAtividadesExecutadas {
 
     }
 
+    public ArrayList<AtividadeExecutada> getAtividadesRealizadas() {
+        return atividadesRealizadas;
     }
+}
 

@@ -8,6 +8,7 @@ import com.br.ufrpe.powerUp.negocio.beans.Atividade;
 import com.br.ufrpe.powerUp.negocio.beans.Usuario;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ControladorAtExecutada {
     private AtividadeExecutada atividade;
@@ -16,7 +17,7 @@ public class ControladorAtExecutada {
         atividade = new AtividadeExecutada(user, at);
     }
     public void terminarAtividade(AtividadeExecutada at) throws ANexception, AJRException {
-        atividade.terminarAtividade();
+        //atividade.terminarAtividade();
         RepositorioAtividadesExecutadas repositorio = RepositorioAtividadesExecutadas.getInstance();
         repositorio.adicionarAtividade(at);
     }
@@ -31,11 +32,11 @@ public class ControladorAtExecutada {
     public void setID(String id){
         atividade.setId(id);
     }
-    public void setAtInicio(LocalDate inicio){
+    public void setAtInicio(LocalDateTime inicio){
         atividade.setAtinicio(inicio);
 
     }
-    public void setAtFim(LocalDate fim){
+    public void setAtFim(LocalDateTime fim){
         atividade.setAtfim(fim);
 
     }
@@ -48,10 +49,10 @@ public class ControladorAtExecutada {
     public String getID(){
         return atividade.getId();
     }
-    public LocalDate getInicio(){
+    public String getInicio(){
         return atividade.getAtinicio();
     }
-    public LocalDate getFim(){
+    public String getFim(){
         return atividade.getAtfim();
     }
 }
