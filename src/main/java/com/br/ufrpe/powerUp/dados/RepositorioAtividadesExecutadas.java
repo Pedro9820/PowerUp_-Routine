@@ -2,6 +2,8 @@ package com.br.ufrpe.powerUp.dados;
 import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
 import com.br.ufrpe.powerUp.negocio.AtividadeExecutada;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -35,8 +37,25 @@ public class RepositorioAtividadesExecutadas {
 
     }
 
-    public void removerAtividade(int i) throws ANexception {
+    public void removerAtividade(AtividadeExecutada atividade) throws ANexception {
+        if (atividade == null || !atividadesRealizadas.contains(atividade)) {
+            ANexception ane = new ANexception();
+            throw ane;
+        }
+        else {
+           atividadesRealizadas.remove(atividade);
+        }
+    }
 
+    public void terminarAtividade(AtividadeExecutada atividade,boolean FoiExecutada) throws ANexception {
+        if (atividade == null || !atividadesRealizadas.contains(atividade)) {
+            ANexception ane = new ANexception();
+            throw ane;
+        }
+        else {
+            atividade.setAtividadeFim(LocalDate.now());
+            atividade.setFoiExecutada(FoiExecutada);
+        }
     }
 
     public ArrayList<AtividadeExecutada> getAtividadesRealizadas() {
