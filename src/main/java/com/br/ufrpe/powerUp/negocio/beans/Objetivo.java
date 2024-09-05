@@ -6,17 +6,17 @@ public class Objetivo {
     private int id;
     private LocalDate dataMaxima;
     private String nome;
-    private String atividade;
+    private TipoAtributo atividade;
     private String descricao;
     private int quota;
 
 
-    public Objetivo(LocalDate dataMaxima, String nome, String descricao, int quota) {
+    public Objetivo(LocalDate dataMaxima, String nome, String descricao, int quota, TipoAtributo atributo) {
         this.dataMaxima = dataMaxima;
         this.nome = nome;
         this.descricao = descricao;
         this.quota = quota;
-        this.atividade = "test";
+        this.atividade = atributo;
     }
 
     public boolean verificarConclusaoObjetivo(int atributo){
@@ -32,11 +32,11 @@ public class Objetivo {
         this.dataMaxima = dataMaxima;
     }
 
-    public String getAtividade() {
+    public TipoAtributo getAtividade() {
         return atividade;
     }
 
-    public void setAtividade(String atividade) {
+    public void setAtividade(TipoAtributo atividade) {
         this.atividade = atividade;
     }
 

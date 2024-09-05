@@ -1,27 +1,32 @@
 package com.br.ufrpe.powerUp.negocio;
 
 import com.br.ufrpe.powerUp.negocio.beans.Atividade;
+import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.beans.Usuario;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AtividadeExecutada {
 
-private Usuario usuario;
-private Atividade atividadeExec;
-private String id;
-private LocalDate atinicio;
-private LocalDate atfim;
-private boolean foiExecutada;
+    private Usuario usuario;
+    private Atividade atividadeExec;
+    private String id;
+    private LocalDateTime atinicio;
+    private LocalDateTime atfim;
+    private boolean foiExecutada;
 
 public AtividadeExecutada(Usuario user, Atividade at) {
     this.usuario=user;
     this.atividadeExec=at;
 }
-public void terminarAtividade() {
-    this.foiExecutada=true;
 
-}
+    public AtividadeExecutada(Atividade atividadeExec, LocalDateTime atinicio, LocalDateTime atfim) {
+        this.atividadeExec = atividadeExec;
+        this.atinicio = atinicio;
+        this.atfim = atfim;
+    }
 
     public Usuario getUsuario() {
         return usuario;
@@ -47,19 +52,33 @@ public void terminarAtividade() {
         this.id = id;
     }
 
-    public LocalDate getAtinicio() {
-        return atinicio;
+    public String getNome() {
+        return this.atividadeExec.getNome();
     }
 
-    public void setAtinicio(LocalDate atinicio) {
+    public TipoAtributo getTipo() {
+        return this.atividadeExec.getTipo();
+    }
+
+    public int getIntensidade() {
+        return this.atividadeExec.getIntensidade();
+    }
+
+    public String getAtinicio() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+        return atinicio.format(formatter);
+    }
+
+    public void setAtinicio(LocalDateTime atinicio) {
         this.atinicio = atinicio;
     }
 
-    public LocalDate getAtfim() {
-        return atfim;
+    public String getAtfim() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+        return atfim.format(formatter);
     }
 
-    public void setAtfim(LocalDate atfim) {
+    public void setAtfim(LocalDateTime atfim) {
         this.atfim = atfim;
     }
 

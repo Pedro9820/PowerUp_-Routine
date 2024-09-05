@@ -1,12 +1,18 @@
 package com.br.ufrpe.powerUp.negocio.controllers;
 
 import com.br.ufrpe.powerUp.dados.RepositorioUsuarios;
+import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
+import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
 import com.br.ufrpe.powerUp.dados.exceptions.CJEException;
 import com.br.ufrpe.powerUp.dados.exceptions.CNException;
+import com.br.ufrpe.powerUp.negocio.AtividadeExecutada;
+import com.br.ufrpe.powerUp.negocio.beans.Atividade;
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.beans.Usuario;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ControladorUsuario {
@@ -36,6 +42,11 @@ public class ControladorUsuario {
         repositorio.adicionarConta(usuarioCadastro);
     }
 
+    public void adicionarAtividadeExecutada(Atividade atividadeExec, LocalDateTime atinicio, LocalDateTime atfim) throws ANexception, AJRException {
+        AtividadeExecutada atividade = new AtividadeExecutada(atividadeExec, atinicio, atfim);
+        usuario.adicionarAtividadeExecutada(atividade);
+    }
+
     public String getUsuarioName(){
         return usuario.getNome();
     }
@@ -56,6 +67,10 @@ public class ControladorUsuario {
         return usuario.getStamina();
     }
 
+    public int getUsuarioIntelecto() {return usuario.getIntelecto(); }
+
+    public int getUsuarioCriatividade() { return usuario.getCriatividade(); }
+
     public int getUsuarioVelocidade(){
         return usuario.getVelocidade();
     }
@@ -70,6 +85,10 @@ public class ControladorUsuario {
 
     public ArrayList<Objetivo> getObjetivos() {
         return usuario.getObjetivos();
+    }
+
+    public ArrayList<AtividadeExecutada> getAtividadesExecutadas() {
+        return usuario.getAtividadesExecutadas();
     }
 
     public void atualizarAtributoUsuario(TipoAtributo tipo, int qtd){
