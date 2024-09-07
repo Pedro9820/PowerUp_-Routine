@@ -81,6 +81,33 @@ public class PerfilController {
 
     }
 
+    public void btnConfig() {
+        try {
+            // Carregar o FXML e o controlador
+            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/config.fxml"));
+            Scene principalScene = new Scene(fxmlLoader.load(), 600, 400);
+
+            // Obter o controlador
+            ConfigController controller = fxmlLoader.getController();
+
+            // Passar o controlador
+            controller.setUserController(userController);
+
+            // Criar a nova janela
+            Stage principalStage = new Stage();
+            principalStage.setTitle("PowerUP");
+            principalStage.setScene(principalScene);
+            principalStage.show();
+
+            // Fechar a janela atual
+            Stage stage = (Stage) buttonVoltar.getScene().getWindow();
+            stage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void btnVoltar() {
         try {
             // Carregar o FXML e o controlador
