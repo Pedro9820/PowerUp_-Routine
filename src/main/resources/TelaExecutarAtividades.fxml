@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.AtividadeController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" layoutY="427.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Text fontSmoothingType="LCD" layoutX="26.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atividades">
+         <font>
+            <Font name="Arial Bold" size="42.0" />
+         </font>
+      </Text>
+      <Text layoutX="379.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Os exercícios físicos podem trazer muitos benefícios para a saúde, como:" wrappingWidth="159.439453125">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="373.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Redução de estresse e ansiedade." wrappingWidth="222.43359375" />
+      <Text layoutX="373.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Melhora da qualidade de sono." />
+      <Text layoutX="373.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Fortalecimento do sistema imunológico." wrappingWidth="191.439453125" />
+      <Button fx:id="buttonVoltar" layoutX="510.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnVoltar" text="Voltar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Pane layoutX="14.0" layoutY="79.0" prefHeight="93.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+         <children>
+            <Button layoutX="71.0" layoutY="53.0" mnemonicParsing="false" onAction="#btnMalhacao" text="Iniciar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label id="titulo" layoutX="72.0" layoutY="15.0" text="Malhação">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label id="atvidade" layoutX="75.0" layoutY="37.0" text="+5 força " />
+            <ImageView fitHeight="44.0" fitWidth="30.0" layoutX="42.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/forca.png" />
+               </image>
+            </ImageView>
+            <ImageView id="espelhado" fitHeight="44.0" fitWidth="30.0" layoutX="124.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/forca.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+         <children>
+            <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnCardio" prefWidth="57.0" text="Iniciar" />
+            <Label id="titulo" layoutX="81.0" layoutY="15.0" text="Cardio">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label id="atvidade" layoutX="66.0" layoutY="37.0" text="+5 Estamina" />
+            <ImageView fitHeight="44.0" fitWidth="30.0" layoutX="42.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/estamina.png" />
+               </image>
+            </ImageView>
+            <ImageView id="espelhado" fitHeight="44.0" fitWidth="30.0" layoutX="124.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/estamina.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="314.0" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+         <children>
+            <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnEstudar" text="Iniciar" />
+            <Label id="titulo" layoutX="78.0" layoutY="14.0" text="Estudar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label id="atvidade" layoutX="67.0" layoutY="36.0" text="+5 Intelecto" />
+            <ImageView fitHeight="44.0" fitWidth="30.0" layoutX="42.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/intelecto.png" />
+               </image>
+            </ImageView>
+            <ImageView id="espelhado" fitHeight="44.0" fitWidth="30.0" layoutX="124.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/intelecto.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="232.0" layoutY="314.0" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+         <children>
+            <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnLer" text="Iniciar" />
+            <Label id="titulo" layoutX="75.0" layoutY="15.0" text="Ler Livro">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label id="atvidade" layoutX="60.0" layoutY="37.0" text="+5 Criatividade" />
+            <ImageView fitHeight="44.0" fitWidth="30.0" layoutX="30.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/criatividade.png" />
+               </image>
+            </ImageView>
+            <ImageView id="espelhado" fitHeight="44.0" fitWidth="30.0" layoutX="141.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/criatividade.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</Pane>

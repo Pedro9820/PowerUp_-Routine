@@ -5,14 +5,20 @@ import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.function.UnaryOperator;
 
 public class CriarObjetivoController {
     private ControladorUsuario userController;
+
+    @FXML
+    public Button buttonVoltar;
 
     @FXML
     public TextField txtFieldNome;
@@ -104,6 +110,33 @@ public class CriarObjetivoController {
             alert.setHeaderText("Dados faltando");
             alert.setContentText("Por favor, preencha todos os campos e selecione um atributo.");
             alert.showAndWait();
+        }
+    }
+
+    public void btnVoltar() {
+        try {
+            // Carregar o FXML e o controlador
+            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/Objetivos.fxml"));
+            Scene principalScene = new Scene(fxmlLoader.load(), 600, 400);
+
+            // Obter o controlador da tela de perfil
+            ObjetivosController controller = fxmlLoader.getController();
+
+            // Passar o controlador de usuário (userController) para o perfilController
+            controller.setUserController(userController);
+
+            // Criar a nova janela
+            Stage principalStage = new Stage();
+            principalStage.setTitle("Objetivos");
+            principalStage.setScene(principalScene);
+            principalStage.show();
+
+            // Fechar a janela atual
+            Stage stage = (Stage) buttonVoltar.getScene().getWindow();
+            stage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

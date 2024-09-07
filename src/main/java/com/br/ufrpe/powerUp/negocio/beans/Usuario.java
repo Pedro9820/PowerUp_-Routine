@@ -3,7 +3,6 @@ package com.br.ufrpe.powerUp.negocio.beans;
 import com.br.ufrpe.powerUp.dados.RepositorioAtividadesExecutadas;
 import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
-import com.br.ufrpe.powerUp.negocio.AtividadeExecutada;
 
 import java.util.ArrayList;
 import java.util.Objects;

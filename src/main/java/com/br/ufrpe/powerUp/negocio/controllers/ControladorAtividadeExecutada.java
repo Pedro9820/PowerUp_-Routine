@@ -3,11 +3,10 @@ package com.br.ufrpe.powerUp.negocio.controllers;
 import com.br.ufrpe.powerUp.dados.RepositorioAtividadesExecutadas;
 import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
-import com.br.ufrpe.powerUp.negocio.AtividadeExecutada;
+import com.br.ufrpe.powerUp.negocio.beans.AtividadeExecutada;
 import com.br.ufrpe.powerUp.negocio.beans.Atividade;
 import com.br.ufrpe.powerUp.negocio.beans.Usuario;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ControladorAtividadeExecutada {

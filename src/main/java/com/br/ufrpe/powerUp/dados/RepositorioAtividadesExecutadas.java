@@ -1,9 +1,8 @@
 package com.br.ufrpe.powerUp.dados;
 import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
-import com.br.ufrpe.powerUp.negocio.AtividadeExecutada;
+import com.br.ufrpe.powerUp.negocio.beans.AtividadeExecutada;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 

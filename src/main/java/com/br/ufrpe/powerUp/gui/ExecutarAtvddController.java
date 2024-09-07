@@ -3,6 +3,7 @@ package com.br.ufrpe.powerUp.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
@@ -11,21 +12,26 @@ public class ExecutarAtvddController {
     @FXML
     public Button buttonTerminar;
     @FXML
-    private Label labelAtividade;
+    private Text textAtividade;
 
     private LocalDateTime inicioAtividade;
     private LocalDateTime fimAtividade;
 
    public void setAtividade(String atividade) {
-       labelAtividade.setText(atividade);
-       this.inicioAtividade = LocalDateTime.now();
+       textAtividade.setText(atividade);
+    }
+
+    public void btnIniciar() {
+        this.inicioAtividade = LocalDateTime.now();
     }
 
     public void btnTerminar() {
-       this.fimAtividade = LocalDateTime.now();
+       if (inicioAtividade != null) {
+           this.fimAtividade = LocalDateTime.now();
 
-        Stage stage = (Stage) buttonTerminar.getScene().getWindow();
-        stage.close();
+           Stage stage = (Stage) buttonTerminar.getScene().getWindow();
+           stage.close();
+       }
     }
 
     public LocalDateTime getInicioAtividade() {
@@ -34,6 +40,11 @@ public class ExecutarAtvddController {
 
     public LocalDateTime getFimAtividade() {
         return fimAtividade;
+    }
+
+    public void btnVoltar() {
+        Stage stage = (Stage) buttonTerminar.getScene().getWindow();
+        stage.close();
     }
 
 }

@@ -5,13 +5,12 @@ import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
 import com.br.ufrpe.powerUp.dados.exceptions.CJEException;
 import com.br.ufrpe.powerUp.dados.exceptions.CNException;
-import com.br.ufrpe.powerUp.negocio.AtividadeExecutada;
+import com.br.ufrpe.powerUp.negocio.beans.AtividadeExecutada;
 import com.br.ufrpe.powerUp.negocio.beans.Atividade;
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.beans.Usuario;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 

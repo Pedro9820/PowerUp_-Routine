@@ -1,4 +1,4 @@
-package com.br.ufrpe.powerUp.negocio;
+package com.br.ufrpe.powerUp.negocio.beans;
 
 import com.br.ufrpe.powerUp.negocio.beans.Atividade;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;

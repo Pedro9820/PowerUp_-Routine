@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.PerfilController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" layoutY="343.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" layoutY="-14.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil">
+         <font>
+            <Font name="Arial" size="42.0" />
+         </font>
+      </Text>
+      <Text layoutX="20.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atributos">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="20.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome : ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <GridPane layoutX="18.0" layoutY="152.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Força">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label text="Estamina" GridPane.rowIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label text="Intelecto" GridPane.rowIndex="2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelForca" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="labelEstamina" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="labelIntelecto" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Criatividade" GridPane.rowIndex="3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelCriatividade" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <Text layoutX="360.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Histórico">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TableView fx:id="historicoTableView" layoutX="220.0" layoutY="100.0" prefHeight="230.0" prefWidth="371.0">
+        <columns>
+          <TableColumn fx:id="nomeHistorico" prefWidth="75.0" text="Atividade" />
+          <TableColumn fx:id="tipoHistorico" prefWidth="75.0" text="Atributo" />
+            <TableColumn fx:id="intensidadeHistorico" prefWidth="75.0" text="Intensidade" />
+            <TableColumn fx:id="inicioHistorico" prefWidth="75.0" text="Início" />
+            <TableColumn fx:id="fimHistorico" prefWidth="75.0" text="Fim" />
+        </columns>
+      </TableView>
+      <Button fx:id="buttonVoltar" layoutX="14.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnVoltar" text="Voltar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="85.0" layoutY="295.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Configurações">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelNome" layoutX="110.0" layoutY="61.0" prefHeight="27.0" prefWidth="79.0" text="Label">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+   </children>
+</Pane>

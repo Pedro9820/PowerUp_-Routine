@@ -41,8 +41,8 @@ public class GuiController {
             userController = new ControladorUsuario(nome, senha, true);
 
             // Carregar a nova tela (tela principal)
-            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/principal.fxml"));
-            Scene principalScene = new Scene(fxmlLoader.load(), 600, 738);
+            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/telaPrincipal.fxml"));
+            Scene principalScene = new Scene(fxmlLoader.load(), 600, 400);
 
             // Passar o controlador de usuário para a nova tela
             PrincipalController principalController = fxmlLoader.getController();
