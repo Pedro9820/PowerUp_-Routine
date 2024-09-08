@@ -32,7 +32,7 @@ public class ConfigController {
         perfilController.setUserController(userController);
 
         // Configurar a cena e o palco
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, Constantes.PERFILWIDTH, Constantes.PERFILHEIGHT);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();

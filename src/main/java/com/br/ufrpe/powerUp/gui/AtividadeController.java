@@ -35,7 +35,7 @@ public class AtividadeController {
     private void executarAtividade(int num, Atividade atividade) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/IniciarAtividade.fxml"));
-            Scene criarScene = new Scene(fxmlLoader.load(), 600, 400);
+            Scene criarScene = new Scene(fxmlLoader.load(), Constantes.INICIARATIVIDADEWIDTH, Constantes.INICIARATIVIDADEHEIGH);
 
             ExecutarAtvddController executarAtvddController = fxmlLoader.getController();
             switch (num) {
@@ -136,12 +136,12 @@ public class AtividadeController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telaPrincipal.fxml"));
         Parent root = fxmlLoader.load();
 
-        // Obter o controlador da tela de perfil
+        // Obter o controlador da tela
         PrincipalController controller = fxmlLoader.getController();
         controller.setUserController(userController);
 
         // Configurar a cena e o palco
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, Constantes.PRINCIPALWIDTH, Constantes.PRINCIPALHEIGHT);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();

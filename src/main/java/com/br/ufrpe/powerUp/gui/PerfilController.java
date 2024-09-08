@@ -94,7 +94,7 @@ public class PerfilController {
         controller.setUserController(userController);
 
         // Configurar a cena e o palco
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, Constantes.CONFIGHWIDTH, Constantes.CONFIGHEIGHT);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
@@ -111,7 +111,7 @@ public class PerfilController {
         controller.setUserController(userController);
 
         // Configurar a cena e o palco
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, Constantes.PRINCIPALWIDTH, Constantes.PRINCIPALHEIGHT);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();

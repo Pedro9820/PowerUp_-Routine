@@ -33,7 +33,7 @@ public class PrincipalController {
         controller.setUserController(userController);
 
         // Configurar a cena e o palco
-        Scene scene = new Scene(root, 680, 490);
+        Scene scene = new Scene(root, Constantes.EXECUTARATIVIDADEWIDTH, Constantes.EXECUTARATIVIDADEHEIGHT);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
@@ -49,7 +49,7 @@ public class PrincipalController {
         controller.setUserController(userController);
 
         // Configurar a cena e o palco
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, Constantes.OBJETIVOSWIDTH, Constantes.CONFIGHEIGHT);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
@@ -66,7 +66,7 @@ public class PrincipalController {
         controller.setUserController(userController);
 
         // Configurar a cena e o palco
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, Constantes.PERFILWIDTH, Constantes.PERFILHEIGHT);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();

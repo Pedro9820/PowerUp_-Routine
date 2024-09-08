@@ -89,7 +89,7 @@ public class CriarObjetivoController {
         controller.setUserController(userController);
 
         // Configurar a cena e o palco
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, Constantes.OBJETIVOSWIDTH, Constantes.OBJETIVOSHEIGH);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
