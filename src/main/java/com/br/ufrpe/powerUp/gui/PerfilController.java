@@ -5,8 +5,11 @@ import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -81,58 +84,38 @@ public class PerfilController {
 
     }
 
-    public void btnConfig() {
-        try {
-            // Carregar o FXML e o controlador
-            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/config.fxml"));
-            Scene principalScene = new Scene(fxmlLoader.load(), 600, 400);
+    public void btnConfig(ActionEvent event) throws IOException {
+        // Carregar o FXML usando FXMLLoader para obter o controlador
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/config.fxml"));
+        Parent root = fxmlLoader.load();
 
-            // Obter o controlador
-            ConfigController controller = fxmlLoader.getController();
+        // Obter o controlador da tela de perfil
+        ConfigController controller = fxmlLoader.getController();
+        controller.setUserController(userController);
 
-            // Passar o controlador
-            controller.setUserController(userController);
+        // Configurar a cena e o palco
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
-            // Criar a nova janela
-            Stage principalStage = new Stage();
-            principalStage.setTitle("PowerUP");
-            principalStage.setScene(principalScene);
-            principalStage.show();
-
-            // Fechar a janela atual
-            Stage stage = (Stage) buttonVoltar.getScene().getWindow();
-            stage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
-    public void btnVoltar() {
-        try {
-            // Carregar o FXML e o controlador
-            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/telaPrincipal.fxml"));
-            Scene principalScene = new Scene(fxmlLoader.load(), 600, 400);
+    public void btnVoltar(ActionEvent event) throws IOException {
+        // Carregar o FXML usando FXMLLoader para obter o controlador
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telaPrincipal.fxml"));
+        Parent root = fxmlLoader.load();
 
-            // Obter o controlador da tela de perfil
-            PrincipalController controller = fxmlLoader.getController();
+        // Obter o controlador
+        PrincipalController controller = fxmlLoader.getController();
+        controller.setUserController(userController);
 
-            // Passar o controlador de usuário (userController) para o perfilController
-            controller.setUserController(userController);
+        // Configurar a cena e o palco
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
-            // Criar a nova janela
-            Stage principalStage = new Stage();
-            principalStage.setTitle("PowerUP");
-            principalStage.setScene(principalScene);
-            principalStage.show();
-
-            // Fechar a janela atual
-            Stage stage = (Stage) buttonVoltar.getScene().getWindow();
-            stage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 }

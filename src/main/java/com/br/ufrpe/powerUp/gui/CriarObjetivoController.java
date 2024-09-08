@@ -6,6 +6,8 @@ import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -78,8 +80,23 @@ public class CriarObjetivoController {
         menuButtonAtributo.setText(text);
     }
 
+    public void criarCena(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Objetivos.fxml"));
+        Parent root = fxmlLoader.load();
 
-    public void criarObjetivo() {
+        // Obter o controlador da tela de perfil
+        ObjetivosController controller = fxmlLoader.getController();
+        controller.setUserController(userController);
+
+        // Configurar a cena e o palco
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    public void criarObjetivo(ActionEvent event) {
         String quotaText = txtFieldQuota.getText();
 
         if (!quotaText.isEmpty() && atributoSelecionado != null) {
@@ -94,15 +111,16 @@ public class CriarObjetivoController {
                         atributoSelecionado
                 );
                 userController.adicionarObjetivoUsuario(objetivo);
+                criarCena(event);
 
-                Stage stage = (Stage) buttonCriar.getScene().getWindow();
-                stage.close();
             } catch (NumberFormatException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Erro");
                 alert.setHeaderText("Entrada inválida");
                 alert.setContentText("Por favor, insira um número válido para a quota.");
                 alert.showAndWait();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -113,31 +131,8 @@ public class CriarObjetivoController {
         }
     }
 
-    public void btnVoltar() {
-        try {
-            // Carregar o FXML e o controlador
-            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/Objetivos.fxml"));
-            Scene principalScene = new Scene(fxmlLoader.load(), 600, 400);
-
-            // Obter o controlador da tela de perfil
-            ObjetivosController controller = fxmlLoader.getController();
-
-            // Passar o controlador de usuário (userController) para o perfilController
-            controller.setUserController(userController);
-
-            // Criar a nova janela
-            Stage principalStage = new Stage();
-            principalStage.setTitle("Objetivos");
-            principalStage.setScene(principalScene);
-            principalStage.show();
-
-            // Fechar a janela atual
-            Stage stage = (Stage) buttonVoltar.getScene().getWindow();
-            stage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void btnVoltar(ActionEvent event) throws IOException {
+        criarCena(event);
     }
 
 }

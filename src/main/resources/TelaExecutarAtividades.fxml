@@ -10,29 +10,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.AtividadeController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.AtividadeController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" layoutY="427.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ba4ff" height="57.0" stroke="BLACK" strokeType="INSIDE" width="680.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ba4ff" height="55.0" layoutY="435.0" stroke="BLACK" strokeType="INSIDE" width="680.0" />
       <Text fontSmoothingType="LCD" layoutX="26.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atividades">
          <font>
             <Font name="Arial Bold" size="42.0" />
          </font>
       </Text>
-      <Text layoutX="379.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Os exercícios físicos podem trazer muitos benefícios para a saúde, como:" wrappingWidth="159.439453125">
+      <Text fx:id="txtDica" layoutX="466.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Os exercícios físicos podem trazer muitos benefícios para a saúde, como:" wrappingWidth="159.439453125">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="373.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Redução de estresse e ansiedade." wrappingWidth="222.43359375" />
-      <Text layoutX="373.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Melhora da qualidade de sono." />
-      <Text layoutX="373.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Fortalecimento do sistema imunológico." wrappingWidth="191.439453125" />
+      <Text fx:id="txtDica2" layoutX="459.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Redução de estresse e ansiedade." wrappingWidth="222.43359375" />
       <Button fx:id="buttonVoltar" layoutX="510.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnVoltar" text="Voltar">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Pane layoutX="14.0" layoutY="79.0" prefHeight="93.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+      <Pane layoutX="14.0" layoutY="79.0" onMouseEntered="#malhacaoMouseEntered" prefHeight="93.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
          <children>
             <Button layoutX="71.0" layoutY="53.0" mnemonicParsing="false" onAction="#btnMalhacao" text="Iniciar">
                <cursor>
@@ -57,7 +55,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+      <Pane layoutX="14.0" layoutY="191.0" onMouseEntered="#cardioMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
          <children>
             <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnCardio" prefWidth="57.0" text="Iniciar" />
             <Label id="titulo" layoutX="81.0" layoutY="15.0" text="Cardio">
@@ -78,7 +76,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="314.0" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+      <Pane layoutX="14.0" layoutY="314.0" onMouseEntered="#estudarMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
          <children>
             <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnEstudar" text="Iniciar" />
             <Label id="titulo" layoutX="78.0" layoutY="14.0" text="Estudar">
@@ -99,7 +97,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="232.0" layoutY="314.0" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+      <Pane layoutX="232.0" layoutY="314.0" onMouseEntered="#lerMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
          <children>
             <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnLer" text="Iniciar" />
             <Label id="titulo" layoutX="75.0" layoutY="15.0" text="Ler Livro">

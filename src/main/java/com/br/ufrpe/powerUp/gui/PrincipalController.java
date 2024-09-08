@@ -1,8 +1,11 @@
 package com.br.ufrpe.powerUp.gui;
 
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -21,86 +24,52 @@ public class PrincipalController {
     }
 
 
-    public void btnAtividade() {
-        try {
-            // Carregar o FXML e o controlador
-            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/TelaExecutarAtividades.fxml"));
-            Scene principalScene = new Scene(fxmlLoader.load(), 600, 484);
+    public void btnAtividade(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/TelaExecutarAtividades.fxml"));
+        Parent root = fxmlLoader.load();
 
-            // Obter o controlador da tela de perfil
-            AtividadeController controller = fxmlLoader.getController();
+        // Obter o controlador da tela de perfil
+        AtividadeController controller = fxmlLoader.getController();
+        controller.setUserController(userController);
 
-            // Passar o controlador de usuário (userController) para o perfilController
-            controller.setUserController(userController);
-
-            // Criar a nova janela
-            Stage principalStage = new Stage();
-            principalStage.setTitle("Perfil");
-            principalStage.setScene(principalScene);
-            principalStage.show();
-
-            // Fechar a janela atual
-            Stage stage = (Stage) buttonAtividade.getScene().getWindow();
-            stage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Configurar a cena e o palco
+        Scene scene = new Scene(root, 680, 490);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
-    public void btnObjetivos() {
-        try {
-            // Carregar o FXML e o controlador
-            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/Objetivos.fxml"));
-            Scene principalScene = new Scene(fxmlLoader.load(), 600, 400);
+    public void btnObjetivos(ActionEvent event) throws IOException {
+        // Carregar o FXML usando FXMLLoader para obter o controlador
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Objetivos.fxml"));
+        Parent root = fxmlLoader.load();
 
-            // Obter o controlador da tela de perfil
-            ObjetivosController controller = fxmlLoader.getController();
+        // Obter o controlador da tela de perfil
+        ObjetivosController controller = fxmlLoader.getController();
+        controller.setUserController(userController);
 
-            // Passar o controlador de usuário (userController) para o perfilController
-            controller.setUserController(userController);
-
-            // Criar a nova janela
-            Stage principalStage = new Stage();
-            principalStage.setTitle("Perfil");
-            principalStage.setScene(principalScene);
-            principalStage.show();
-
-            // Fechar a janela atual
-            Stage stage = (Stage) buttonAtividade.getScene().getWindow();
-            stage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Configurar a cena e o palco
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
-    public void btnPerfil() {
-        try {
-            // Carregar o FXML e o controlador
-            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/Perfil.fxml"));
-            Scene principalScene = new Scene(fxmlLoader.load(), 600, 400);
+    public void btnPerfil(ActionEvent event) throws IOException {
+        // Carregar o FXML usando FXMLLoader para obter o controlador
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Perfil.fxml"));
+        Parent root = fxmlLoader.load();
 
-            // Obter o controlador da tela de perfil
-            PerfilController perfilController = fxmlLoader.getController();
+        // Obter o controlador da tela de perfil
+        PerfilController controller = fxmlLoader.getController();
+        controller.setUserController(userController);
 
-            // Passar o controlador de usuário (userController) para o perfilController
-            perfilController.setUserController(userController);
-
-            // Criar a nova janela
-            Stage principalStage = new Stage();
-            principalStage.setTitle("Perfil");
-            principalStage.setScene(principalScene);
-            principalStage.show();
-
-            // Fechar a janela atual
-            Stage stage = (Stage) buttonAtividade.getScene().getWindow();
-            stage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Configurar a cena e o palco
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
 

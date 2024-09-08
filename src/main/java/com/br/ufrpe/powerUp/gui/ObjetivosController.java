@@ -4,8 +4,11 @@ import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -68,54 +71,43 @@ public class ObjetivosController {
 
     public void handleDeleteObjetivo() {
         int indexSelecionado = objetivoTableView.getSelectionModel().getSelectedIndex();
-        objetivoTableView.getItems().remove(indexSelecionado);
-    }
-
-    public void btnCriarActionPerformed(){
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/CriacaoDeObjetivo.fxml"));
-            Scene criarScene = new Scene(fxmlLoader.load(), 600, 400);
-
-            CriarObjetivoController criarObjetivoController = fxmlLoader.getController();
-            criarObjetivoController.setUserController(userController);
-
-            Stage criarStage = new Stage();
-            criarStage.setTitle("Criar Objetivo");
-            criarStage.setScene(criarScene);
-            criarStage.show();
-
-            updateObjetivos();
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (indexSelecionado >= 0) {
+            objetivoTableView.getItems().remove(indexSelecionado);
+            objetivoTableView.getSelectionModel().clearSelection();  // Limpa a seleção após a exclusão
+            mostrarDetalhesObjetivo(null);  // Limpa os detalhes do objetivo
         }
     }
 
-    public void btnVoltar() {
-        try {
-            // Carregar o FXML e o controlador
-            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/telaPrincipal.fxml"));
-            Scene principalScene = new Scene(fxmlLoader.load(), 600, 400);
+    public void btnCriarActionPerformed(ActionEvent event) throws IOException {
+        // Carregar o FXML usando FXMLLoader para obter o controlador
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/CriacaoDeObjetivo.fxml"));
+        Parent root = fxmlLoader.load();
 
-            // Obter o controlador da tela de perfil
-            PrincipalController controller = fxmlLoader.getController();
+        // Obter o controlador da tela de perfil
+        CriarObjetivoController controller = fxmlLoader.getController();
+        controller.setUserController(userController);
 
-            // Passar o controlador de usuário (userController) para o perfilController
-            controller.setUserController(userController);
+        // Configurar a cena e o palco
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
-            // Criar a nova janela
-            Stage principalStage = new Stage();
-            principalStage.setTitle("PowerUP");
-            principalStage.setScene(principalScene);
-            principalStage.show();
+    public void btnVoltar(ActionEvent event) throws IOException {
+        // Carregar o FXML usando FXMLLoader para obter o controlador
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telaPrincipal.fxml"));
+        Parent root = fxmlLoader.load();
 
-            // Fechar a janela atual
-            Stage stage = (Stage) buttonVoltar.getScene().getWindow();
-            stage.close();
+        // Obter o controlador da tela de perfil
+        PrincipalController controller = fxmlLoader.getController();
+        controller.setUserController(userController);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Configurar a cena e o palco
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void updateObjetivos() {

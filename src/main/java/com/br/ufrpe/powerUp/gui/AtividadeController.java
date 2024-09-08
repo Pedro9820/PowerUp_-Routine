@@ -5,10 +5,14 @@ import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
 import com.br.ufrpe.powerUp.negocio.beans.Atividade;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +23,10 @@ public class AtividadeController {
 
     @FXML
     public Button buttonVoltar;
+    @FXML
+    public Text txtDica;
+    @FXML
+    public Text txtDica2;
 
     public void setUserController(ControladorUsuario userController) {
         this.userController = userController;
@@ -80,9 +88,23 @@ public class AtividadeController {
         executarAtividade(1, atividade);
     }
 
+    public void malhacaoMouseEntered() {
+        txtDica.setText("Os exercícios físicos podem trazer muitos benefícios para a saúde, como:");
+        txtDica2.setText("* Redução de estresse e ansiedade.\n\n" +
+                "* Melhora da qualidade de sono.\n\n" +
+                "* Fortalecimento do sistema imunológico.");
+    }
+
     public void btnCardio() {
         Atividade atividade = new Atividade("0", "cardio", TipoAtributo.STAMINA, 5);
         executarAtividade(2, atividade);
+    }
+
+    public void cardioMouseEntered() {
+        txtDica.setText("Os exercícios de cardio oferecem diversos benefícios para a saúde, tais como:");
+        txtDica2.setText("* Aumento da resistência física.\n\n" +
+                "* Melhora na saúde cardiovascular.\n\n" +
+                "* Auxílio na perda de peso e queima de gordura.");
     }
 
     public void btnEstudar() {
@@ -90,36 +112,39 @@ public class AtividadeController {
         executarAtividade(3, atividade);
     }
 
+    public void estudarMouseEntered() {
+        txtDica.setText("Dedicar-se aos estudos pode proporcionar muitos benefícios, como:");
+        txtDica2.setText("* Desenvolvimento do raciocínio lógico e crítico.\n\n" +
+                "* Aumento do conhecimento e habilidades cognitivas.\n\n" +
+                "* Melhoria da capacidade de concentração e memória.");
+    }
+
     public void btnLer() {
         Atividade atividade = new Atividade("0", "ler", TipoAtributo.CRIATIVIDADE, 5);
         executarAtividade(4, atividade);
     }
 
-    public void btnVoltar() {
-        try {
-            // Carregar o FXML e o controlador
-            FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/telaPrincipal.fxml"));
-            Scene principalScene = new Scene(fxmlLoader.load(), 600, 400);
+    public void lerMouseEntered() {
+        txtDica.setText("A leitura regular oferece diversos benefícios, tais como:");
+        txtDica2.setText("* Expansão do vocabulário e aprimoramento da linguagem.\n\n" +
+                "* Estímulo à imaginação e à criatividade.\n\n" +
+                "* Aumento do conhecimento e desenvolvimento intelectual.");
+    }
 
-            // Obter o controlador da tela de perfil
-            PrincipalController controller = fxmlLoader.getController();
+    public void btnVoltar(ActionEvent event) throws IOException {
+        // Carregar o FXML usando FXMLLoader para obter o controlador
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telaPrincipal.fxml"));
+        Parent root = fxmlLoader.load();
 
-            // Passar o controlador de usuário (userController) para o perfilController
-            controller.setUserController(userController);
+        // Obter o controlador da tela de perfil
+        PrincipalController controller = fxmlLoader.getController();
+        controller.setUserController(userController);
 
-            // Criar a nova janela
-            Stage principalStage = new Stage();
-            principalStage.setTitle("PowerUP");
-            principalStage.setScene(principalScene);
-            principalStage.show();
-
-            // Fechar a janela atual
-            Stage stage = (Stage) buttonVoltar.getScene().getWindow();
-            stage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Configurar a cena e o palco
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

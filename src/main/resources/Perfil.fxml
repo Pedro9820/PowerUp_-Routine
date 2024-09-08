@@ -15,8 +15,8 @@
 
 <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.PerfilController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" layoutY="343.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" layoutY="-14.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ba4ff" height="57.0" layoutX="-3.0" layoutY="343.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ba4ff" height="57.0" layoutX="-3.0" layoutY="-14.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
       <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil">
          <font>
             <Font name="Arial" size="42.0" />

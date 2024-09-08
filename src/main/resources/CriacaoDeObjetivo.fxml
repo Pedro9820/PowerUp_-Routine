@@ -13,8 +13,8 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.CriarObjetivoController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" layoutY="358.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#959fa8" height="57.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ba4ff" height="57.0" layoutX="-3.0" layoutY="358.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ba4ff" height="57.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
       <Text layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Criação de Objetivo">
          <font>
             <Font name="Arial" size="42.0" />
@@ -40,7 +40,7 @@
       <MenuButton fx:id="menuButtonAtributo" layoutX="144.0" layoutY="234.0" mnemonicParsing="false" text="Opções">
          <items>
             <MenuItem mnemonicParsing="false" onAction="#handleAtributoSelection" text="Força" />
-            <MenuItem mnemonicParsing="false" onAction="#handleAtributoSelection" text="Estamnia" />
+            <MenuItem mnemonicParsing="false" onAction="#handleAtributoSelection" text="Estamina" />
             <MenuItem mnemonicParsing="false" onAction="#handleAtributoSelection" text="Intelecto" />
             <MenuItem mnemonicParsing="false" onAction="#handleAtributoSelection" text="Criatividade" />
          </items>
