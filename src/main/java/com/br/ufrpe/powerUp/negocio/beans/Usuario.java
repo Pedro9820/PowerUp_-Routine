@@ -156,4 +156,9 @@ public class Usuario {
     public ArrayList<AtividadeExecutada> getAtividadesExecutadas() {
         return repoAtividadesExecutadas.getAtividadesRealizadas();
     }
+
+    public void removerObjetivo(Objetivo objetivo) {
+        this.objetivos.remove(objetivo);
+    }
+
 }

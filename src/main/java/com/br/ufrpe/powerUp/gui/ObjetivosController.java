@@ -60,8 +60,6 @@ public class ObjetivosController {
     }
 
     private void mostrarDetalhesObjetivo(Objetivo objetivo) {
-        String data = objetivo.getDataMaxima().toString();
-
         if (objetivo != null) {
             labelDescricao.setText(objetivo.getDescricao());
         } else {
@@ -69,14 +67,22 @@ public class ObjetivosController {
         }
     }
 
+
     public void handleDeleteObjetivo() {
         int indexSelecionado = objetivoTableView.getSelectionModel().getSelectedIndex();
         if (indexSelecionado >= 0) {
+            Objetivo objetivoSelecionado = objetivoTableView.getItems().get(indexSelecionado);
+
+            // Remover o objetivo do ArrayList no controlador
+            userController.removerObjetivo(objetivoSelecionado);
+
+            // Remover o objetivo da TableView
             objetivoTableView.getItems().remove(indexSelecionado);
-            objetivoTableView.getSelectionModel().clearSelection();  // Limpa a seleção após a exclusão
-            mostrarDetalhesObjetivo(null);  // Limpa os detalhes do objetivo
+            objetivoTableView.getSelectionModel().clearSelection();
+            mostrarDetalhesObjetivo(null);
         }
     }
+
 
     public void btnCriarActionPerformed(ActionEvent event) throws IOException {
         // Carregar o FXML usando FXMLLoader para obter o controlador

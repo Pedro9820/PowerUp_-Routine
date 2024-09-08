@@ -86,6 +86,11 @@ public class ControladorUsuario {
         return usuario.getObjetivos();
     }
 
+    public void removerObjetivo(Objetivo objetivo) {
+        this.usuario.removerObjetivo(objetivo);
+    }
+
+
     public ArrayList<AtividadeExecutada> getAtividadesExecutadas() {
         return usuario.getAtividadesExecutadas();
     }
