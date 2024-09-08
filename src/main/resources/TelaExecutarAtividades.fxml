@@ -57,7 +57,10 @@
       </Pane>
       <Pane layoutX="14.0" layoutY="191.0" onMouseEntered="#cardioMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
          <children>
-            <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnCardio" prefWidth="57.0" text="Iniciar" />
+            <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnCardio" prefWidth="57.0" text="Iniciar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Label id="titulo" layoutX="81.0" layoutY="15.0" text="Cardio">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -78,7 +81,10 @@
       </Pane>
       <Pane layoutX="14.0" layoutY="314.0" onMouseEntered="#estudarMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
          <children>
-            <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnEstudar" text="Iniciar" />
+            <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnEstudar" text="Iniciar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Label id="titulo" layoutX="78.0" layoutY="14.0" text="Estudar">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -99,7 +105,10 @@
       </Pane>
       <Pane layoutX="232.0" layoutY="314.0" onMouseEntered="#lerMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
          <children>
-            <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnLer" text="Iniciar" />
+            <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnLer" text="Iniciar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Label id="titulo" layoutX="75.0" layoutY="15.0" text="Ler Livro">
                <font>
                   <Font name="System Bold" size="12.0" />

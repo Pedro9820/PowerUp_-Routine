@@ -34,6 +34,9 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Label layoutX="290.0" layoutY="176.0" text="00:00" />
+      <Label fx:id="labelCronometro" layoutX="267.0" layoutY="176.0" text="00:00:00">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
    </children>
 </Pane>

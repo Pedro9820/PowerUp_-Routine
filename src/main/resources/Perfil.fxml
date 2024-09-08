@@ -79,9 +79,9 @@
         <columns>
           <TableColumn fx:id="nomeHistorico" prefWidth="75.0" text="Atividade" />
           <TableColumn fx:id="tipoHistorico" prefWidth="75.0" text="Atributo" />
-            <TableColumn fx:id="intensidadeHistorico" prefWidth="75.0" text="Intensidade" />
-            <TableColumn fx:id="inicioHistorico" prefWidth="75.0" text="Início" />
-            <TableColumn fx:id="fimHistorico" prefWidth="75.0" text="Fim" />
+            <TableColumn fx:id="intensidadeHistorico" prefWidth="36.0" text="Intensidade" />
+            <TableColumn fx:id="inicioHistorico" prefWidth="98.0" text="Início" />
+            <TableColumn fx:id="fimHistorico" prefWidth="91.0" text="Fim" />
         </columns>
       </TableView>
       <Button fx:id="buttonVoltar" layoutX="14.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnVoltar" text="Voltar">
