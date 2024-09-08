@@ -9,6 +9,7 @@ public class Objetivo {
     private TipoAtributo atividade;
     private String descricao;
     private int quota;
+    private int progresso;
 
 
     public Objetivo(LocalDate dataMaxima, String nome, String descricao, int quota, TipoAtributo atributo) {
@@ -17,6 +18,7 @@ public class Objetivo {
         this.descricao = descricao;
         this.quota = quota;
         this.atividade = atributo;
+        this.progresso = 0;
     }
 
     public boolean verificarConclusaoObjetivo(int atributo){
@@ -72,4 +74,11 @@ public class Objetivo {
         this.quota = quota;
     }
 
+    public int getProgresso() {
+        return progresso;
+    }
+
+    public void setProgresso(int progresso) {
+        this.progresso = progresso;
+    }
 }

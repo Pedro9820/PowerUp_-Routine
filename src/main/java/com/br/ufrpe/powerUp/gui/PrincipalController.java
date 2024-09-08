@@ -1,16 +1,22 @@
 package com.br.ufrpe.powerUp.gui;
 
+import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @SuppressWarnings("ALL")
 public class PrincipalController {
@@ -18,11 +24,50 @@ public class PrincipalController {
 
     @FXML
     private Button buttonAtividade;
+    @FXML
+    private VBox vboxObjetivos;
 
     public void setUserController(ControladorUsuario userController) {
         this.userController = userController;
+        atualizarObjetivos();
     }
 
+    public void atualizarObjetivos() {
+        vboxObjetivos.getChildren().clear();
+
+        ArrayList<Objetivo> listaObjetivos = userController.getObjetivos();
+
+        for (Objetivo objetivo : listaObjetivos) {
+            // Criar uma HBox para cada objetivo
+            VBox vBox = new VBox(2);
+            vBox.setAlignment(Pos.CENTER);
+
+            Label nomeLabel = new Label(objetivo.getNome());
+
+            // Barra de progresso com o percentual concluído
+            ProgressBar progressBar = new ProgressBar();
+            double progresso = calcularProgresso(objetivo);
+            progressBar.setProgress(progresso);
+            progressBar.setPrefWidth(200);
+
+            Label progressoLabel = new Label(objetivo.getProgresso() + "/" + objetivo.getQuota());
+
+            StackPane stackPane = new StackPane();
+            stackPane.getChildren().addAll(progressBar, progressoLabel);
+            StackPane.setAlignment(progressoLabel, Pos.CENTER);
+
+            // Adicionar os elementos à HBox
+            vBox.getChildren().addAll(nomeLabel, stackPane);
+            vboxObjetivos.getChildren().add(vBox);
+        }
+    }
+
+    private double calcularProgresso(Objetivo objetivo) {
+        int progressoAtual = objetivo.getProgresso();
+        int quota = objetivo.getQuota();
+        if (quota == 0) return 0;
+        return (double) progressoAtual / quota;
+    }
 
     public void btnAtividade(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/TelaExecutarAtividades.fxml"));

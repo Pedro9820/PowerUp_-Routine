@@ -2,7 +2,7 @@ package com.br.ufrpe.powerUp.gui;
 
 public class Constantes {
     public static double PRINCIPALWIDTH = 600;
-    public static double PRINCIPALHEIGHT = 400;
+    public static double PRINCIPALHEIGHT = 600;
 
     public static double PERFILWIDTH = 600;
     public static double PERFILHEIGHT = 400;

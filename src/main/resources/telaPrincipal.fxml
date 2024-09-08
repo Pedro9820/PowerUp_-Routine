@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.PrincipalController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.PrincipalController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ba4ff" height="57.0" layoutX="-6.0" layoutY="358.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ba4ff" height="57.0" layoutX="-3.0" layoutY="543.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ba4ff" height="57.0" layoutX="-6.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
       <Text fontSmoothingType="LCD" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Principal">
          <font>
@@ -47,5 +50,15 @@
             <Font name="System Italic" size="14.0" />
          </font>
       </Text>
+      <ScrollPane layoutX="63.0" layoutY="373.0">
+         <content>
+            <VBox fx:id="vboxObjetivos" alignment="TOP_CENTER" prefHeight="168.0" prefWidth="472.0" style="-fx-spacing: 10;" />
+         </content>
+      </ScrollPane>
+      <Label layoutX="270.0" layoutY="342.0" style="-fx-background-color: #f5f5f5;" text="Objetivos">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
