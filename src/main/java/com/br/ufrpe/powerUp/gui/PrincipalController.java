@@ -5,14 +5,17 @@ import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -52,6 +55,14 @@ public class PrincipalController {
 
             Label progressoLabel = new Label(objetivo.getProgresso() + "/" + objetivo.getQuota());
 
+            if (objetivo.getQuota() <= objetivo.getProgresso()) {
+                progressoLabel.setText("Concluido!");
+                progressBar.getStyleClass().add("progress-bar-concluido");
+
+                progressBar.setOnMouseClicked(event -> mostrarPopup("Objetivo concluído!", objetivo));
+                progressoLabel.setOnMouseClicked(event -> mostrarPopup("Objetivo concluído!", objetivo));
+            }
+
             StackPane stackPane = new StackPane();
             stackPane.getChildren().addAll(progressBar, progressoLabel);
             StackPane.setAlignment(progressoLabel, Pos.CENTER);
@@ -61,6 +72,29 @@ public class PrincipalController {
             vboxObjetivos.getChildren().add(vBox);
         }
     }
+
+    private void mostrarPopup(String mensagem, Objetivo objetivo ) {
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.initOwner(buttonAtividade.getScene().getWindow());
+
+        VBox vbox = new VBox(new Label(mensagem));
+        vbox.setPadding(new Insets(10));
+        vbox.setAlignment(Pos.CENTER);
+
+        Scene scene = new Scene(vbox, 200, 100);
+        popupStage.setScene(scene);
+
+        String soundPath = getClass().getResource("/sounds/vitoria.mp3").toString();
+        Media sound = new Media(soundPath);
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+        popupStage.show();
+
+        userController.removerObjetivo(objetivo);
+        atualizarObjetivos();
+    }
+
 
     private double calcularProgresso(Objetivo objetivo) {
         int progressoAtual = objetivo.getProgresso();

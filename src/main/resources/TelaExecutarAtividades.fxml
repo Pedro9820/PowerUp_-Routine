@@ -30,7 +30,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Pane layoutX="14.0" layoutY="79.0" onMouseEntered="#malhacaoMouseEntered" prefHeight="93.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+      <Pane layoutX="14.0" layoutY="79.0" onMouseEntered="#malhacaoMouseEntered" prefHeight="93.0" prefWidth="200.0" styleClass="root" stylesheets="@Styles.css">
          <children>
             <Button layoutX="71.0" layoutY="53.0" mnemonicParsing="false" onAction="#btnMalhacao" text="Iniciar">
                <cursor>
@@ -55,7 +55,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="191.0" onMouseEntered="#cardioMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+      <Pane layoutX="14.0" layoutY="191.0" onMouseEntered="#cardioMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@Styles.css">
          <children>
             <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnCardio" prefWidth="57.0" text="Iniciar">
                <cursor>
@@ -79,7 +79,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="314.0" onMouseEntered="#estudarMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+      <Pane layoutX="14.0" layoutY="314.0" onMouseEntered="#estudarMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@Styles.css">
          <children>
             <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnEstudar" text="Iniciar">
                <cursor>
@@ -103,7 +103,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="232.0" layoutY="314.0" onMouseEntered="#lerMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@atividadesStyle.css">
+      <Pane layoutX="232.0" layoutY="314.0" onMouseEntered="#lerMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@Styles.css">
          <children>
             <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnLer" text="Iniciar">
                <cursor>

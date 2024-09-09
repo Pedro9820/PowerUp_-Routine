@@ -50,9 +50,9 @@
             <Font name="System Italic" size="14.0" />
          </font>
       </Text>
-      <ScrollPane layoutX="63.0" layoutY="373.0">
+      <ScrollPane layoutX="42.0" layoutY="373.0" prefHeight="170.0" prefWidth="517.0">
          <content>
-            <VBox fx:id="vboxObjetivos" alignment="TOP_CENTER" prefHeight="168.0" prefWidth="472.0" style="-fx-spacing: 10;" />
+            <VBox fx:id="vboxObjetivos" alignment="TOP_CENTER" prefHeight="168.0" prefWidth="472.0" style="-fx-spacing: 10;" stylesheets="@Styles.css" />
          </content>
       </ScrollPane>
       <Label layoutX="270.0" layoutY="342.0" style="-fx-background-color: #f5f5f5;" text="Objetivos">

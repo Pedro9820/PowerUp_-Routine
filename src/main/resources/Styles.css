@@ -25,3 +25,7 @@
 #espelhado {
     -fx-scale-x: -1;
 }
+
+.progress-bar-concluido .bar {
+    -fx-accent: green;
+}

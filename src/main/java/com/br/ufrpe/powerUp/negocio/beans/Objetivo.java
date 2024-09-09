@@ -6,7 +6,7 @@ public class Objetivo {
     private int id;
     private LocalDate dataMaxima;
     private String nome;
-    private TipoAtributo atividade;
+    private TipoAtributo atributo;
     private String descricao;
     private int quota;
     private int progresso;
@@ -17,12 +17,12 @@ public class Objetivo {
         this.nome = nome;
         this.descricao = descricao;
         this.quota = quota;
-        this.atividade = atributo;
+        this.atributo = atributo;
         this.progresso = 0;
     }
 
-    public boolean verificarConclusaoObjetivo(int atributo){
-       return dataMaxima.isBefore(LocalDate.now()) && quota <= atributo;
+    public boolean verificarConclusaoObjetivo(){
+       return dataMaxima.isBefore(LocalDate.now()) && quota <= progresso;
 
     }
 
@@ -34,12 +34,12 @@ public class Objetivo {
         this.dataMaxima = dataMaxima;
     }
 
-    public TipoAtributo getAtividade() {
-        return atividade;
+    public TipoAtributo getAtributo() {
+        return atributo;
     }
 
-    public void setAtividade(TipoAtributo atividade) {
-        this.atividade = atividade;
+    public void setAtributo(TipoAtributo atributo) {
+        this.atributo = atributo;
     }
 
     public int getId() {
@@ -79,6 +79,6 @@ public class Objetivo {
     }
 
     public void setProgresso(int progresso) {
-        this.progresso = progresso;
+        this.progresso = this.progresso + progresso;
     }
 }

@@ -39,7 +39,7 @@ public class Usuario {
 
     }
 
-    public void atualizar_atributo(TipoAtributo tipo, int qtd) {
+    public void atualizarAtributo(TipoAtributo tipo, int qtd) {
         switch(tipo) {
             case FORCA: forca += qtd; break;
             case STAMINA: stamina += qtd; break;
@@ -47,6 +47,11 @@ public class Usuario {
             case CRIATIVIDADE: criatividade += qtd; break;
             case VELOCIDADE: velocidade += qtd; break;
             case RESISTENCIA: resistencia += qtd; break;
+        }
+
+        for (Objetivo objetivo : objetivos) {
+            if (objetivo.getAtributo() == tipo)
+                objetivo.setProgresso(qtd);
         }
     }
 

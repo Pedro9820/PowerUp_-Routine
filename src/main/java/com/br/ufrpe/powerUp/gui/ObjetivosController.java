@@ -52,7 +52,7 @@ public class ObjetivosController {
 
         // Configurar colunas do TableView objetivos
         nomeColumn.setCellValueFactory(new PropertyValueFactory<>("Nome"));
-        atividadeColumn.setCellValueFactory(new PropertyValueFactory<>("Atividade"));
+        atividadeColumn.setCellValueFactory(new PropertyValueFactory<>("Atributo"));
         dataMaxColumn.setCellValueFactory(new PropertyValueFactory<>("DataMaxima"));
         quotaColumn.setCellValueFactory(new PropertyValueFactory<>("Quota"));
         objetivoTableView.getSelectionModel().selectedItemProperty().addListener(

@@ -46,6 +46,8 @@ public class ControladorUsuario {
         usuario.adicionarAtividadeExecutada(atividade);
     }
 
+
+
     public String getUsuarioName(){
         return usuario.getNome();
     }
@@ -96,7 +98,7 @@ public class ControladorUsuario {
     }
 
     public void atualizarAtributoUsuario(TipoAtributo tipo, int qtd){
-        this.usuario.atualizar_atributo(tipo, qtd);
+        this.usuario.atualizarAtributo(tipo, qtd);
     }
 
     public void adicionarObjetivoUsuario(Objetivo objetivo){

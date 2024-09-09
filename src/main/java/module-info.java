@@ -5,6 +5,7 @@ module com.br.ufrpe.powerUp {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires javafx.media;
 
     exports com.br.ufrpe.powerUp.gui;
     exports com.br.ufrpe.powerUp.negocio.controllers;
