@@ -8,6 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.stage.Stage;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 import java.time.LocalDateTime;
@@ -19,13 +22,50 @@ public class ExecutarAtvddController {
     private Text textAtividade;
     @FXML
     private Label labelCronometro;
+    @FXML
+    private Label labelDica;
 
     private LocalDateTime inicioAtividade;
     private LocalDateTime fimAtividade;
     private Timeline cronometroTimeline;
 
-    public void setAtividade(String atividade) {
+    public void setAtividade(String atividade, String dica) {
        textAtividade.setText(atividade);
+
+        labelDica.setText(dica);
+       if (atividade.equals("Malhando...")) {
+           DayOfWeek diaDaSemana = LocalDate.now().getDayOfWeek();
+           String exercicios;
+
+           switch (diaDaSemana) {
+               case MONDAY:
+                   exercicios = "Segunda-feira: peitoral e tríceps";
+                   break;
+               case TUESDAY:
+                   exercicios = "Terça-feira: costas e bíceps";
+                   break;
+               case WEDNESDAY:
+                   exercicios = "Quarta-feira: Pernas e ombro";
+                   break;
+               case THURSDAY:
+                   exercicios = "Quinta-feira: Peito e tríceps";
+                   break;
+               case FRIDAY:
+                   exercicios = "Sexta-feira: ombro e abdominais";
+                   break;
+               case SATURDAY:
+                   exercicios = "Sábado: Corrida longa, Caminhada rápida";
+                   break;
+               case SUNDAY:
+                   exercicios = "Domingo: Descanso ativo";
+                   break;
+               default:
+                   exercicios = "Dia não identificado!";
+                   break;
+           }
+           labelDica.setText(exercicios);
+
+       }
     }
 
     public void btnIniciar() {

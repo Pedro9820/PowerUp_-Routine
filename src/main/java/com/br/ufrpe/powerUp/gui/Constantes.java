@@ -14,7 +14,7 @@ public class Constantes {
     public static double CRIAROBJETIVOHEIGH = 400;
 
     public static double INICIARATIVIDADEWIDTH = 600;
-    public static double INICIARATIVIDADEHEIGH = 400;
+    public static double INICIARATIVIDADEHEIGH = 475;
 
     public static double OBJETIVOSWIDTH = 600;
     public static double OBJETIVOSHEIGH = 400;

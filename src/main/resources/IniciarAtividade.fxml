@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.ExecutarAtvddController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.ExecutarAtvddController">
    <children>
       <Circle fill="#2e8318" layoutX="148.0" layoutY="201.0" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
       <Button layoutX="91.0" layoutY="176.0" mnemonicParsing="false" onAction="#btnIniciar" text="INICIAR">
@@ -23,13 +23,13 @@
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bdc9d3" height="51.0" layoutX="-7.0" layoutY="-11.0" stroke="BLACK" strokeType="INSIDE" width="610.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bdc9d3" height="51.0" layoutX="-7.0" layoutY="361.0" stroke="BLACK" strokeType="INSIDE" width="610.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bdc9d3" height="51.0" layoutX="-5.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="610.0" />
       <Text fx:id="textAtividade" layoutX="216.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATIVIDADE" underline="true">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Button layoutX="244.0" layoutY="299.0" mnemonicParsing="false" onAction="#btnVoltar" text="VOLTAR">
+      <Button layoutX="14.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnVoltar" text="VOLTAR">
          <font>
             <Font size="24.0" />
          </font>
@@ -38,5 +38,15 @@
          <font>
             <Font size="20.0" />
          </font></Label>
+      <Label layoutX="278.0" layoutY="326.0" text="Dica:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelDica" alignment="CENTER" layoutX="33.0" layoutY="375.0" prefHeight="20.0" prefWidth="541.0" text="dica">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

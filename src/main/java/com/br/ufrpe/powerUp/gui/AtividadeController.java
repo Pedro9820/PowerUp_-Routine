@@ -32,29 +32,13 @@ public class AtividadeController {
         this.userController = userController;
     }
 
-    private void executarAtividade(int num, Atividade atividade) {
+    private void executarAtividade(Atividade atividade, String acao, String dica) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/IniciarAtividade.fxml"));
             Scene criarScene = new Scene(fxmlLoader.load(), Constantes.INICIARATIVIDADEWIDTH, Constantes.INICIARATIVIDADEHEIGH);
 
             ExecutarAtvddController executarAtvddController = fxmlLoader.getController();
-            switch (num) {
-                case 1:
-                    executarAtvddController.setAtividade("Malhando...");
-                    break;
-                case 2:
-                    executarAtvddController.setAtividade("Correndo...");
-                    break;
-                case 3:
-                    executarAtvddController.setAtividade("Estudando...");
-                    break;
-                case 4:
-                    executarAtvddController.setAtividade("Lendo...");
-                    break;
-                default:
-                    executarAtvddController.setAtividade("atividade");
-                    break;
-            }
+            executarAtvddController.setAtividade(acao, dica);
 
             Stage criarStage = new Stage();
             criarStage.setTitle("Executar atividade");
@@ -68,6 +52,12 @@ public class AtividadeController {
                     if (fim != null) {
                         userController.adicionarAtividadeExecutada(atividade, inicio, fim);
                         userController.atualizarAtributoUsuario(atividade.getTipo(),atividade.getIntensidade());
+                        if (atividade.getNome().equals("calistenia")) {
+                            userController.atualizarAtributoUsuario(TipoAtributo.STAMINA, 2);
+
+                        } else if (atividade.getNome().equals("meditar")) {
+                            userController.atualizarAtributoUsuario(TipoAtributo.INTELECTO,2);
+                        }
                     }
                 } catch (ANexception e) {
                     throw new RuntimeException(e);
@@ -85,7 +75,7 @@ public class AtividadeController {
 
     public void btnMalhacao() {
         Atividade atividade = new Atividade("0", "malhação", TipoAtributo.FORCA, 5);
-        executarAtividade(1, atividade);
+        executarAtividade(atividade, "Malhando...", "");
     }
 
     public void malhacaoMouseEntered() {
@@ -97,7 +87,7 @@ public class AtividadeController {
 
     public void btnCardio() {
         Atividade atividade = new Atividade("0", "cardio", TipoAtributo.STAMINA, 5);
-        executarAtividade(2, atividade);
+        executarAtividade(atividade, "Cardio", "Aquecimento protege a musculatura e o coração");
     }
 
     public void cardioMouseEntered() {
@@ -109,7 +99,7 @@ public class AtividadeController {
 
     public void btnEstudar() {
         Atividade atividade = new Atividade("0", "estudar", TipoAtributo.INTELECTO, 5);
-        executarAtividade(3, atividade);
+        executarAtividade(atividade, "Estudando", "Mantenha-se distante de possíveis distrações");
     }
 
     public void estudarMouseEntered() {
@@ -121,7 +111,7 @@ public class AtividadeController {
 
     public void btnLer() {
         Atividade atividade = new Atividade("0", "ler", TipoAtributo.CRIATIVIDADE, 5);
-        executarAtividade(4, atividade);
+        executarAtividade(atividade, "Lendo", "Leia o que lhe desperta interesse");
     }
 
     public void lerMouseEntered() {
@@ -129,6 +119,32 @@ public class AtividadeController {
         txtDica2.setText("* Expansão do vocabulário e aprimoramento da linguagem.\n\n" +
                 "* Estímulo à imaginação e à criatividade.\n\n" +
                 "* Aumento do conhecimento e desenvolvimento intelectual.");
+    }
+
+    public void btnCalistenia() {
+        Atividade atividade = new Atividade("0", "calistenia", TipoAtributo.FORCA, 3);
+        executarAtividade(atividade, "calistenia", "");
+    }
+
+    public void calisteniaMouseEntered() {
+        txtDica.setText("A calistenia é um tipo de exercício de peso corporal que oferece os seguintes benefícios:");
+        txtDica2.setText("* Fortalecimento muscular sem necessidade de equipamentos.\n\n" +
+                "* Melhora na flexibilidade e coordenação motora.\n\n" +
+                "* Aumento da resistência física e controle corporal.");
+
+    }
+
+    public void btnMeditar() {
+        Atividade atividade = new Atividade("0", "meditar", TipoAtributo.CRIATIVIDADE, 3);
+        executarAtividade(atividade, "Meditação", "Foco na respiração");
+    }
+
+    public void meditarMouseEntered() {
+        txtDica.setText("A prática da meditação oferece inúmeros benefícios para a mente e o corpo, incluindo:");
+        txtDica2.setText("* Redução do estresse e da ansiedade.\n\n" +
+                "* Melhora na concentração e no foco.\n\n" +
+                "* Aumento do autoconhecimento e da sensação de calma.");
+
     }
 
     public void btnVoltar(ActionEvent event) throws IOException {

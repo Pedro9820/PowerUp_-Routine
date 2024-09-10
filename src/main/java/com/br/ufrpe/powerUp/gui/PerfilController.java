@@ -61,8 +61,8 @@ public class PerfilController {
         // atributos
         int forca = userController.getUsuarioForca();
         int estamina = userController.getUsuarioStamina();
-        int intelecto = userController.getUsuarioResistencia();
-        int criatividade= userController.getUsuarioVelocidade();
+        int intelecto = userController.getUsuarioIntelecto();
+        int criatividade= userController.getUsuarioCriatividade();
 
         labelNome.setText(userController.getUsuarioName());
         labelForca.setText(String.valueOf(forca));
