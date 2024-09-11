@@ -20,17 +20,17 @@
             <Font name="Arial" size="42.0" />
          </font>
       </Text>
-      <Button fx:id="buttonAtividade" layoutX="34.0" layoutY="181.0" mnemonicParsing="false" onAction="#btnAtividade" text="Atividade">
+      <Button fx:id="buttonAtividade" layoutX="34.0" layoutY="181.0" mnemonicParsing="false" onAction="#btnAtividade" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Atividade">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="33.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnObjetivos" text="Objetivos">
+      <Button layoutX="33.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnObjetivos" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Objetivos">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="281.0" mnemonicParsing="false" onAction="#btnPerfil" text="Perfil">
+      <Button layoutX="51.0" layoutY="281.0" mnemonicParsing="false" onAction="#btnPerfil" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Perfil">
          <font>
             <Font size="18.0" />
          </font>

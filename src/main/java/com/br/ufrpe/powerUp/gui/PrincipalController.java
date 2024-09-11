@@ -2,15 +2,20 @@ package com.br.ufrpe.powerUp.gui;
 
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -19,6 +24,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.util.Duration;
 import java.util.ArrayList;
 
 @SuppressWarnings("ALL")
@@ -78,11 +84,46 @@ public class PrincipalController {
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.initOwner(buttonAtividade.getScene().getWindow());
 
-        VBox vbox = new VBox(new Label(mensagem));
+        Label labelMensagem = new Label(mensagem);
+
+        Image spritesheet = new Image(getClass().getResource("/imgs/fireworksSpriteSheet.png").toString());
+        int frameWidth = 192;
+        int frameHeight = 192;
+        int numFramesPerRow = (int) (spritesheet.getWidth() / frameWidth);
+        int numFramesTotal = (int) ((spritesheet.getWidth() / frameWidth) * (spritesheet.getHeight() / frameHeight));
+
+        // Configuração da animação do spritesheet
+        ImageView imageView = new ImageView(spritesheet);
+        imageView.setViewport(new Rectangle2D(0, 0, frameWidth, frameHeight));
+
+        // Criação do KeyFrame para animação
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(100), e -> {
+            Rectangle2D viewport = imageView.getViewport();
+            int currentFrameX = (int) viewport.getMinX();
+            int currentFrameY = (int) viewport.getMinY();
+
+            // Calcula o próximo frame (coluna e linha)
+            int proxFrame = ((currentFrameX / frameWidth) + 1) % numFramesPerRow;
+            int proxRow = currentFrameY / frameHeight;
+
+            if (proxFrame == 0) {
+                proxRow = (int) ((proxRow + 1) % (spritesheet.getHeight() / frameHeight));
+            }
+
+            imageView.setViewport(new Rectangle2D(proxFrame * frameWidth,
+                    proxRow * frameHeight,
+                    frameWidth, frameHeight));
+        });
+
+        Timeline animation = new Timeline(keyFrame);
+        animation.setCycleCount(Timeline.INDEFINITE);
+        animation.play();
+
+        VBox vbox = new VBox(5, imageView, labelMensagem);
         vbox.setPadding(new Insets(10));
         vbox.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(vbox, 200, 100);
+        Scene scene = new Scene(vbox, 250, 300);
         popupStage.setScene(scene);
 
         String soundPath = getClass().getResource("/sounds/vitoria.mp3").toString();
@@ -151,5 +192,18 @@ public class PrincipalController {
         stage.show();
     }
 
+    public void buttonMouseEntered() {
+        String soundPath = getClass().getResource("/sounds/buttonSFX.wav").toString();
+        Media sound = new Media(soundPath);
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
+
+    public void buttonMousePressed() {
+        String soundPath = getClass().getResource("/sounds/buttonCilckSFX.mp3").toString();
+        Media sound = new Media(soundPath);
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
 
 }
