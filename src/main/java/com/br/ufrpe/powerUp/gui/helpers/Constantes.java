@@ -1,4 +1,4 @@
-package com.br.ufrpe.powerUp.gui;
+package com.br.ufrpe.powerUp.gui.helpers;
 
 public class Constantes {
     public static double PRINCIPALWIDTH = 600;

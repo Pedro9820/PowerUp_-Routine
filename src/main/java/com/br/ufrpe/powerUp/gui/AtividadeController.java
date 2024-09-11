@@ -2,6 +2,7 @@ package com.br.ufrpe.powerUp.gui;
 
 import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
+import com.br.ufrpe.powerUp.gui.helpers.Constantes;
 import com.br.ufrpe.powerUp.negocio.beans.Atividade;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;

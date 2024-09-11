@@ -2,6 +2,7 @@ package com.br.ufrpe.powerUp.gui;
 
 import com.br.ufrpe.powerUp.dados.exceptions.CJEException;
 import com.br.ufrpe.powerUp.dados.exceptions.CNException;
+import com.br.ufrpe.powerUp.gui.helpers.Constantes;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

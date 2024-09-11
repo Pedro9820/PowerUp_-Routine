@@ -1,5 +1,6 @@
 package com.br.ufrpe.powerUp.gui;
 
+import com.br.ufrpe.powerUp.gui.helpers.Constantes;
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
@@ -13,7 +14,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.function.UnaryOperator;
 
 public class CriarObjetivoController {

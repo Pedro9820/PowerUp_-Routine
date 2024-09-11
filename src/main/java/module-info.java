@@ -9,7 +9,9 @@ module com.br.ufrpe.powerUp {
 
     exports com.br.ufrpe.powerUp.gui;
     exports com.br.ufrpe.powerUp.negocio.controllers;
+    exports com.br.ufrpe.powerUp.gui.helpers;
     opens com.br.ufrpe.powerUp.gui to javafx.fxml;
     opens com.br.ufrpe.powerUp.negocio.beans to javafx.base;
     opens com.br.ufrpe.powerUp.negocio to javafx.base;
+    opens com.br.ufrpe.powerUp.gui.helpers to javafx.fxml;
 }

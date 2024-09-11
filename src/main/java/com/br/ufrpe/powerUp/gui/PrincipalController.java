@@ -1,5 +1,7 @@
 package com.br.ufrpe.powerUp.gui;
 
+import com.br.ufrpe.powerUp.gui.helpers.BasicController;
+import com.br.ufrpe.powerUp.gui.helpers.Constantes;
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.animation.KeyFrame;
@@ -28,7 +30,7 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 
 @SuppressWarnings("ALL")
-public class PrincipalController {
+public class PrincipalController extends BasicController {
     private ControladorUsuario userController;
 
     @FXML
@@ -193,17 +195,11 @@ public class PrincipalController {
     }
 
     public void buttonMouseEntered() {
-        String soundPath = getClass().getResource("/sounds/buttonSFX.wav").toString();
-        Media sound = new Media(soundPath);
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+        playSound("/sounds/buttonSFX.wav");
     }
 
     public void buttonMousePressed() {
-        String soundPath = getClass().getResource("/sounds/buttonCilckSFX.mp3").toString();
-        Media sound = new Media(soundPath);
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+        playSound("/sounds/buttonCilckSFX.mp3");
     }
 
 }

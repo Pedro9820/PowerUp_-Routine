@@ -91,9 +91,6 @@ public class ExecutarAtvddController {
     }
 
 
-
-
-
     public void btnTerminar() {
         if (inicioAtividade != null) {
             this.fimAtividade = LocalDateTime.now();

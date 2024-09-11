@@ -1,5 +1,6 @@
 package com.br.ufrpe.powerUp.gui;
 
+import com.br.ufrpe.powerUp.gui.helpers.Constantes;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
