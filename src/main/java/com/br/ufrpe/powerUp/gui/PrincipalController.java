@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -96,43 +97,16 @@ public class PrincipalController extends BasicController implements ControladorU
         Label labelMensagem = new Label(mensagem);
 
         Image spritesheet = new Image(getClass().getResource("/imgs/fireworksSpriteSheet.png").toString());
-        int frameWidth = 192;
-        int frameHeight = 192;
-        int numFramesPerRow = (int) (spritesheet.getWidth() / frameWidth);
-        int numFramesTotal = (int) ((spritesheet.getWidth() / frameWidth) * (spritesheet.getHeight() / frameHeight));
+        ImageView imageView1 = animarSprite(spritesheet, 192, 192);
+        ImageView imageView2 = animarSprite(spritesheet, 192, 192);
 
-        // Configuração da animação do spritesheet
-        ImageView imageView = new ImageView(spritesheet);
-        imageView.setViewport(new Rectangle2D(0, 0, frameWidth, frameHeight));
+        HBox hBox = new HBox(imageView1, imageView2);
 
-        // Criação do KeyFrame para animação
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(100), e -> {
-            Rectangle2D viewport = imageView.getViewport();
-            int currentFrameX = (int) viewport.getMinX();
-            int currentFrameY = (int) viewport.getMinY();
-
-            // Calcula o próximo frame (coluna e linha)
-            int proxFrame = ((currentFrameX / frameWidth) + 1) % numFramesPerRow;
-            int proxRow = currentFrameY / frameHeight;
-
-            if (proxFrame == 0) {
-                proxRow = (int) ((proxRow + 1) % (spritesheet.getHeight() / frameHeight));
-            }
-
-            imageView.setViewport(new Rectangle2D(proxFrame * frameWidth,
-                    proxRow * frameHeight,
-                    frameWidth, frameHeight));
-        });
-
-        Timeline animation = new Timeline(keyFrame);
-        animation.setCycleCount(Timeline.INDEFINITE);
-        animation.play();
-
-        VBox vbox = new VBox(5, imageView, labelMensagem);
+        VBox vbox = new VBox(5, hBox, labelMensagem);
         vbox.setPadding(new Insets(10));
         vbox.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(vbox, 250, 300);
+        Scene scene = new Scene(vbox, 300, 300);
         popupStage.setScene(scene);
 
         String soundPath = getClass().getResource("/sounds/vitoria.mp3").toString();

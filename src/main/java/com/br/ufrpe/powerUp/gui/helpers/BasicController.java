@@ -1,13 +1,19 @@
 package com.br.ufrpe.powerUp.gui.helpers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -46,5 +52,37 @@ public abstract class BasicController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    protected ImageView animarSprite(Image spriteSheet, int frameWidth, int frameHeight) {
+        int numFramesPerRow = (int) (spriteSheet.getWidth() / frameWidth);
+        int numFramesTotal = (int) ((spriteSheet.getWidth() / frameWidth) * (spriteSheet.getHeight() / frameHeight));
+
+        ImageView imageView = new ImageView(spriteSheet);
+        imageView.setViewport(new Rectangle2D(0, 0, frameWidth, frameHeight));
+
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(100), e -> {
+            Rectangle2D viewport = imageView.getViewport();
+            int currentFrameX = (int) viewport.getMinX();
+            int currentFrameY = (int) viewport.getMinY();
+
+            // Calcula o próximo frame (coluna e linha)
+            int proxFrame = ((currentFrameX / frameWidth) + 1) % numFramesPerRow;
+            int proxRow = currentFrameY / frameHeight;
+
+            if (proxFrame == 0) {
+                proxRow = (int) ((proxRow + 1) % (spriteSheet.getHeight() / frameHeight));
+            }
+
+            imageView.setViewport(new Rectangle2D(proxFrame * frameWidth,
+                    proxRow * frameHeight,
+                    frameWidth, frameHeight));
+        });
+
+        Timeline animation = new Timeline(keyFrame);
+        animation.setCycleCount(Timeline.INDEFINITE);
+        animation.play();
+
+        return imageView;
     }
 }
