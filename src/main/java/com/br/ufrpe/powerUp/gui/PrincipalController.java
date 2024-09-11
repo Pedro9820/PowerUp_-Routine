@@ -70,18 +70,24 @@ public class PrincipalController extends BasicController implements ControladorU
             progressBar.setPrefWidth(200);
 
             Label progressoLabel = new Label(objetivo.getProgresso() + "/" + objetivo.getQuota());
+            Image spritesheet = new Image(getClass().getResource("/imgs/coinSpriteSheet.png").toString());
+            ImageView imageView = null;
 
             if (objetivo.getQuota() <= objetivo.getProgresso()) {
                 progressoLabel.setText("Concluido!");
                 progressBar.getStyleClass().add("progress-bar-concluido");
 
+                imageView = animarSprite(spritesheet, 128, 128, 64, 64);
                 progressBar.setOnMouseClicked(event -> mostrarPopup("Objetivo concluído!", objetivo));
                 progressoLabel.setOnMouseClicked(event -> mostrarPopup("Objetivo concluído!", objetivo));
+                imageView.setOnMouseClicked(event -> mostrarPopup("Objetivo concluído!", objetivo));
             }
 
             StackPane stackPane = new StackPane();
             stackPane.getChildren().addAll(progressBar, progressoLabel);
-            StackPane.setAlignment(progressoLabel, Pos.CENTER);
+            if (imageView != null) {
+                stackPane.getChildren().add(imageView);
+            }
 
             // Adicionar os elementos à HBox
             vBox.getChildren().addAll(nomeLabel, stackPane);
@@ -97,8 +103,8 @@ public class PrincipalController extends BasicController implements ControladorU
         Label labelMensagem = new Label(mensagem);
 
         Image spritesheet = new Image(getClass().getResource("/imgs/fireworksSpriteSheet.png").toString());
-        ImageView imageView1 = animarSprite(spritesheet, 192, 192);
-        ImageView imageView2 = animarSprite(spritesheet, 192, 192);
+        ImageView imageView1 = animarSprite(spritesheet, 192, 192, 192, 192);
+        ImageView imageView2 = animarSprite(spritesheet, 192, 192, 192, 192);
 
         HBox hBox = new HBox(imageView1, imageView2);
 

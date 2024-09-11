@@ -54,12 +54,14 @@ public abstract class BasicController {
         stage.show();
     }
 
-    protected ImageView animarSprite(Image spriteSheet, int frameWidth, int frameHeight) {
+    protected ImageView animarSprite(Image spriteSheet, int frameWidth, int frameHeight, int largura, int altura) {
         int numFramesPerRow = (int) (spriteSheet.getWidth() / frameWidth);
         int numFramesTotal = (int) ((spriteSheet.getWidth() / frameWidth) * (spriteSheet.getHeight() / frameHeight));
 
         ImageView imageView = new ImageView(spriteSheet);
         imageView.setViewport(new Rectangle2D(0, 0, frameWidth, frameHeight));
+        imageView.setFitWidth(largura);
+        imageView.setFitHeight(altura);
 
         KeyFrame keyFrame = new KeyFrame(Duration.millis(100), e -> {
             Rectangle2D viewport = imageView.getViewport();

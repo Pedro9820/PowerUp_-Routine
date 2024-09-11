@@ -32,22 +32,22 @@
          </font>
       </Text>
       <Label fx:id="labelDescricao" layoutX="335.0" layoutY="137.0" prefHeight="100.0" prefWidth="234.0" text="Label" />
-      <Button layoutX="335.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnCriarActionPerformed" text="Criar">
+      <Button layoutX="335.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnCriarActionPerformed" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Criar">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="399.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleDeleteObjetivo" text="Remover">
+      <Button layoutX="399.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleDeleteObjetivo" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Remover">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="491.0" layoutY="253.0" mnemonicParsing="false" text="Editar">
+      <Button layoutX="491.0" layoutY="253.0" mnemonicParsing="false" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Editar">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="buttonVoltar" layoutX="490.0" layoutY="300.0" mnemonicParsing="false" onAction="#btnVoltar" text="Voltar">
+      <Button fx:id="buttonVoltar" layoutX="490.0" layoutY="300.0" mnemonicParsing="false" onAction="#btnVoltar" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Voltar">
          <font>
             <Font size="16.0" />
          </font>

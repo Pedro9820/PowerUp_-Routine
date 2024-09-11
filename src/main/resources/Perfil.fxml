@@ -84,12 +84,12 @@
             <TableColumn fx:id="fimHistorico" prefWidth="91.0" text="Fim" />
         </columns>
       </TableView>
-      <Button fx:id="buttonVoltar" layoutX="14.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnVoltar" text="Voltar">
+      <Button fx:id="buttonVoltar" layoutX="14.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnVoltar" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Voltar">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="85.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnConfig" prefHeight="35.0" prefWidth="125.0" text="Configurações">
+      <Button layoutX="85.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnConfig" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" prefHeight="35.0" prefWidth="125.0" text="Configurações">
          <font>
             <Font size="16.0" />
          </font>

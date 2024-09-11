@@ -25,14 +25,14 @@
          </font>
       </Text>
       <Text fx:id="txtDica2" layoutX="459.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Redução de estresse e ansiedade." wrappingWidth="222.43359375" />
-      <Button fx:id="buttonVoltar" layoutX="510.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnVoltar" text="Voltar">
+      <Button fx:id="buttonVoltar" layoutX="510.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnVoltar" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Voltar">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
       <Pane layoutX="14.0" layoutY="79.0" onMouseEntered="#malhacaoMouseEntered" prefHeight="93.0" prefWidth="200.0" styleClass="root" stylesheets="@Styles.css">
          <children>
-            <Button layoutX="71.0" layoutY="53.0" mnemonicParsing="false" onAction="#btnMalhacao" text="Iniciar">
+            <Button layoutX="71.0" layoutY="53.0" mnemonicParsing="false" onAction="#btnMalhacao" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Iniciar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -57,7 +57,7 @@
       </Pane>
       <Pane layoutX="14.0" layoutY="191.0" onMouseEntered="#cardioMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@Styles.css">
          <children>
-            <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnCardio" prefWidth="57.0" text="Iniciar">
+            <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnCardio" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" prefWidth="57.0" text="Iniciar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -81,7 +81,7 @@
       </Pane>
       <Pane layoutX="223.0" layoutY="76.0" onMouseEntered="#estudarMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@Styles.css">
          <children>
-            <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnEstudar" text="Iniciar">
+            <Button layoutX="72.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnEstudar" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Iniciar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -105,7 +105,7 @@
       </Pane>
       <Pane layoutX="223.0" layoutY="191.0" onMouseEntered="#lerMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@Styles.css">
          <children>
-            <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnLer" text="Iniciar">
+            <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnLer" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Iniciar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -129,7 +129,7 @@
       </Pane>
       <Pane layoutX="14.0" layoutY="303.0" onMouseEntered="#calisteniaMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@Styles.css">
          <children>
-            <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnCalistenia" text="Iniciar">
+            <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnCalistenia" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Iniciar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -154,7 +154,7 @@
       </Pane>
       <Pane layoutX="223.0" layoutY="303.0" onMouseEntered="#meditarMouseEntered" prefHeight="100.0" prefWidth="200.0" styleClass="root" stylesheets="@Styles.css">
          <children>
-            <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnMeditar" text="Iniciar">
+            <Button layoutX="73.0" layoutY="54.0" mnemonicParsing="false" onAction="#btnMeditar" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Iniciar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
