@@ -1,6 +1,8 @@
 package com.br.ufrpe.powerUp.gui;
 
+import com.br.ufrpe.powerUp.gui.helpers.BasicController;
 import com.br.ufrpe.powerUp.gui.helpers.Constantes;
+import com.br.ufrpe.powerUp.gui.helpers.ControladorUsuarioInterface;
 import com.br.ufrpe.powerUp.negocio.beans.AtividadeExecutada;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
@@ -22,7 +24,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PerfilController {
+public class PerfilController extends BasicController implements ControladorUsuarioInterface {
     private ControladorUsuario userController;
     private ObservableList<AtividadeExecutada> historico = FXCollections.observableArrayList();
 
@@ -56,8 +58,8 @@ public class PerfilController {
     @FXML
     private TableColumn<AtividadeExecutada, String> fimHistorico;
 
+    @Override
     public void setUserController(ControladorUsuario userController) {
-        System.out.println("test");
         this.userController = userController;
         // atributos
         int forca = userController.getUsuarioForca();
@@ -75,6 +77,11 @@ public class PerfilController {
         historicoTableView.setItems(historico);
     }
 
+    @Override
+    public ControladorUsuario getUserController() {
+        return userController;
+    }
+
     public void initialize() {
         // configurar colunas do tableView Historico
         nomeHistorico.setCellValueFactory(new PropertyValueFactory<>("Nome"));
@@ -86,37 +93,25 @@ public class PerfilController {
     }
 
     public void btnConfig(ActionEvent event) throws IOException {
-        // Carregar o FXML usando FXMLLoader para obter o controlador
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/config.fxml"));
-        Parent root = fxmlLoader.load();
-
-        // Obter o controlador da tela de perfil
-        ConfigController controller = fxmlLoader.getController();
-        controller.setUserController(userController);
-
-        // Configurar a cena e o palco
-        Scene scene = new Scene(root, Constantes.CONFIGHWIDTH, Constantes.CONFIGHEIGHT);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        BasicController.criarCena(event, "/config.fxml", this,
+                Constantes.CONFIGHWIDTH,
+                Constantes.CONFIGHEIGHT);
 
     }
 
     public void btnVoltar(ActionEvent event) throws IOException {
-        // Carregar o FXML usando FXMLLoader para obter o controlador
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telaPrincipal.fxml"));
-        Parent root = fxmlLoader.load();
+        BasicController.criarCena(event, "/telaPrincipal.fxml", this,
+                Constantes.PRINCIPALWIDTH,
+                Constantes.PRINCIPALHEIGHT);
 
-        // Obter o controlador
-        PrincipalController controller = fxmlLoader.getController();
-        controller.setUserController(userController);
+    }
 
-        // Configurar a cena e o palco
-        Scene scene = new Scene(root, Constantes.PRINCIPALWIDTH, Constantes.PRINCIPALHEIGHT);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+    public void buttonMouseEntered() {
+        playSound("/sounds/buttonSFX.wav");
+    }
 
+    public void buttonMousePressed() {
+        playSound("/sounds/buttonCilckSFX.mp3");
     }
 
 }

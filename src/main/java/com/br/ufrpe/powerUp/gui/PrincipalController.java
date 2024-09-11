@@ -2,6 +2,7 @@ package com.br.ufrpe.powerUp.gui;
 
 import com.br.ufrpe.powerUp.gui.helpers.BasicController;
 import com.br.ufrpe.powerUp.gui.helpers.Constantes;
+import com.br.ufrpe.powerUp.gui.helpers.ControladorUsuarioInterface;
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.animation.KeyFrame;
@@ -30,7 +31,7 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 
 @SuppressWarnings("ALL")
-public class PrincipalController extends BasicController {
+public class PrincipalController extends BasicController implements ControladorUsuarioInterface {
     private ControladorUsuario userController;
 
     @FXML
@@ -38,9 +39,15 @@ public class PrincipalController extends BasicController {
     @FXML
     private VBox vboxObjetivos;
 
+    @Override
     public void setUserController(ControladorUsuario userController) {
         this.userController = userController;
         atualizarObjetivos();
+    }
+
+    @Override
+    public ControladorUsuario getUserController() {
+        return this.userController;
     }
 
     public void atualizarObjetivos() {
@@ -147,51 +154,22 @@ public class PrincipalController extends BasicController {
     }
 
     public void btnAtividade(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/TelaExecutarAtividades.fxml"));
-        Parent root = fxmlLoader.load();
-
-        // Obter o controlador da tela de perfil
-        AtividadeController controller = fxmlLoader.getController();
-        controller.setUserController(userController);
-
-        // Configurar a cena e o palco
-        Scene scene = new Scene(root, Constantes.EXECUTARATIVIDADEWIDTH, Constantes.EXECUTARATIVIDADEHEIGHT);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        BasicController.criarCena(event, "/TelaExecutarAtividades.fxml", this,
+                Constantes.EXECUTARATIVIDADEWIDTH,
+                Constantes.EXECUTARATIVIDADEHEIGHT);
     }
 
     public void btnObjetivos(ActionEvent event) throws IOException {
-        // Carregar o FXML usando FXMLLoader para obter o controlador
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Objetivos.fxml"));
-        Parent root = fxmlLoader.load();
-
-        // Obter o controlador da tela de perfil
-        ObjetivosController controller = fxmlLoader.getController();
-        controller.setUserController(userController);
-
-        // Configurar a cena e o palco
-        Scene scene = new Scene(root, Constantes.OBJETIVOSWIDTH, Constantes.CONFIGHEIGHT);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        BasicController.criarCena(event, "/Objetivos.fxml", this,
+                Constantes.OBJETIVOSWIDTH,
+                Constantes.CONFIGHEIGHT);
 
     }
 
     public void btnPerfil(ActionEvent event) throws IOException {
-        // Carregar o FXML usando FXMLLoader para obter o controlador
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Perfil.fxml"));
-        Parent root = fxmlLoader.load();
-
-        // Obter o controlador da tela de perfil
-        PerfilController controller = fxmlLoader.getController();
-        controller.setUserController(userController);
-
-        // Configurar a cena e o palco
-        Scene scene = new Scene(root, Constantes.PERFILWIDTH, Constantes.PERFILHEIGHT);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        BasicController.criarCena(event, "/Perfil.fxml", this,
+                Constantes.PERFILWIDTH,
+                Constantes.PERFILHEIGHT);
     }
 
     public void buttonMouseEntered() {

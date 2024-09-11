@@ -2,7 +2,9 @@ package com.br.ufrpe.powerUp.gui;
 
 import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
+import com.br.ufrpe.powerUp.gui.helpers.BasicController;
 import com.br.ufrpe.powerUp.gui.helpers.Constantes;
+import com.br.ufrpe.powerUp.gui.helpers.ControladorUsuarioInterface;
 import com.br.ufrpe.powerUp.negocio.beans.Atividade;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
@@ -19,7 +21,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class AtividadeController {
+public class AtividadeController extends BasicController implements ControladorUsuarioInterface {
     private ControladorUsuario userController;
 
     @FXML
@@ -29,8 +31,14 @@ public class AtividadeController {
     @FXML
     public Text txtDica2;
 
+    @Override
     public void setUserController(ControladorUsuario userController) {
         this.userController = userController;
+    }
+
+    @Override
+    public ControladorUsuario getUserController() {
+        return this.userController;
     }
 
     private void executarAtividade(Atividade atividade, String acao, String dica) {
@@ -149,19 +157,17 @@ public class AtividadeController {
     }
 
     public void btnVoltar(ActionEvent event) throws IOException {
-        // Carregar o FXML usando FXMLLoader para obter o controlador
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telaPrincipal.fxml"));
-        Parent root = fxmlLoader.load();
+        BasicController.criarCena(event, "/telaPrincipal.fxml", this,
+                Constantes.PRINCIPALWIDTH,
+                Constantes.PRINCIPALHEIGHT);
+    }
 
-        // Obter o controlador da tela
-        PrincipalController controller = fxmlLoader.getController();
-        controller.setUserController(userController);
+    public void buttonMouseEntered() {
+        playSound("/sounds/buttonSFX.wav");
+    }
 
-        // Configurar a cena e o palco
-        Scene scene = new Scene(root, Constantes.PRINCIPALWIDTH, Constantes.PRINCIPALHEIGHT);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+    public void buttonMousePressed() {
+        playSound("/sounds/buttonCilckSFX.mp3");
     }
 
 }

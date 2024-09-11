@@ -1,6 +1,8 @@
 package com.br.ufrpe.powerUp.gui;
 
+import com.br.ufrpe.powerUp.gui.helpers.BasicController;
 import com.br.ufrpe.powerUp.gui.helpers.Constantes;
+import com.br.ufrpe.powerUp.gui.helpers.ControladorUsuarioInterface;
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
@@ -16,7 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.function.UnaryOperator;
 
-public class CriarObjetivoController {
+public class CriarObjetivoController extends BasicController implements ControladorUsuarioInterface {
     private ControladorUsuario userController;
 
     @FXML
@@ -37,8 +39,14 @@ public class CriarObjetivoController {
 
     private TipoAtributo atributoSelecionado;
 
+    @Override
     public void setUserController(ControladorUsuario userController) {
         this.userController = userController;
+    }
+
+    @Override
+    public ControladorUsuario getUserController() {
+        return userController;
     }
 
     @FXML
@@ -81,18 +89,8 @@ public class CriarObjetivoController {
     }
 
     public void criarCena(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Objetivos.fxml"));
-        Parent root = fxmlLoader.load();
-
-        // Obter o controlador da tela de perfil
-        ObjetivosController controller = fxmlLoader.getController();
-        controller.setUserController(userController);
-
-        // Configurar a cena e o palco
-        Scene scene = new Scene(root, Constantes.OBJETIVOSWIDTH, Constantes.OBJETIVOSHEIGH);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        BasicController.criarCena(event, "/Objetivos.fxml", this,
+                Constantes.OBJETIVOSWIDTH, Constantes.OBJETIVOSHEIGH);
     }
 
 
@@ -133,6 +131,14 @@ public class CriarObjetivoController {
 
     public void btnVoltar(ActionEvent event) throws IOException {
         criarCena(event);
+    }
+
+    public void buttonMouseEntered() {
+        playSound("/sounds/buttonSFX.wav");
+    }
+
+    public void buttonMousePressed() {
+        playSound("/sounds/buttonCilckSFX.mp3");
     }
 
 }
