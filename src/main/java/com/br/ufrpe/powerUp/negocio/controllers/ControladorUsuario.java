@@ -5,11 +5,7 @@ import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
 import com.br.ufrpe.powerUp.dados.exceptions.CJEException;
 import com.br.ufrpe.powerUp.dados.exceptions.CNException;
-import com.br.ufrpe.powerUp.negocio.beans.AtividadeExecutada;
-import com.br.ufrpe.powerUp.negocio.beans.Atividade;
-import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
-import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
-import com.br.ufrpe.powerUp.negocio.beans.Usuario;
+import com.br.ufrpe.powerUp.negocio.beans.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -18,24 +14,24 @@ public class ControladorUsuario {
     private Usuario usuario;
 
 
-    public ControladorUsuario(String nome, String senha, boolean login) throws CJEException, CNException {
+    public ControladorUsuario(String nome, String senha, float altura, boolean login) throws CJEException, CNException {
         if (login){
             logarConta(nome, senha);
         } else {
-            cadastrarConta(nome, senha);
+            cadastrarConta(nome, senha, altura);
         }
 
     }
 
     private void logarConta(String nome, String senha) throws CNException {
-        Usuario usuarioLogin = new Usuario("0", nome, senha);
+        Usuario usuarioLogin = new Usuario("0", nome, senha, 0);
 
         RepositorioUsuarios repositorio = RepositorioUsuarios.getInstance();
         usuario = repositorio.procurarConta(usuarioLogin);
     }
 
-    private void cadastrarConta(String nome, String senha) throws CJEException, CNException {
-        Usuario usuarioCadastro = new Usuario("0", nome, senha);
+    private void cadastrarConta(String nome, String senha, float altura) throws CJEException, CNException {
+        Usuario usuarioCadastro = new Usuario("0", nome, senha, altura);
 
         RepositorioUsuarios repositorio = RepositorioUsuarios.getInstance();
         repositorio.adicionarConta(usuarioCadastro);
@@ -74,10 +70,6 @@ public class ControladorUsuario {
 
     public int getUsuarioVelocidade(){
         return usuario.getVelocidade();
-    }
-
-    public float getUsuarioPeso(){
-        return usuario.getPeso();
     }
 
     public float getUsuarioAltura(){
@@ -121,10 +113,6 @@ public class ControladorUsuario {
         this.usuario.setVelocidade(valor);
     }
 
-    public void setPesoUsuario(float valor){
-        this.usuario.setPeso(valor);
-    }
-
     public void setAlturaUsuario(float valor){
         this.usuario.setAltura(valor);
     }
@@ -135,6 +123,18 @@ public class ControladorUsuario {
 
     public void setIdUsuario(String id){
         this.usuario.setID(id);
+    }
+
+    public float getPesoAtual() {
+        return this.usuario.getPesoAtual();
+    }
+
+    public void adicionarPeso(Peso peso) {
+        this.usuario.adicionarPeso(peso);
+    }
+
+    public ArrayList<Peso> getHistoricoPesos() {
+        return this.usuario.getHistoricoPesos();
     }
 
 }

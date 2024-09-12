@@ -5,7 +5,7 @@ public class Constantes {
     public static double PRINCIPALHEIGHT = 600;
 
     public static double PERFILWIDTH = 600;
-    public static double PERFILHEIGHT = 400;
+    public static double PERFILHEIGHT = 659;
 
     public static double CONFIGHWIDTH = 600;
     public static double CONFIGHEIGHT = 400;

@@ -39,7 +39,7 @@ public class GuiController {
         String senha = txtFieldSenha.getText();
 
         try {
-            userController = new ControladorUsuario(nome, senha, true);
+            userController = new ControladorUsuario(nome, senha, 0, true);
 
             // Carregar a nova tela (tela principal)
             FXMLLoader fxmlLoader = new FXMLLoader(GuiApplication.class.getResource("/telaPrincipal.fxml"));

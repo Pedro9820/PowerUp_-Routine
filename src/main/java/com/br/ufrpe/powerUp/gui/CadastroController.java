@@ -18,15 +18,20 @@ public class CadastroController {
     private PasswordField txtFieldSenha;
 
     @FXML
+    private TextField txtFieldAltura;
+
+    @FXML
     private Button buttonCadastrar;
 
     @FXML
     private void btnCadastrarActionPerformed() throws CJEException, CNException {
         String nome = txtFieldNome.getText();
         String senha = txtFieldSenha.getText();
+        String altura = txtFieldAltura.getText();
 
         try {
-            ControladorUsuario userController = new ControladorUsuario(nome, senha, false);
+            float alturaFloat = Float.parseFloat(altura);
+            ControladorUsuario userController = new ControladorUsuario(nome, senha, alturaFloat, false);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cadastro Concluído");
@@ -44,6 +49,12 @@ public class CadastroController {
             alert.setContentText(e.getMessage());
             alert.showAndWait();
 
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Entrada inválida");
+            alert.setContentText("Por favor, insira um número válido para a altura.");
+            alert.showAndWait();
         }
     }
 

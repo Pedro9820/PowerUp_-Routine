@@ -4,6 +4,7 @@ import com.br.ufrpe.powerUp.gui.helpers.BasicController;
 import com.br.ufrpe.powerUp.gui.helpers.Constantes;
 import com.br.ufrpe.powerUp.gui.helpers.ControladorUsuarioInterface;
 import com.br.ufrpe.powerUp.negocio.beans.AtividadeExecutada;
+import com.br.ufrpe.powerUp.negocio.beans.Peso;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
 import javafx.collections.FXCollections;
@@ -18,15 +19,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class PerfilController extends BasicController implements ControladorUsuarioInterface {
     private ControladorUsuario userController;
     private ObservableList<AtividadeExecutada> historico = FXCollections.observableArrayList();
+    private XYChart.Series<String, Number> seriesPeso = new XYChart.Series<>();
 
     @FXML
     public Pane pane;
@@ -46,6 +53,9 @@ public class PerfilController extends BasicController implements ControladorUsua
     public Label labelCriatividade;
 
     @FXML
+    public Label labelIMC;
+
+    @FXML
     private TableView<AtividadeExecutada> historicoTableView;
     @FXML
     private TableColumn<AtividadeExecutada, String> nomeHistorico;
@@ -58,6 +68,14 @@ public class PerfilController extends BasicController implements ControladorUsua
     @FXML
     private TableColumn<AtividadeExecutada, String> fimHistorico;
 
+    @FXML
+    private LineChart<String, Number> lineChart;
+
+    @FXML
+    private TextField pesoTextField;
+    @FXML
+    private Button adicionarPesoButton;
+
     @Override
     public void setUserController(ControladorUsuario userController) {
         this.userController = userController;
@@ -65,7 +83,7 @@ public class PerfilController extends BasicController implements ControladorUsua
         int forca = userController.getUsuarioForca();
         int estamina = userController.getUsuarioStamina();
         int intelecto = userController.getUsuarioIntelecto();
-        int criatividade= userController.getUsuarioCriatividade();
+        int criatividade = userController.getUsuarioCriatividade();
 
         labelNome.setText(userController.getUsuarioName());
         labelForca.setText(String.valueOf(forca));
@@ -75,6 +93,9 @@ public class PerfilController extends BasicController implements ControladorUsua
 
         historico.addAll(userController.getAtividadesExecutadas());
         historicoTableView.setItems(historico);
+
+        // Configurar o gráfico
+        atualizarGrafico();
     }
 
     @Override
@@ -91,6 +112,49 @@ public class PerfilController extends BasicController implements ControladorUsua
         fimHistorico.setCellValueFactory(new PropertyValueFactory<>("Atfim"));
 
     }
+
+    private void atualizarGrafico() {
+        lineChart.getData().clear();
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Peso ao longo do tempo");
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM");
+
+        for (Peso peso : userController.getHistoricoPesos()) {
+            // Converter LocalDate para o formato "dia/mês"
+            String dataFormatada = peso.getData().format(formatter);
+            series.getData().add(new XYChart.Data<>(dataFormatada, peso.getValor()));
+        }
+
+        lineChart.getData().add(series);
+    }
+
+    @FXML
+    private void adicionarPeso(ActionEvent event) {
+        String textoPeso = pesoTextField.getText();
+        if (!textoPeso.isEmpty()) {
+            try {
+                float valorPeso = Float.parseFloat(textoPeso);
+                Peso novoPeso = new Peso(valorPeso, LocalDate.now());
+                userController.adicionarPeso(novoPeso);
+                atualizarGrafico();
+                atualizarIMC();
+                pesoTextField.clear();
+            } catch (NumberFormatException e) {
+                System.out.println("WIP");
+            }
+        }
+    }
+
+    private void atualizarIMC() {
+        float peso = userController.getPesoAtual();
+        float altura = userController.getUsuarioAltura();
+
+        float imc = peso / (altura * altura);
+        String imcString = String.format("%.2f", imc);
+        labelIMC.setText(imcString);
+    }
+
 
     public void btnConfig(ActionEvent event) throws IOException {
         BasicController.criarCena(event, "/config.fxml", this,

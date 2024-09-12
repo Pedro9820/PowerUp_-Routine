@@ -8,10 +8,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.ufrpe.powerUp.gui.CadastroController">
    <children>
-      <TextField fx:id="txtFieldNome" layoutX="112.0" layoutY="111.0" />
-      <Label layoutX="58.0" layoutY="115.0" text="Nome:" />
-      <Label layoutX="59.0" layoutY="180.0" text="Senha:" />
-      <PasswordField fx:id="txtFieldSenha" layoutX="112.0" layoutY="176.0" />
+      <TextField fx:id="txtFieldNome" layoutX="112.0" layoutY="73.0" />
+      <Label layoutX="58.0" layoutY="77.0" text="Nome:" />
+      <Label layoutX="58.0" layoutY="127.0" text="Senha:" />
+      <PasswordField fx:id="txtFieldSenha" layoutX="111.0" layoutY="123.0" />
       <Button fx:id="buttonCadastrar" layoutX="153.0" layoutY="229.0" mnemonicParsing="false" onAction="#btnCadastrarActionPerformed" text="Cadastrar" />
+      <Label layoutX="58.0" layoutY="171.0" text="Altura:" />
+      <TextField fx:id="txtFieldAltura" layoutX="111.0" layoutY="167.0" promptText="Ex: 1.70" />
    </children>
 </Pane>

@@ -4,6 +4,7 @@ import com.br.ufrpe.powerUp.dados.RepositorioAtividadesExecutadas;
 import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -17,12 +18,13 @@ public class Usuario {
     private int criatividade;
     private int velocidade;
     private int resistencia;
-    private float peso;
     private float altura;
+    private float pesoAtual;
+    private ArrayList<Peso> historicoPesos;
     private ArrayList<Objetivo> objetivos;
     private RepositorioAtividadesExecutadas repoAtividadesExecutadas;
 
-    public Usuario(String ID, String nome, String senha) {
+    public Usuario(String ID, String nome, String senha, float altura) {
         this.ID = ID;
         this.nome = nome;
         this.senha = senha;
@@ -32,10 +34,15 @@ public class Usuario {
         this.criatividade = 0;
         this.velocidade = 0;
         this.resistencia = 0;
-        this.peso = 0;
-        this.altura = 0;
+        this.altura = altura;
+        this.pesoAtual = 0;
+        this.historicoPesos = new ArrayList<>();
         this.objetivos = new ArrayList<>();
         this.repoAtividadesExecutadas = new RepositorioAtividadesExecutadas();
+
+        // Adicionando pesos de teste
+        this.historicoPesos.add(new Peso(70f, LocalDate.of(2024, 9, 9)));
+        this.historicoPesos.add(new Peso(75f, LocalDate.of(2024, 9, 11)));
 
     }
 
@@ -103,10 +110,6 @@ public class Usuario {
         this.resistencia = resistencia;
     }
 
-    public void setPeso(float peso) {
-        this.peso = peso;
-    }
-
     public void setAltura(float altura) {
         this.altura = altura;
     }
@@ -142,10 +145,6 @@ public class Usuario {
         return resistencia;
     }
 
-    public float getPeso() {
-        return peso;
-    }
-
     public float getAltura() {
         return altura;
     }
@@ -156,6 +155,23 @@ public class Usuario {
 
     public ArrayList<Objetivo> getObjetivos() {
         return objetivos;
+    }
+
+    public void adicionarPeso(Peso peso) {
+        if (historicoPesos.size() >= 60) {
+            // Remover o peso mais antigo se o histórico estiver cheio
+            historicoPesos.removeFirst();
+        }
+        historicoPesos.add(peso);
+    }
+
+    public float getPesoAtual() {
+       pesoAtual = historicoPesos.getLast().getValor();
+       return pesoAtual;
+    }
+
+    public ArrayList<Peso> getHistoricoPesos() {
+        return historicoPesos;
     }
 
     public ArrayList<AtividadeExecutada> getAtividadesExecutadas() {
