@@ -4,11 +4,15 @@ import com.br.ufrpe.powerUp.negocio.beans.Atividade;
 import com.br.ufrpe.powerUp.negocio.beans.TipoAtributo;
 import com.br.ufrpe.powerUp.negocio.beans.Usuario;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class AtividadeExecutada {
+public class AtividadeExecutada implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     private Usuario usuario;
     private Atividade atividadeExec;

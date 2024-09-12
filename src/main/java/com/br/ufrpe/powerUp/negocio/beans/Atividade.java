@@ -1,8 +1,12 @@
 package com.br.ufrpe.powerUp.negocio.beans;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalTime;
 
-public class Atividade {
+public class Atividade implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     private String id;
     private String nome;
