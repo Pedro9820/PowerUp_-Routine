@@ -119,7 +119,11 @@
          </font>
       </Button>
       <TextField fx:id="pesoTextField" layoutX="189.0" layoutY="595.0" promptText="Peso Atual" />
-      <Label layoutX="48.0" layoutY="582.0" text="IMC" />
-      <Label fx:id="labelIMC" layoutX="55.0" layoutY="599.0" text="0" />
+      <Label fx:id="labelIMC" layoutX="48.0" layoutY="582.0" text="IMC">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="labelNumberIMC" alignment="CENTER" layoutX="10.0" layoutY="599.0" prefHeight="17.0" prefWidth="98.0" text="0" />
+      <Label fx:id="labelIMCStatuts" alignment="CENTER" layoutX="3.0" layoutY="617.0" prefHeight="17.0" prefWidth="113.0" text="status" textAlignment="CENTER" />
    </children>
 </Pane>

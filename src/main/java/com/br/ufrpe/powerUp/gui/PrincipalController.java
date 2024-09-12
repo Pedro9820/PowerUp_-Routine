@@ -174,12 +174,12 @@ public class PrincipalController extends BasicController implements ControladorU
 
     public void buttonMouseEntered(javafx.scene.input.MouseEvent event) {
         Button button = (Button) event.getSource();
-        playSound("/sounds/buttonSFX.wav");
+        playSound("/sounds/buttonSFX.wav", userController.getVolume());
         new Pulse(button).play();
     }
 
     public void buttonMousePressed() {
-        playSound("/sounds/buttonCilckSFX.mp3");
+        playSound("/sounds/buttonCilckSFX.mp3", userController.getVolume());
     }
 
 }

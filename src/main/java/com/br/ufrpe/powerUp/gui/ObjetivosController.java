@@ -1,5 +1,6 @@
 package com.br.ufrpe.powerUp.gui;
 
+import animatefx.animation.Pulse;
 import com.br.ufrpe.powerUp.gui.helpers.BasicController;
 import com.br.ufrpe.powerUp.gui.helpers.Constantes;
 import com.br.ufrpe.powerUp.gui.helpers.ControladorUsuarioInterface;
@@ -109,11 +110,13 @@ public class ObjetivosController extends BasicController implements ControladorU
                 Constantes.PRINCIPALHEIGHT);
     }
 
-    public void buttonMouseEntered() {
-        playSound("/sounds/buttonSFX.wav");
+    public void buttonMouseEntered(javafx.scene.input.MouseEvent event) {
+        Button button = (Button) event.getSource();
+        playSound("/sounds/buttonSFX.wav", userController.getVolume());
+        new Pulse(button).play();
     }
 
     public void buttonMousePressed() {
-        playSound("/sounds/buttonCilckSFX.mp3");
+        playSound("/sounds/buttonCilckSFX.mp3", userController.getVolume());
     }
 }

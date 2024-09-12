@@ -110,6 +110,8 @@ public class ControladorUsuario {
         this.usuario.setID(id);
     }
 
+    public void setSenha(String senha) { this.usuario.setSenha(senha); }
+
     public double getVolume() {
         return usuario.getVolume();
     }
@@ -131,7 +133,9 @@ public class ControladorUsuario {
     }
 
     public void setNotificacoDias(int notificacoDias) {
-        usuario.setNotificacoDias(notificacoDias);
+        if (notificacoDias >= 0) {
+            usuario.setNotificacoDias(notificacoDias);
+        }
     }
 
     public float getPesoAtual() {
@@ -149,7 +153,7 @@ public class ControladorUsuario {
     public void salvarRepositorio() {
         RepositorioUsuarios repositorioUsuarios = RepositorioUsuarios.getInstance();
         try {
-            repositorioUsuarios.salvarEmArquivo("repositorioUsuarios.ser");
+            repositorioUsuarios.salvarEmArquivo("src/repositorioUsuarios.ser");
         } catch (IOException e) {
             e.printStackTrace();
         }

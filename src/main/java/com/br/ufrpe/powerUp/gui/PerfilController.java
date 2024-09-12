@@ -1,5 +1,6 @@
 package com.br.ufrpe.powerUp.gui;
 
+import animatefx.animation.Pulse;
 import com.br.ufrpe.powerUp.gui.helpers.BasicController;
 import com.br.ufrpe.powerUp.gui.helpers.Constantes;
 import com.br.ufrpe.powerUp.gui.helpers.ControladorUsuarioInterface;
@@ -54,6 +55,10 @@ public class PerfilController extends BasicController implements ControladorUsua
 
     @FXML
     public Label labelIMC;
+    @FXML
+    public Label labelNumberIMC;
+    @FXML
+    public Label labelIMCStatuts;
 
     @FXML
     private TableView<AtividadeExecutada> historicoTableView;
@@ -96,6 +101,7 @@ public class PerfilController extends BasicController implements ControladorUsua
 
         // Configurar o gráfico
         atualizarGrafico();
+        atualizarIMC();
     }
 
     @Override
@@ -152,7 +158,25 @@ public class PerfilController extends BasicController implements ControladorUsua
 
         float imc = peso / (altura * altura);
         String imcString = String.format("%.2f", imc);
-        labelIMC.setText(imcString);
+        labelNumberIMC.setText(imcString);
+
+        if (imc < 18.5) {
+            labelIMC.setStyle("-fx-text-fill: blue;"); // Abaixo do peso
+            labelIMCStatuts.setStyle("-fx-text-fill: blue;");
+            labelIMCStatuts.setText("Baixo Peso");
+        } else if (imc >= 18.5 && imc < 24.9) {
+            labelIMC.setStyle("-fx-text-fill: green;"); // Peso normal
+            labelIMCStatuts.setStyle("-fx-text-fill: green;");
+            labelIMCStatuts.setText("Peso Normal");
+        } else if (imc >= 25 && imc < 29.9) {
+            labelIMC.setStyle("-fx-text-fill: orange;"); // Sobrepeso
+            labelIMCStatuts.setStyle("-fx-text-fill: orange;");
+            labelIMCStatuts.setText("Sobrepeso");
+        } else {
+            labelIMC.setStyle("-fx-text-fill: red;"); // Obeso
+            labelIMCStatuts.setStyle("-fx-text-fill: red;");
+            labelIMCStatuts.setText("Obeso");
+        }
     }
 
 
@@ -170,12 +194,14 @@ public class PerfilController extends BasicController implements ControladorUsua
 
     }
 
-    public void buttonMouseEntered() {
-        playSound("/sounds/buttonSFX.wav");
+    public void buttonMouseEntered(javafx.scene.input.MouseEvent event) {
+        Button button = (Button) event.getSource();
+        playSound("/sounds/buttonSFX.wav", userController.getVolume());
+        new Pulse(button).play();
     }
 
     public void buttonMousePressed() {
-        playSound("/sounds/buttonCilckSFX.mp3");
+        playSound("/sounds/buttonCilckSFX.mp3", userController.getVolume());
     }
 
 }

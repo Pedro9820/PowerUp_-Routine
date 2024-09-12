@@ -19,11 +19,12 @@ import java.io.IOException;
 
 public abstract class BasicController {
 
-    protected void playSound(String path) {
+    protected void playSound(String path, double volume) {
         String soundPath = getResourcePath(path);
         if (soundPath != null) {
             Media sound = new Media(soundPath);
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.setVolume(volume);
             mediaPlayer.play();
         }
     }

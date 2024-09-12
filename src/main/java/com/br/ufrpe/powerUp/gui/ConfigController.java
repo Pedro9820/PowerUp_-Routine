@@ -1,5 +1,6 @@
 package com.br.ufrpe.powerUp.gui;
 
+import animatefx.animation.Pulse;
 import com.br.ufrpe.powerUp.gui.helpers.BasicController;
 import com.br.ufrpe.powerUp.gui.helpers.Constantes;
 import com.br.ufrpe.powerUp.gui.helpers.ControladorUsuarioInterface;
@@ -12,9 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -32,6 +32,12 @@ public class ConfigController extends BasicController implements ControladorUsua
     private CheckBox checkBoxNotificacao;
     @FXML
     private TextField txtFieldDias;
+    @FXML
+    private TextField txtFieldNome;
+    @FXML
+    private TextField txtFieldSenha;
+    @FXML
+    private TextField txtFieldAltura;
 
     @Override
     public void setUserController(ControladorUsuario userController) {
@@ -40,11 +46,22 @@ public class ConfigController extends BasicController implements ControladorUsua
         checkBoxNotificacao.setSelected(userController.isbNotificacao());
         String dias = Integer.toString(userController.getNotificacoDias());
         txtFieldDias.setText(dias);
+        txtFieldNome.setText(userController.getUsuarioName());
+        txtFieldSenha.setText(userController.getUsuarioSenha());
+        txtFieldAltura.setText(Float.toString(userController.getUsuarioAltura()));
     }
 
     @Override
     public ControladorUsuario getUserController() {
         return userController;
+    }
+
+    @FXML
+    public void initialize() {
+        scrollBarVolume.valueProperty().addListener((observable, oldValue, newValue) -> {
+            double novoVolume = newValue.doubleValue();
+            userController.setVolume(novoVolume);
+        });
     }
 
     public void mudarEstadoNotificacao() {
@@ -56,7 +73,28 @@ public class ConfigController extends BasicController implements ControladorUsua
         try {
             userController.setNotificacoDias(Integer.parseInt(txtFieldDias.getText()));
         }catch (NumberFormatException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Dia inválido");
+            alert.setHeaderText("Digite Outr");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+    public void btnSalvar() {
+        try {
+            String nome = txtFieldNome.getText();
+            String senha = txtFieldSenha.getText();
+            float altura = Float.parseFloat(txtFieldAltura.getText());
+            userController.setNomeUsuario(nome);
+            userController.setSenha(senha);
+            userController.setAlturaUsuario(altura);
+        }catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Altura inválida");
+            alert.setHeaderText("Digite uma altura válida");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
@@ -80,11 +118,13 @@ public class ConfigController extends BasicController implements ControladorUsua
         Toast.toast(ToastType.INFO, "test", "Olá mundo!");
     }
 
-    public void buttonMouseEntered() {
-        playSound("/sounds/buttonSFX.wav");
+    public void buttonMouseEntered(javafx.scene.input.MouseEvent event) {
+        Button button = (Button) event.getSource();
+        playSound("/sounds/buttonSFX.wav", userController.getVolume());
+        new Pulse(button).play();
     }
 
     public void buttonMousePressed() {
-        playSound("/sounds/buttonCilckSFX.mp3");
+        playSound("/sounds/buttonCilckSFX.mp3", userController.getVolume());
     }
 }

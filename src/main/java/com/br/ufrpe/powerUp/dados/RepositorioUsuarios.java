@@ -22,7 +22,7 @@ public class RepositorioUsuarios implements Serializable {
     public static RepositorioUsuarios getInstance() {
         if (instancia == null) {
             try {
-                instancia = RepositorioUsuarios.carregarDeArquivo("repositorioUsuarios.ser");
+                instancia = RepositorioUsuarios.carregarDeArquivo("src/repositorioUsuarios.ser");
             } catch (IOException | ClassNotFoundException e) {
                 instancia = new RepositorioUsuarios();
                 return instancia;
