@@ -68,6 +68,7 @@ public class ConfigController extends BasicController implements ControladorUsua
 
 
     public void btnSair(ActionEvent event) throws IOException {
+        userController.salvarRepositorio();
         Parent root = FXMLLoader.load(getClass().getResource("/telaLogin.fxml"));
         Scene scene = new Scene(root, 600, 400);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -1,8 +1,13 @@
 package com.br.ufrpe.powerUp.negocio.beans;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Objetivo {
+public class Objetivo implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private int id;
     private LocalDate dataMaxima;
     private String nome;

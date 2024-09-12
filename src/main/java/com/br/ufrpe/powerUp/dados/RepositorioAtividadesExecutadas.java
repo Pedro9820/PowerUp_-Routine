@@ -3,10 +3,15 @@ import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
 import com.br.ufrpe.powerUp.negocio.beans.AtividadeExecutada;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class RepositorioAtividadesExecutadas {
+public class RepositorioAtividadesExecutadas implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private ArrayList<AtividadeExecutada> atividadesRealizadas;
     private static RepositorioAtividadesExecutadas instancia;
 

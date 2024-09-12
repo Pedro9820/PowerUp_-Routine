@@ -4,11 +4,16 @@ import com.br.ufrpe.powerUp.dados.RepositorioAtividadesExecutadas;
 import com.br.ufrpe.powerUp.dados.exceptions.AJRException;
 import com.br.ufrpe.powerUp.dados.exceptions.ANexception;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Usuario {
+public class Usuario implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private String ID;
     private String nome;
     private String senha;

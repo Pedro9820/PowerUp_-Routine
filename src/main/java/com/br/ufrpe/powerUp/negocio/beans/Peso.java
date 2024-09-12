@@ -1,8 +1,13 @@
 package com.br.ufrpe.powerUp.negocio.beans;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Peso {
+public class Peso implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private float valor;
     private LocalDate data;
 

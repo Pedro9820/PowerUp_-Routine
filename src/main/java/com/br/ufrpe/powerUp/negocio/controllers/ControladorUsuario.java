@@ -7,6 +7,7 @@ import com.br.ufrpe.powerUp.dados.exceptions.CJEException;
 import com.br.ufrpe.powerUp.dados.exceptions.CNException;
 import com.br.ufrpe.powerUp.negocio.beans.*;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -143,6 +144,15 @@ public class ControladorUsuario {
 
     public ArrayList<Peso> getHistoricoPesos() {
         return this.usuario.getHistoricoPesos();
+    }
+
+    public void salvarRepositorio() {
+        RepositorioUsuarios repositorioUsuarios = RepositorioUsuarios.getInstance();
+        try {
+            repositorioUsuarios.salvarEmArquivo("repositorioUsuarios.ser");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

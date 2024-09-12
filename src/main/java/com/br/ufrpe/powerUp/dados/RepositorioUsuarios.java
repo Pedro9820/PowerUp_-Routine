@@ -5,10 +5,11 @@ import com.br.ufrpe.powerUp.dados.exceptions.CJEException;
 import com.br.ufrpe.powerUp.dados.exceptions.CNException;
 import com.br.ufrpe.powerUp.negocio.beans.Usuario;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class RepositorioUsuarios {
+public class RepositorioUsuarios implements Serializable {
 
     private static RepositorioUsuarios instancia;
     private ArrayList<Usuario> usuarios;
@@ -20,7 +21,12 @@ public class RepositorioUsuarios {
     //garantindo que só exista um repositório de usuarios
     public static RepositorioUsuarios getInstance() {
         if (instancia == null) {
-            instancia = new RepositorioUsuarios();
+            try {
+                instancia = RepositorioUsuarios.carregarDeArquivo("repositorioUsuarios.ser");
+            } catch (IOException | ClassNotFoundException e) {
+                instancia = new RepositorioUsuarios();
+                return instancia;
+            }
         }
         return instancia;
     }
@@ -76,5 +82,18 @@ public class RepositorioUsuarios {
             }
         }
         return indice;
+    }
+
+    private static RepositorioUsuarios carregarDeArquivo(String caminho) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(caminho))) {
+            instancia = (RepositorioUsuarios) ois.readObject();
+            return instancia;
+        }
+    }
+
+    public void salvarEmArquivo(String caminho) throws IOException {
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(caminho))) {
+            oos.writeObject(this);
+        }
     }
 }
