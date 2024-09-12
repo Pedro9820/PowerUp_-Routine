@@ -32,17 +32,12 @@
          </font>
       </Text>
       <Label fx:id="labelDescricao" layoutX="335.0" layoutY="137.0" prefHeight="100.0" prefWidth="234.0" text="Label" />
-      <Button layoutX="335.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnCriarActionPerformed" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Criar">
+      <Button layoutX="397.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnCriarActionPerformed" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Criar">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="399.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleDeleteObjetivo" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Remover">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Button layoutX="491.0" layoutY="253.0" mnemonicParsing="false" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Editar">
+      <Button layoutX="469.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleDeleteObjetivo" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Remover">
          <font>
             <Font size="16.0" />
          </font>
