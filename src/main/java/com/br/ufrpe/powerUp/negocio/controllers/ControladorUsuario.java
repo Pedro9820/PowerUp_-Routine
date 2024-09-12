@@ -56,10 +56,6 @@ public class ControladorUsuario {
         return usuario.getForca();
     }
 
-    public int getUsuarioResistencia(){
-        return usuario.getResistencia();
-    }
-
     public int getUsuarioStamina(){
         return usuario.getStamina();
     }
@@ -67,10 +63,6 @@ public class ControladorUsuario {
     public int getUsuarioIntelecto() {return usuario.getIntelecto(); }
 
     public int getUsuarioCriatividade() { return usuario.getCriatividade(); }
-
-    public int getUsuarioVelocidade(){
-        return usuario.getVelocidade();
-    }
 
     public float getUsuarioAltura(){
         return usuario.getAltura();
@@ -101,16 +93,8 @@ public class ControladorUsuario {
         this.usuario.setForca(valor);
     }
 
-    public void setResistenciaUsuario(int valor){
-        this.usuario.setResistencia(valor);
-    }
-
     public void setStaminaUsuario(int valor){
         this.usuario.setStamina(valor);
-    }
-
-    public void setVelocidadeUsuario(int valor){
-        this.usuario.setVelocidade(valor);
     }
 
     public void setAlturaUsuario(float valor){
@@ -123,6 +107,30 @@ public class ControladorUsuario {
 
     public void setIdUsuario(String id){
         this.usuario.setID(id);
+    }
+
+    public double getVolume() {
+        return usuario.getVolume();
+    }
+
+    public void setVolume(double volume) {
+        usuario.setVolume(volume);
+    }
+
+    public boolean isbNotificacao() {
+        return usuario.isbNotificacao();
+    }
+
+    public void setbNotificacao(boolean bNotificacao) {
+        usuario.setbNotificacao(bNotificacao);
+    }
+
+    public int getNotificacoDias() {
+        return usuario.getNotificacoDias();
+    }
+
+    public void setNotificacoDias(int notificacoDias) {
+        usuario.setNotificacoDias(notificacoDias);
     }
 
     public float getPesoAtual() {

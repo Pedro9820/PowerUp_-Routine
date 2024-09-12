@@ -16,10 +16,11 @@ public class Usuario {
     private int stamina;
     private int intelecto;
     private int criatividade;
-    private int velocidade;
-    private int resistencia;
     private float altura;
     private float pesoAtual;
+    private double volume;
+    private boolean bNotificacao;
+    private int notificacoDias;
     private ArrayList<Peso> historicoPesos;
     private ArrayList<Objetivo> objetivos;
     private RepositorioAtividadesExecutadas repoAtividadesExecutadas;
@@ -32,10 +33,11 @@ public class Usuario {
         this.stamina = 0;
         this.intelecto = 0;
         this.criatividade = 0;
-        this.velocidade = 0;
-        this.resistencia = 0;
         this.altura = altura;
         this.pesoAtual = 0;
+        this.volume = 1;
+        this.bNotificacao = true;
+        this.notificacoDias = 1;
         this.historicoPesos = new ArrayList<>();
         this.objetivos = new ArrayList<>();
         this.repoAtividadesExecutadas = new RepositorioAtividadesExecutadas();
@@ -52,8 +54,6 @@ public class Usuario {
             case STAMINA: stamina += qtd; break;
             case INTELECTO: intelecto += qtd; break;
             case CRIATIVIDADE: criatividade += qtd; break;
-            case VELOCIDADE: velocidade += qtd; break;
-            case RESISTENCIA: resistencia += qtd; break;
         }
 
         for (Objetivo objetivo : objetivos) {
@@ -102,14 +102,6 @@ public class Usuario {
         this.stamina = stamina;
     }
 
-    public void setVelocidade(int velocidade) {
-        this.velocidade = velocidade;
-    }
-
-    public void setResistencia(int resistencia) {
-        this.resistencia = resistencia;
-    }
-
     public void setAltura(float altura) {
         this.altura = altura;
     }
@@ -141,16 +133,32 @@ public class Usuario {
         return criatividade;
     }
 
-    public int getResistencia() {
-        return resistencia;
-    }
-
     public float getAltura() {
         return altura;
     }
 
-    public int getVelocidade() {
-        return velocidade;
+    public double getVolume() {
+        return volume;
+    }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
+
+    public boolean isbNotificacao() {
+        return bNotificacao;
+    }
+
+    public void setbNotificacao(boolean bNotificacao) {
+        this.bNotificacao = bNotificacao;
+    }
+
+    public int getNotificacoDias() {
+        return notificacoDias;
+    }
+
+    public void setNotificacoDias(int notificacoDias) {
+        this.notificacoDias = notificacoDias;
     }
 
     public ArrayList<Objetivo> getObjetivos() {

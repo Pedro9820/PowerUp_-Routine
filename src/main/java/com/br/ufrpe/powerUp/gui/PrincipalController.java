@@ -1,20 +1,17 @@
 package com.br.ufrpe.powerUp.gui;
 
+import animatefx.animation.*;
 import com.br.ufrpe.powerUp.gui.helpers.BasicController;
 import com.br.ufrpe.powerUp.gui.helpers.Constantes;
 import com.br.ufrpe.powerUp.gui.helpers.ControladorUsuarioInterface;
 import com.br.ufrpe.powerUp.negocio.beans.Objetivo;
 import com.br.ufrpe.powerUp.negocio.controllers.ControladorUsuario;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import com.sshtools.twoslices.Toast;
+import com.sshtools.twoslices.ToastType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -28,8 +25,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import javafx.util.Duration;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 @SuppressWarnings("ALL")
 public class PrincipalController extends BasicController implements ControladorUsuarioInterface {
@@ -38,17 +37,39 @@ public class PrincipalController extends BasicController implements ControladorU
     @FXML
     private Button buttonAtividade;
     @FXML
+    private Button buttonPerfil;
+    @FXML
+    private Button buttonObjetivo;
+
+    @FXML
     private VBox vboxObjetivos;
 
     @Override
     public void setUserController(ControladorUsuario userController) {
         this.userController = userController;
         atualizarObjetivos();
+        verificarNotificacao();
+
     }
 
     @Override
     public ControladorUsuario getUserController() {
         return this.userController;
+    }
+
+    public void verificarNotificacao() {
+        try {
+            LocalDateTime dataUltimaAtividade = userController.getAtividadesExecutadas().getLast().getAtfim(true);
+            LocalDateTime dataAtual = LocalDateTime.now();
+
+            // Calcula a diferença em dias
+            long diasDeDiferenca = ChronoUnit.DAYS.between(dataUltimaAtividade, dataAtual);
+            if (diasDeDiferenca >= userController.getNotificacoDias()) {
+                Toast.toast(ToastType.WARNING, "CUIDADO!!!!", "Já faz muito tempo que você não faz nada");
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("ok");
+        }
     }
 
     public void atualizarObjetivos() {
@@ -74,12 +95,11 @@ public class PrincipalController extends BasicController implements ControladorU
             ImageView imageView = null;
 
             if (objetivo.getQuota() <= objetivo.getProgresso()) {
-                progressoLabel.setText("Concluido!");
+                progressoLabel.setText("");
                 progressBar.getStyleClass().add("progress-bar-concluido");
 
                 imageView = animarSprite(spritesheet, 128, 128, 64, 64);
                 progressBar.setOnMouseClicked(event -> mostrarPopup("Objetivo concluído!", objetivo));
-                progressoLabel.setOnMouseClicked(event -> mostrarPopup("Objetivo concluído!", objetivo));
                 imageView.setOnMouseClicked(event -> mostrarPopup("Objetivo concluído!", objetivo));
             }
 
@@ -152,8 +172,10 @@ public class PrincipalController extends BasicController implements ControladorU
                 Constantes.PERFILHEIGHT);
     }
 
-    public void buttonMouseEntered() {
+    public void buttonMouseEntered(javafx.scene.input.MouseEvent event) {
+        Button button = (Button) event.getSource();
         playSound("/sounds/buttonSFX.wav");
+        new Pulse(button).play();
     }
 
     public void buttonMousePressed() {

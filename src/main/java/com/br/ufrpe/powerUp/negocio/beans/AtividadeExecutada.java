@@ -78,6 +78,10 @@ public AtividadeExecutada(Usuario user, Atividade at) {
         return atfim.format(formatter);
     }
 
+    public LocalDateTime getAtfim(boolean test) {
+        return this.atfim;
+    }
+
     public void setAtfim(LocalDateTime atfim) {
         this.atfim = atfim;
     }

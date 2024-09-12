@@ -25,12 +25,12 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="33.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnObjetivos" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Objetivos">
+      <Button fx:id="buttonObjetivo" layoutX="33.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnObjetivos" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Objetivos">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="281.0" mnemonicParsing="false" onAction="#btnPerfil" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Perfil">
+      <Button fx:id="buttonPerfil" layoutX="51.0" layoutY="281.0" mnemonicParsing="false" onAction="#btnPerfil" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Perfil">
          <font>
             <Font size="18.0" />
          </font>

@@ -26,21 +26,26 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <ScrollBar prefHeight="24.0" prefWidth="117.0" />
+            <ScrollBar fx:id="scrollBarVolume" max="1.0" prefHeight="24.0" prefWidth="117.0" unitIncrement="0.1" value="1.0" />
         </buttons>
       </ButtonBar>
-      <CheckBox layoutX="42.0" layoutY="120.0" mnemonicParsing="false" text="Notificações">
+      <CheckBox fx:id="checkBoxNotificacao" layoutX="42.0" layoutY="120.0" mnemonicParsing="false" onAction="#mudarEstadoNotificacao" text="Notificações">
          <font>
             <Font size="18.0" />
          </font>
       </CheckBox>
-      <TextField layoutX="42.0" layoutY="163.0" prefHeight="26.0" prefWidth="326.0" promptText="tempo em dias para receber notificação de lembrete" />
+      <TextField fx:id="txtFieldDias" layoutX="42.0" layoutY="163.0" onAction="#mudarDiasNotificacao" prefHeight="26.0" prefWidth="326.0" promptText="tempo em dias para receber notificação de lembrete" />
       <Button fx:id="buttonVoltar" layoutX="42.0" layoutY="300.0" mnemonicParsing="false" onAction="#btnVoltar" text="Voltar">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
       <Button layoutX="149.0" layoutY="300.0" mnemonicParsing="false" onAction="#btnSair" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Sair da conta">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="42.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnTestarNotificacao" onMouseEntered="#buttonMouseEntered" onMousePressed="#buttonMousePressed" text="Testar Notificacao">
          <font>
             <Font size="18.0" />
          </font>
